@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://gracesoft.com"),
+  metadataBase: new URL("https://gracesoft.dev"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "GraceSoft - Professional Software Solutions",
     description: "Innovative software solutions and web development services from expert developers.",
-    url: "https://gracesoft.com",
+    url: "https://gracesoft.dev",
     siteName: "GraceSoft",
     locale: "en_US",
     type: "website",
