@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/GS_IMGOG_2026.png",
         width: 1200,
         height: 630,
         alt: "GraceSoft - Professional Software Solutions",
