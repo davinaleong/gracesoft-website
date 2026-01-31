@@ -1,5 +1,5 @@
 import Image from "next/image"
-import Logo from "./../assets/images/GS_IMGLOGO_2026.svg"
+import Logo from "./../assets/images/GS_IMGICON_2026.svg"
 
 export default function Header() {
   return (
