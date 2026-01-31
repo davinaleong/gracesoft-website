@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import Header from "./components/Header";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -77,7 +78,8 @@ export default function RootLayout({
         id="top"
         className={`${montserrat.variable} font-sans antialiased`}
       >
-        {children}
+        <Header />
+        <main className="p-4">{children}</main>
       </body>
     </html>
   );
