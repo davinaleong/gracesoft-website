@@ -98,6 +98,7 @@ export class ContentHelper {
     const services = this.data.sections.services;
     return {
       title: services.title,
+      description: services.description,
       items: services.items,
       closingStatements: services.closing_statements
     };
@@ -105,6 +106,22 @@ export class ContentHelper {
 
   getServicesList(): string[] {
     return this.data.sections.services.items;
+  }
+
+  getServicesDescription(): string {
+    return this.data.sections.services.description;
+  }
+
+  getWhyGraceSoftDescription(): string {
+    return this.data.sections.why_gracesoft.description;
+  }
+
+  getHowItWorksDescription(): string {
+    return this.data.sections.how_it_works.description;
+  }
+
+  getQualificationDescription(): string {
+    return this.data.sections.who_its_for.description;
   }
 
   // Why GraceSoft
@@ -116,6 +133,7 @@ export class ContentHelper {
     const section = this.data.sections.why_gracesoft;
     return {
       title: section.title,
+      description: section.description,
       features: section.items
     };
   }
@@ -129,6 +147,7 @@ export class ContentHelper {
     const section = this.data.sections.how_it_works;
     return {
       title: section.title,
+      description: section.description,
       steps: section.steps,
       closingStatement: section.closing_statement
     };
@@ -139,6 +158,7 @@ export class ContentHelper {
     const section = this.data.sections.who_its_for;
     return {
       title: section.title,
+      description: section.description,
       goodFit: section.good_fit,
       notAFit: {
         title: section.not_a_fit.title,

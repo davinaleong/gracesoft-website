@@ -46,7 +46,8 @@
     "services": {
       "id": "services",
       "type": "content",
-      "title": "What GraceSoft Builds",
+      "title": "Services",
+      "description": "What GraceSoft Builds",
       "items": [
         "Custom web applications",
         "Internal dashboards and admin systems",
@@ -62,7 +63,8 @@
     },
     "why_gracesoft": {
       "type": "features",
-      "title": "Why Clients Choose GraceSoft",
+      "title": "Features",
+      "description": "Why Clients Choose GraceSoft",
       "items": [
         {
           "title": "Security-First by Design",
@@ -86,6 +88,7 @@
       "id": "how-it-works",
       "type": "process",
       "title": "How I Work",
+      "description": "My approach to delivering reliable software",
       "steps": [
         {
           "step": 1,
@@ -117,7 +120,8 @@
     },
     "who_its_for": {
       "type": "qualification",
-      "title": "GraceSoft Is a Good Fit If You Are",
+      "title": "Who GraceSoft Is For",
+      "description": "GraceSoft Is a Good Fit If You Are",
       "good_fit": [
         "A small business needing reliable internal software",
         "A founder building an MVP with long-term plans",
