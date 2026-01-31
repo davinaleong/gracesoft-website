@@ -74,6 +74,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
+        id="top"
         className={`${montserrat.variable} font-sans antialiased`}
       >
         {children}
