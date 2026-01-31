@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "GraceSoft - Professional Software Solutions",
     description: "Innovative software solutions and web development services from expert developers.",
-    images: ["/og-image.jpg"],
+    images: ["/GS_IMGOG_2026.png"],
   },
   robots: {
     index: true,
