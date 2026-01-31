@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Shield, Settings, User, TrendingUp } from "lucide-react"
+import { Shield, Settings, User, TrendingUp, ArrowDown, Check, X } from "lucide-react"
 import Logo from "./assets/images/GS_IMGLOGO_2026.svg"
 import contentHelper from "./db/content-helper"
 
@@ -37,7 +37,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="bg-gray-200 dark:bg-gray-800">
+      <section id="services"  className="bg-indigo-100 dark:bg-indigo-900">
         <div className="container mx-auto py-12 px-4">
           <div className="flex items-end gap-2 mb-12 text-2xl">
             <h2 className="text-4xl font-semibold text-indigo-800">{services.title}</h2>
@@ -86,6 +86,70 @@ export default function HomePage() {
                 </div>
               )
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section id="how_it_works" className="bg-gray-200 dark:bg-gray-800">
+        <div className="container mx-auto py-12 px-4">
+          <div className="flex items-end gap-2 mb-12 text-2xl">
+            <h2 className="text-4xl font-semibold text-indigo-800">{howContent.title}</h2>
+            <span>&middot;</span>
+            <p>{howContent.description}</p>
+          </div>
+          <div className="max-w-2xl mx-auto">
+            {howContent.steps.map((step, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <div className="flex items-start gap-4 w-full">
+                  <div className="flex-shrink-0 w-12 h-12 bg-indigo-800 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                    {step.step}
+                  </div>
+                  <div className="flex-1 pb-8">
+                    <h3 className="text-xl font-semibold text-gray-800 mb-2">{step.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                  </div>
+                </div>
+                {index < howContent.steps.length - 1 && (
+                  <div className="flex justify-center w-full mb-6">
+                    <ArrowDown size={24} className="text-indigo-800" />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <p className="text-lg text-gray-700 italic">{howContent.closingStatement}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section id="who_its_for">
+        <div className="container mx-auto py-12 px-4">
+          <div className="flex items-end gap-2 mb-12 text-2xl">
+            <h2 className="text-4xl font-semibold text-indigo-800">{whoContent.title}</h2>
+            <span>&middot;</span>
+            <p>{whoContent.description}</p>
+          </div>
+          <div className="max-w-2xl mx-auto">
+            <div className="text-xl mb-8">
+              {whoContent.goodFit.map((item, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <Check size={24} className="text-indigo-800 mt-0.5 flex-shrink-0" />
+                  <p className="text-gray-700 leading-relaxed">{item}</p>
+                </div>
+              ))}
+            </div>
+            <h3 className="text-2xl mb-4">{whoContent.notAFit.title}</h3>
+            <div className="text-xl max-w-2xl mx-auto">
+              {whoContent.notAFit.items.map((item, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <X size={24} className="text-red-600 mt-0.5 flex-shrink-0" />
+                  <p className="text-gray-700 leading-relaxed">{item}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -1,0 +1,228 @@
+{
+  "pages": {
+    "home": {
+      "page": "home",
+      "meta": {
+        "title": "GraceSoft — Security-first software",
+        "description": "GraceSoft builds reliable, maintainable software with a security-first mindset."
+      },
+      "sections": {
+        "header": {
+          "type": "navigation",
+          "logo": {
+            "text": "GraceSoft",
+            "variant": "icon_wordmark",
+            "size": "small",
+            "position": "left"
+          },
+          "navigation": [
+            { "label": "Services", "href": "#services" },
+            { "label": "How I Work", "href": "#how-it-works" },
+            { "label": "About", "href": "#about" },
+            { "label": "Contact", "href": "#contact" }
+          ]
+        },
+
+        "hero": {
+          "type": "hero",
+          "title": "GraceSoft",
+          "description": "Security-first software. Built with care. Shipped with integrity.",
+          "content": {
+            "logo": {
+              "text": "GraceSoft",
+              "variant": "full",
+              "size": "large",
+              "position": "top-left",
+              "note": "Primary brand anchor"
+            },
+            "headline": "Security-first software. Built with care. Shipped with integrity.",
+            "description": "GraceSoft builds custom web applications, internal tools, and MVPs for businesses that value reliability, maintainability, and long-term clarity — not shortcuts or bloat.",
+            "cta": {
+              "primary": {
+                "label": "Start a Conversation",
+                "action": "scroll",
+                "target": "#contact"
+              },
+              "secondary": {
+                "label": "View Services",
+                "action": "scroll",
+                "target": "#services"
+              }
+            }
+          }
+        },
+
+        "services": {
+          "id": "services",
+          "type": "content_list",
+          "title": "Services",
+          "description": "What GraceSoft Builds",
+          "content": {
+            "items": [
+              "Custom web applications",
+              "Internal dashboards and admin systems",
+              "MVPs for founders and small teams",
+              "Bug fixing, refactoring, and system clean-ups",
+              "Security-minded reviews and improvements"
+            ],
+            "closing_statements": [
+              "No unnecessary frameworks.",
+              "No trendy tech for its own sake.",
+              "Just software that fits your actual needs."
+            ]
+          }
+        },
+
+        "why_gracesoft": {
+          "id": "why-gracesoft",
+          "type": "features",
+          "title": "Why GraceSoft",
+          "description": "Principles that guide every project",
+          "content": {
+            "features": [
+              {
+                "title": "Security-First by Design",
+                "description": "Security is considered from the start — not added as an afterthought."
+              },
+              {
+                "title": "Built to Be Maintained",
+                "description": "Clean structure, clear logic, and documentation that makes future changes easier."
+              },
+              {
+                "title": "Founder-Led Development",
+                "description": "Your project is built and reviewed by me — no outsourcing, no hand-offs."
+              },
+              {
+                "title": "Business-Aware Engineering",
+                "description": "Every decision balances cost, timeline, and long-term sustainability."
+              }
+            ]
+          }
+        },
+
+        "how_it_works": {
+          "id": "how-it-works",
+          "type": "process",
+          "title": "How I Work",
+          "description": "A calm, transparent approach to building software",
+          "content": {
+            "steps": [
+              {
+                "step": 1,
+                "title": "Understand the problem",
+                "description": "Focus on the real business need — not just a feature list."
+              },
+              {
+                "step": 2,
+                "title": "Propose a right-sized solution",
+                "description": "Clear scope, trade-offs, and expectations."
+              },
+              {
+                "step": 3,
+                "title": "Build incrementally",
+                "description": "Progress is visible and changes are manageable."
+              },
+              {
+                "step": 4,
+                "title": "Test, secure, and document",
+                "description": "Before anything goes live."
+              },
+              {
+                "step": 5,
+                "title": "Support after launch",
+                "description": "Because shipping isn’t the end."
+              }
+            ],
+            "closing_statement": "You’ll always know what’s being built, why it matters, and what it costs."
+          }
+        },
+
+        "who_its_for": {
+          "id": "who-its-for",
+          "type": "qualification",
+          "title": "Who GraceSoft Is For",
+          "description": "A good fit if you value clarity and integrity",
+          "content": {
+            "good_fit": [
+              "Small businesses needing reliable internal software",
+              "Founders building MVPs with long-term intent",
+              "Organisations maintaining fragile or legacy systems",
+              "Clients who value ethics, clarity, and quality"
+            ],
+            "not_a_fit": {
+              "title": "Probably Not a Fit If",
+              "items": [
+                "You want the cheapest option at all costs",
+                "You want to rush without planning",
+                "You want complexity just to look impressive"
+              ]
+            }
+          }
+        },
+
+        "about": {
+          "id": "about",
+          "type": "about",
+          "title": "About GraceSoft",
+          "description": "Software built with integrity — and designed to last",
+          "content": {
+            "body": [
+              "GraceSoft is a Singapore-based software practice founded by Davina Leong.",
+              "It exists to build software that is understandable, maintainable, and trustworthy — both technically and ethically."
+            ],
+            "statement": "Software should be built with integrity — and designed to last.",
+            "quote": {
+              "text": "Trust in the Lord with all your heart and lean not on your own understanding.",
+              "source": "Proverbs 3:5",
+              "note": "This shapes how I work, not who I work with."
+            }
+          }
+        },
+
+        "contact_cta": {
+          "id": "contact-cta",
+          "type": "call_to_action",
+          "title": "Have a Project in Mind?",
+          "description": "Whether you have a clear brief or just an idea, we can start with a simple conversation.",
+          "content": {
+            "cta": {
+              "primary": {
+                "label": "Start a Conversation",
+                "action": "scroll",
+                "target": "#contact"
+              }
+            },
+            "note": "Clear scope. Honest advice. No hard sell."
+          }
+        },
+
+        "contact": {
+          "id": "contact",
+          "type": "contact",
+          "title": "Let’s Start a Conversation",
+          "description": "Happy to discuss ideas, assess feasibility, or clarify next steps.",
+          "content": {
+            "contact_details": {
+              "email": "hello@gracesoft.dev",
+              "location": "Singapore"
+            }
+          }
+        },
+
+        "footer": {
+          "type": "footer",
+          "content": {
+            "logo": {
+              "text": "GraceSoft",
+              "variant": "icon_wordmark",
+              "size": "small",
+              "style": "muted"
+            },
+            "copyright": "© GraceSoft",
+            "tagline": "Built with care · Privacy-respecting · No tracking"
+          }
+        }
+      }
+    }
+  }
+}
