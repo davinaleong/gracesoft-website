@@ -80,7 +80,7 @@ export default function RootLayout({
         className={`${montserrat.variable} text-gray-900 bg-gray-100 dark:text-gray-100 dark:bg-gray-900 font-sans antialiased`}
       >
         <Header />
-        <main className="p-4">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

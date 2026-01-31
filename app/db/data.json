@@ -1,181 +1,281 @@
 {
-  "page": "home",
-  "meta": {
-    "title": "GraceSoft — Security-first software",
-    "description": "GraceSoft builds reliable, maintainable software with a security-first mindset."
-  },
-  "sections": {
-    "header": {
-      "type": "navigation",
-      "logo": {
-        "text": "GraceSoft",
-        "variant": "icon_wordmark",
-        "size": "small",
-        "position": "left"
+  "pages": {
+    "home": {
+      "page": "home",
+      "meta": {
+        "title": "GraceSoft — Security-first software",
+        "description": "GraceSoft builds reliable, maintainable software with a security-first mindset."
       },
-      "navigation": [
-        { "label": "Services", "href": "#services" },
-        { "label": "How I Work", "href": "#how-it-works" },
-        { "label": "About", "href": "#about" },
-        { "label": "Contact", "href": "#contact" }
-      ]
-    },
-    "hero": {
-      "type": "hero",
-      "logo": {
-        "text": "GraceSoft",
-        "variant": "full",
-        "size": "large",
-        "position": "top-left",
-        "note": "Primary brand anchor"
-      },
-      "headline": "Security-first software. Built with care. Shipped with integrity.",
-      "description": "GraceSoft builds custom web applications, internal tools, and MVPs for businesses that value reliability, maintainability, and long-term clarity — not shortcuts or bloat.",
-      "cta": {
-        "primary": {
-          "label": "Start a Conversation",
-          "action": "contact"
+      "sections": {
+        "header": {
+          "type": "navigation",
+          "logo": {
+            "text": "GraceSoft",
+            "variant": "icon_wordmark",
+            "size": "small",
+            "position": "left"
+          },
+          "navigation": [
+            { "label": "Services", "href": "#services" },
+            { "label": "How I Work", "href": "#how-it-works" },
+            { "label": "About", "href": "/about" },
+            { "label": "Contact", "href": "/contact" }
+          ]
         },
-        "secondary": {
-          "label": "View Services",
-          "action": "scroll",
-          "target": "#services"
+        "hero": {
+          "type": "hero",
+          "title": "GraceSoft",
+          "description": "Security-first software. Built with care. Shipped with integrity.",
+          "content": {
+            "logo": {
+              "text": "GraceSoft",
+              "variant": "full",
+              "size": "large",
+              "position": "top-left",
+              "note": "Primary brand anchor"
+            },
+            "headline": "Security-first software. Built with care. Shipped with integrity.",
+            "description": "GraceSoft builds custom web applications, internal tools, and MVPs for businesses that value reliability, maintainability, and long-term clarity — not shortcuts or bloat.",
+            "cta": {
+              "primary": {
+                "label": "Start a Conversation",
+                "action": "contact",
+                "href": "/contact"
+              },
+              "secondary": {
+                "label": "View Services",
+                "action": "scroll",
+                "target": "#services"
+              }
+            }
+          }
+        },
+        "services": {
+          "id": "services",
+          "type": "content_list",
+          "title": "Services",
+          "description": "What GraceSoft Builds",
+          "content": {
+            "items": [
+              "Custom web applications",
+              "Internal dashboards and admin systems",
+              "MVPs for founders and small teams",
+              "Bug fixing, refactoring, and system clean-ups",
+              "Security-minded reviews and improvements"
+            ],
+            "closing_statements": [
+              "No unnecessary frameworks.",
+              "No trendy tech for its own sake.",
+              "Just software that fits your actual needs."
+            ]
+          }
+        },
+        "why_gracesoft": {
+          "id": "why-gracesoft",
+          "type": "features",
+          "title": "Features",
+          "description": "Why Clients Choose GraceSoft",
+          "content": {
+            "features": [
+              {
+                "title": "Security-First by Design",
+                "description": "Security is considered from the start — not added as an afterthought."
+              },
+              {
+                "title": "Built to Be Maintained",
+                "description": "Clean structure, clear logic, and documentation that makes future changes easier, not harder."
+              },
+              {
+                "title": "Founder-Led Development",
+                "description": "Your project is built and reviewed by me — no outsourcing, no hand-offs, no surprises."
+              },
+              {
+                "title": "Business-Aware Engineering",
+                "description": "Every technical decision balances cost, timeline, and long-term sustainability."
+              }
+            ]
+          }
+        },
+        "how_it_works": {
+          "id": "how-it-works",
+          "type": "process",
+          "title": "How I Work",
+          "description": "My approach to delivering reliable software",
+          "content": {
+            "steps": [
+              {
+                "step": 1,
+                "title": "Understand the problem",
+                "description": "I focus on the real business need — not just a feature checklist."
+              },
+              {
+                "step": 2,
+                "title": "Propose a right-sized solution",
+                "description": "Clear scope, clear trade-offs, clear expectations."
+              },
+              {
+                "step": 3,
+                "title": "Build incrementally",
+                "description": "Progress is visible, changes are manageable, and nothing is hidden."
+              },
+              {
+                "step": 4,
+                "title": "Test, secure, and document",
+                "description": "Before anything goes live."
+              },
+              {
+                "step": 5,
+                "title": "Support after launch",
+                "description": "Because shipping is not the end of the journey."
+              }
+            ],
+            "closing_statement": "You'll always know what's being built, why it matters, and what it costs."
+          }
+        },
+        "who_its_for": {
+          "id": "who-its-for",
+          "type": "qualification",
+          "title": "Who GraceSoft Is For",
+          "description": "GraceSoft Is a Good Fit If You Are",
+          "content": {
+            "good_fit": [
+              "A small business needing reliable internal software",
+              "A founder building an MVP with long-term plans",
+              "An organisation maintaining fragile or legacy systems",
+              "A client who values clarity, ethics, and quality"
+            ],
+            "not_a_fit": {
+              "title": "Probably Not a Fit If",
+              "items": [
+                "You want the cheapest option at all costs",
+                "You want to rush without planning",
+                "You want complexity just to look impressive"
+              ]
+            }
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "content": {
+            "logo": {
+              "text": "GraceSoft",
+              "variant": "icon_wordmark",
+              "size": "small",
+              "style": "muted"
+            },
+            "copyright": "© GraceSoft",
+            "tagline": "Built with care · Privacy-respecting · No tracking"
+          }
         }
-      }
-    },
-    "services": {
-      "id": "services",
-      "type": "content",
-      "title": "Services",
-      "description": "What GraceSoft Builds",
-      "items": [
-        "Custom web applications",
-        "Internal dashboards and admin systems",
-        "MVPs for founders and small teams",
-        "Bug fixing, refactoring, and system clean-ups",
-        "Security-minded reviews and improvements"
-      ],
-      "closing_statements": [
-        "No unnecessary frameworks.",
-        "No trendy tech for its own sake.",
-        "Just software that fits your actual needs."
-      ]
-    },
-    "why_gracesoft": {
-      "type": "features",
-      "title": "Features",
-      "description": "Why Clients Choose GraceSoft",
-      "items": [
-        {
-          "title": "Security-First by Design",
-          "description": "Security is considered from the start — not added as an afterthought."
-        },
-        {
-          "title": "Built to Be Maintained",
-          "description": "Clean structure, clear logic, and documentation that makes future changes easier, not harder."
-        },
-        {
-          "title": "Founder-Led Development",
-          "description": "Your project is built and reviewed by me — no outsourcing, no hand-offs, no surprises."
-        },
-        {
-          "title": "Business-Aware Engineering",
-          "description": "Every technical decision balances cost, timeline, and long-term sustainability."
-        }
-      ]
-    },
-    "how_it_works": {
-      "id": "how-it-works",
-      "type": "process",
-      "title": "How I Work",
-      "description": "My approach to delivering reliable software",
-      "steps": [
-        {
-          "step": 1,
-          "title": "Understand the problem",
-          "description": "I focus on the real business need — not just a feature checklist."
-        },
-        {
-          "step": 2,
-          "title": "Propose a right-sized solution",
-          "description": "Clear scope, clear trade-offs, clear expectations."
-        },
-        {
-          "step": 3,
-          "title": "Build incrementally",
-          "description": "Progress is visible, changes are manageable, and nothing is hidden."
-        },
-        {
-          "step": 4,
-          "title": "Test, secure, and document",
-          "description": "Before anything goes live."
-        },
-        {
-          "step": 5,
-          "title": "Support after launch",
-          "description": "Because shipping is not the end of the journey."
-        }
-      ],
-      "closing_statement": "You’ll always know what’s being built, why it matters, and what it costs."
-    },
-    "who_its_for": {
-      "type": "qualification",
-      "title": "Who GraceSoft Is For",
-      "description": "GraceSoft Is a Good Fit If You Are",
-      "good_fit": [
-        "A small business needing reliable internal software",
-        "A founder building an MVP with long-term plans",
-        "An organisation maintaining fragile or legacy systems",
-        "A client who values clarity, ethics, and quality"
-      ],
-      "not_a_fit": {
-        "title": "Probably Not a Fit If",
-        "items": [
-          "You want the cheapest option at all costs",
-          "You want to rush without planning",
-          "You want complexity just to look impressive"
-        ]
       }
     },
     "about": {
-      "id": "about",
-      "type": "about",
-      "title": "About GraceSoft",
-      "body": [
-        "GraceSoft is a Singapore-based software practice founded by Davina Leong, a web developer with experience across modern web systems, AI-related projects, and security-aware application design.",
-        "GraceSoft was created with a simple conviction:"
-      ],
-      "statement": "Software should be built with integrity — and designed to last.",
-      "quote": {
-        "text": "Trust in the Lord with all your heart and lean not on your own understanding.",
-        "source": "Proverbs 3:5",
-        "note": "This shapes how I work, not who I work with."
+      "page": "about",
+      "meta": {
+        "title": "About GraceSoft — Security-first software development",
+        "description": "Learn about GraceSoft, a Singapore-based software practice founded by Davina Leong, focused on building reliable, maintainable software."
+      },
+      "sections": {
+        "header": {
+          "type": "navigation",
+          "logo": {
+            "text": "GraceSoft",
+            "variant": "icon_wordmark",
+            "size": "small",
+            "position": "left"
+          },
+          "navigation": [
+            { "label": "Home", "href": "/" },
+            { "label": "Services", "href": "/#services" },
+            { "label": "How I Work", "href": "/#how-it-works" },
+            { "label": "Contact", "href": "/contact" }
+          ]
+        },
+        "about": {
+          "id": "about",
+          "type": "about",
+          "title": "About GraceSoft",
+          "description": "Software built with integrity — and designed to last",
+          "content": {
+            "body": [
+              "GraceSoft is a Singapore-based software practice founded by Davina Leong, a web developer with experience across modern web systems, AI-related projects, and security-aware application design.",
+              "GraceSoft was created with a simple conviction:"
+            ],
+            "statement": "Software should be built with integrity — and designed to last.",
+            "quote": {
+              "text": "Trust in the Lord with all your heart and lean not on your own understanding.",
+              "source": "Proverbs 3:5",
+              "note": "This shapes how I work, not who I work with."
+            }
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "content": {
+            "logo": {
+              "text": "GraceSoft",
+              "variant": "icon_wordmark",
+              "size": "small",
+              "style": "muted"
+            },
+            "copyright": "© GraceSoft",
+            "tagline": "Built with care · Privacy-respecting · No tracking"
+          }
+        }
       }
     },
     "contact": {
-      "id": "contact",
-      "type": "cta",
-      "title": "Let’s Start a Conversation",
-      "description": "Have a project in mind — or unsure where to begin? I’m happy to discuss ideas, assess feasibility, or help you clarify the next step.",
-      "contact_details": {
-        "email": "hello@gracesoft.dev",
-        "location": "Singapore"
+      "page": "contact",
+      "meta": {
+        "title": "Contact GraceSoft — Start a conversation",
+        "description": "Get in touch with GraceSoft to discuss your project needs, assess feasibility, or clarify next steps for your software development."
       },
-      "cta": {
-        "label": "Start a Conversation",
-        "action": "contact"
+      "sections": {
+        "header": {
+          "type": "navigation",
+          "logo": {
+            "text": "GraceSoft",
+            "variant": "icon_wordmark",
+            "size": "small",
+            "position": "left"
+          },
+          "navigation": [
+            { "label": "Home", "href": "/" },
+            { "label": "Services", "href": "/#services" },
+            { "label": "How I Work", "href": "/#how-it-works" },
+            { "label": "About", "href": "/about" }
+          ]
+        },
+        "contact": {
+          "id": "contact",
+          "type": "contact",
+          "title": "Let's Start a Conversation",
+          "description": "Have a project in mind — or unsure where to begin? I'm happy to discuss ideas, assess feasibility, or help you clarify the next step.",
+          "content": {
+            "contact_details": {
+              "email": "hello@gracesoft.dev",
+              "location": "Singapore"
+            },
+            "cta": {
+              "label": "Start a Conversation",
+              "action": "contact"
+            }
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "content": {
+            "logo": {
+              "text": "GraceSoft",
+              "variant": "icon_wordmark",
+              "size": "small",
+              "style": "muted"
+            },
+            "copyright": "© GraceSoft",
+            "tagline": "Built with care · Privacy-respecting · No tracking"
+          }
+        }
       }
-    },
-    "footer": {
-      "type": "footer",
-      "logo": {
-        "text": "GraceSoft",
-        "variant": "icon_wordmark",
-        "size": "small",
-        "style": "muted"
-      },
-      "copyright": "© GraceSoft",
-      "tagline": "Built with care · Privacy-respecting · No tracking"
     }
   }
 }

@@ -19,6 +19,7 @@ export interface CTAButton {
   label: string;
   action: string;
   target?: string;
+  href?: string;
 }
 
 export interface CTA {
@@ -48,191 +49,183 @@ export interface Quote {
   note?: string;
 }
 
+export interface Section {
+  id?: string;
+  type: string;
+  title?: string;
+  description?: string;
+  content?: any;
+}
+
+export interface PageData {
+  page: string;
+  meta: {
+    title: string;
+    description: string;
+  };
+  sections: Record<string, Section>;
+}
+
 // Content Helper Class
 export class ContentHelper {
   private data = data;
 
-  // Meta information
-  getPageTitle(): string {
-    return this.data.meta.title;
+  // Page Management
+  getPage(pageName: 'home' | 'about' | 'contact'): PageData {
+    return this.data.pages[pageName];
   }
 
-  getPageDescription(): string {
-    return this.data.meta.description;
+  getPageMeta(pageName: 'home' | 'about' | 'contact') {
+    return this.data.pages[pageName].meta;
   }
 
-  // Header/Navigation
-  getNavigation(): NavigationItem[] {
-    return this.data.sections.header.navigation;
+  getPageSections(pageName: 'home' | 'about' | 'contact') {
+    return this.data.pages[pageName].sections;
   }
 
-  getHeaderLogo(): Logo {
-    return this.data.sections.header.logo;
+  // Section Management - Works for any page
+  getSection(pageName: 'home' | 'about' | 'contact', sectionName: string) {
+    return this.data.pages[pageName].sections[sectionName];
   }
 
-  // Hero Section
+  getSectionContent(pageName: 'home' | 'about' | 'contact', sectionName: string) {
+    const section = this.getSection(pageName, sectionName);
+    return section?.content;
+  }
+
+  // Navigation (works for any page)
+  getNavigation(pageName: 'home' | 'about' | 'contact' = 'home'): NavigationItem[] {
+    return this.data.pages[pageName].sections.header.navigation;
+  }
+
+  getHeaderLogo(pageName: 'home' | 'about' | 'contact' = 'home'): Logo {
+    return this.data.pages[pageName].sections.header.logo;
+  }
+
+  // Home Page Specific Methods
   getHeroContent() {
-    const hero = this.data.sections.hero;
+    const hero = this.data.pages.home.sections.hero;
     return {
-      logo: hero.logo,
-      headline: hero.headline,
+      title: hero.title,
       description: hero.description,
-      cta: hero.cta
+      ...hero.content
     };
   }
 
-  getHeroHeadline(): string {
-    return this.data.sections.hero.headline;
-  }
-
-  getHeroDescription(): string {
-    return this.data.sections.hero.description;
-  }
-
-  getHeroCTA(): CTA {
-    return this.data.sections.hero.cta;
-  }
-
-  // Services Section
   getServicesContent() {
-    const services = this.data.sections.services;
+    const services = this.data.pages.home.sections.services;
     return {
+      id: services.id,
       title: services.title,
       description: services.description,
-      items: services.items,
-      closingStatements: services.closing_statements
+      items: services.content.items,
+      closingStatements: services.content.closing_statements
     };
-  }
-
-  getServicesList(): string[] {
-    return this.data.sections.services.items;
-  }
-
-  getServicesDescription(): string {
-    return this.data.sections.services.description;
-  }
-
-  getWhyGraceSoftDescription(): string {
-    return this.data.sections.why_gracesoft.description;
-  }
-
-  getHowItWorksDescription(): string {
-    return this.data.sections.how_it_works.description;
-  }
-
-  getQualificationDescription(): string {
-    return this.data.sections.who_its_for.description;
-  }
-
-  // Why GraceSoft
-  getWhyGraceSoftFeatures(): Feature[] {
-    return this.data.sections.why_gracesoft.items;
   }
 
   getWhyGraceSoftContent() {
-    const section = this.data.sections.why_gracesoft;
+    const section = this.data.pages.home.sections.why_gracesoft;
     return {
+      id: section.id,
       title: section.title,
       description: section.description,
-      features: section.items
+      features: section.content.features
     };
-  }
-
-  // How It Works Process
-  getProcessSteps(): ProcessStep[] {
-    return this.data.sections.how_it_works.steps;
   }
 
   getHowItWorksContent() {
-    const section = this.data.sections.how_it_works;
+    const section = this.data.pages.home.sections.how_it_works;
     return {
+      id: section.id,
       title: section.title,
       description: section.description,
-      steps: section.steps,
-      closingStatement: section.closing_statement
+      steps: section.content.steps,
+      closingStatement: section.content.closing_statement
     };
   }
 
-  // Who It's For
   getQualificationContent() {
-    const section = this.data.sections.who_its_for;
+    const section = this.data.pages.home.sections.who_its_for;
     return {
+      id: section.id,
       title: section.title,
       description: section.description,
-      goodFit: section.good_fit,
+      goodFit: section.content.good_fit,
       notAFit: {
-        title: section.not_a_fit.title,
-        items: section.not_a_fit.items
+        title: section.content.not_a_fit.title,
+        items: section.content.not_a_fit.items
       }
     };
   }
 
-  // About Section
+  // About Page Specific Methods
   getAboutContent() {
-    const about = this.data.sections.about;
+    const about = this.data.pages.about.sections.about;
     return {
       title: about.title,
-      body: about.body,
-      statement: about.statement,
-      quote: about.quote
+      description: about.description,
+      body: about.content.body,
+      statement: about.content.statement,
+      quote: about.content.quote
     };
   }
 
-  getAboutQuote(): Quote {
-    return this.data.sections.about.quote;
-  }
-
-  // Contact Section
+  // Contact Page Specific Methods
   getContactContent() {
-    const contact = this.data.sections.contact;
+    const contact = this.data.pages.contact.sections.contact;
     return {
       title: contact.title,
       description: contact.description,
-      contactDetails: contact.contact_details,
-      cta: contact.cta
+      contactDetails: contact.content.contact_details,
+      cta: contact.content.cta
     };
+  }
+
+  // Footer (works for any page)
+  getFooterContent(pageName: 'home' | 'about' | 'contact' = 'home') {
+    return this.data.pages[pageName].sections.footer.content;
+  }
+
+  // Utility Methods
+  getAllPages() {
+    return Object.keys(this.data.pages);
+  }
+
+  hasPage(pageName: string): boolean {
+    return pageName in this.data.pages;
+  }
+
+  hasSection(pageName: 'home' | 'about' | 'contact', sectionName: string): boolean {
+    return sectionName in this.data.pages[pageName].sections;
+  }
+
+  // Legacy Methods for Backward Compatibility
+  getPageTitle(): string {
+    return this.getPageMeta('home').title;
+  }
+
+  getPageDescription(): string {
+    return this.getPageMeta('home').description;
+  }
+
+  getServicesList(): string[] {
+    return this.getServicesContent().items;
+  }
+
+  getWhyGraceSoftFeatures(): Feature[] {
+    return this.getWhyGraceSoftContent().features;
+  }
+
+  getProcessSteps(): ProcessStep[] {
+    return this.getHowItWorksContent().steps;
   }
 
   getContactDetails(): ContactDetails {
-    return this.data.sections.contact.contact_details;
+    return this.getContactContent().contactDetails;
   }
 
-  // Footer
-  getFooterContent() {
-    const footer = this.data.sections.footer;
-    return {
-      logo: footer.logo,
-      copyright: footer.copyright,
-      tagline: footer.tagline
-    };
-  }
-
-  // Utility methods for getting sections by ID
-  getSectionById(id: string) {
-    const sections = this.data.sections;
-    
-    switch (id) {
-      case 'services':
-        return sections.services;
-      case 'how-it-works':
-        return sections.how_it_works;
-      case 'about':
-        return sections.about;
-      case 'contact':
-        return sections.contact;
-      default:
-        return null;
-    }
-  }
-
-  // Get all sections for iteration
-  getAllSections() {
-    return this.data.sections;
-  }
-
-  // Check if section exists
-  hasSection(sectionName: string): boolean {
-    return sectionName in this.data.sections;
+  getAboutQuote(): Quote {
+    return this.getAboutContent().quote;
   }
 }
 
