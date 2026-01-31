@@ -11,7 +11,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: {
-    default: "GraceSoft - Professional Software Solutions",
+    default: "GraceSoft - Software you can trust",
     template: "%s | GraceSoft",
   },
   description: "GraceSoft provides innovative software solutions and web development services. Expert team delivering high-quality, scalable applications for businesses worldwide.",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "GraceSoft - Professional Software Solutions",
+    title: "GraceSoft - Software you can trust",
     description: "Innovative software solutions and web development services from expert developers.",
     url: "https://gracesoft.dev",
     siteName: "GraceSoft",
@@ -40,13 +40,13 @@ export const metadata: Metadata = {
         url: "/GS_IMGOG_2026.png",
         width: 1200,
         height: 630,
-        alt: "GraceSoft - Professional Software Solutions",
+        alt: "GraceSoft - Software you can trust",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "GraceSoft - Professional Software Solutions",
+    title: "GraceSoft - Software you can trust",
     description: "Innovative software solutions and web development services from expert developers.",
     images: ["/GS_IMGOG_2026.png"],
   },
@@ -62,8 +62,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
+    google: "kbYQfxu-OJGj7-iFo6z9y0VliezcpcnEWtrTpi6HdlY",
   },
 };
 
