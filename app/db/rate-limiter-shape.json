@@ -1,0 +1,7 @@
+{
+  "success": false,
+  "message": "Too many contact form submissions. Please try again in X minutes.",
+  "errors": {
+    "rate_limit": ["Rate limit exceeded"]
+  }
+}

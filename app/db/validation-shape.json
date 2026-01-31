@@ -1,0 +1,7 @@
+{
+  "success": false,
+  "message": "Validation error message",
+  "errors": {
+    "field_name": ["Error message"]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "success": true,
+  "message": "Thank you for your message! We'll get back to you soon.",
+  "data": {
+    "inquiry_id": "uuid-string",
+    "subject": "Subject Name"
+  }
+}

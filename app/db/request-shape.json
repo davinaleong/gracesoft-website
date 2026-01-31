@@ -1,0 +1,10 @@
+{
+  "subject_uuid": "required|uuid of contact subject",
+  "email": "required|valid email|max:255",
+  "name": "optional|string|max:255", 
+  "message": "required|string|min:10|max:5000",
+  "form_start_time": "required|unix timestamp",
+  
+  "website": null,
+  "phone_number": null
+}
