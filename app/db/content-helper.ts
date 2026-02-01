@@ -1,4 +1,4 @@
-import data from './data.json';
+import data from './data-new.json';
 
 // Type definitions for the JSON structure
 export interface Logo {
@@ -71,35 +71,42 @@ export class ContentHelper {
   private data = data;
 
   // Page Management
-  getPage(pageName: 'home' | 'about' | 'contact'): PageData {
-    return this.data.pages[pageName];
+  getPage(pageName: 'home' | 'about' | 'contact' = 'home'): PageData {
+    // All content is now under the home page
+    return this.data.pages.home;
   }
 
-  getPageMeta(pageName: 'home' | 'about' | 'contact') {
-    return this.data.pages[pageName].meta;
+  getPageMeta(pageName: 'home' | 'about' | 'contact' = 'home') {
+    // All content is now under the home page
+    return this.data.pages.home.meta;
   }
 
-  getPageSections(pageName: 'home' | 'about' | 'contact') {
-    return this.data.pages[pageName].sections;
+  getPageSections(pageName: 'home' | 'about' | 'contact' = 'home') {
+    // All content is now under the home page
+    return this.data.pages.home.sections;
   }
 
   // Section Management - Works for any page
   getSection(pageName: 'home' | 'about' | 'contact', sectionName: string) {
-    return this.data.pages[pageName].sections[sectionName];
+    // All content is now under the home page
+    return this.data.pages.home.sections[sectionName];
   }
 
   getSectionContent(pageName: 'home' | 'about' | 'contact', sectionName: string) {
-    const section = this.getSection(pageName, sectionName);
+    // All content is now under the home page
+    const section = this.data.pages.home.sections[sectionName];
     return section?.content;
   }
 
   // Navigation (works for any page)
   getNavigation(pageName: 'home' | 'about' | 'contact' = 'home'): NavigationItem[] {
-    return this.data.pages[pageName].sections.header.navigation;
+    // All navigation is now under the home page
+    return this.data.pages.home.sections.header.navigation;
   }
 
   getHeaderLogo(pageName: 'home' | 'about' | 'contact' = 'home'): Logo {
-    return this.data.pages[pageName].sections.header.logo;
+    // All navigation is now under the home page
+    return this.data.pages.home.sections.header.logo;
   }
 
   // Home Page Specific Methods
@@ -107,8 +114,10 @@ export class ContentHelper {
     const hero = this.data.pages.home.sections.hero;
     return {
       title: hero.title,
-      description: hero.description,
-      ...hero.content
+      headline: hero.content.headline,
+      description: hero.content.description,
+      logo: hero.content.logo,
+      cta: hero.content.cta
     };
   }
 
@@ -158,9 +167,21 @@ export class ContentHelper {
     };
   }
 
-  // About Page Specific Methods
+  // New methods for additional sections in the new structure
+  getContactCTAContent() {
+    const section = this.data.pages.home.sections.contact_cta;
+    return {
+      id: section.id,
+      title: section.title,
+      description: section.description,
+      cta: section.content.cta,
+      note: section.content.note
+    };
+  }
+
+  // About Section Methods (now part of home page)
   getAboutContent() {
-    const about = this.data.pages.about.sections.about;
+    const about = this.data.pages.home.sections.about;
     return {
       title: about.title,
       description: about.description,
@@ -170,33 +191,34 @@ export class ContentHelper {
     };
   }
 
-  // Contact Page Specific Methods
+  // Contact Section Methods (now part of home page)
   getContactContent() {
-    const contact = this.data.pages.contact.sections.contact;
+    const contact = this.data.pages.home.sections.contact;
     return {
       title: contact.title,
       description: contact.description,
-      contactDetails: contact.content.contact_details,
-      cta: contact.content.cta
+      contactDetails: contact.content.contact_details
     };
   }
 
   // Footer (works for any page)
   getFooterContent(pageName: 'home' | 'about' | 'contact' = 'home') {
-    return this.data.pages[pageName].sections.footer.content;
+    // All footer content is now under the home page
+    return this.data.pages.home.sections.footer.content;
   }
 
   // Utility Methods
   getAllPages() {
-    return Object.keys(this.data.pages);
+    return ['home']; // Only home page exists in the new structure
   }
 
   hasPage(pageName: string): boolean {
-    return pageName in this.data.pages;
+    return pageName === 'home'; // Only home page exists in the new structure
   }
 
   hasSection(pageName: 'home' | 'about' | 'contact', sectionName: string): boolean {
-    return sectionName in this.data.pages[pageName].sections;
+    // All sections are now under the home page
+    return sectionName in this.data.pages.home.sections;
   }
 
   // Legacy Methods for Backward Compatibility
