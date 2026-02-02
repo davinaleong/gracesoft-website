@@ -121,12 +121,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Good fit points */}
           <div className="bg-white rounded-lg p-8">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded flex items-center justify-center">
-                <Check size={16} />
-              </div>
-              <h3 className="text-2xl font-semibold text-gray-800">Good fit points</h3>
-            </div>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-4">Good fit points</h3>
             <ul className="space-y-4">
               {qualificationContent.goodFit.map((item, index) => (
                 <li key={index} className="flex items-start gap-3">
@@ -141,12 +136,7 @@ export default function HomePage() {
 
           {/* Bad fit points */}
           <div className="bg-white rounded-lg p-8">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded flex items-center justify-center">
-                <X size={16} />
-              </div>
-              <h3 className="text-2xl font-semibold text-gray-800">{qualificationContent.notAFit.title}</h3>
-            </div>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-4">{qualificationContent.notAFit.title}</h3>
             <ul className="space-y-4">
               {qualificationContent.notAFit.items.map((item, index) => (
                 <li key={index} className="flex items-start gap-3">
@@ -159,6 +149,25 @@ export default function HomePage() {
             </ul>
           </div>
         </div>
+      </Section>
+      <Section id="about" variant="highlighted">
+        <header className="flex items-end gap-2 mb-12 text-2xl">
+          <h2 className="text-4xl font-semibold text-indigo-800">{aboutContent.title}</h2>
+          <span>&middot;</span>
+          <p>{aboutContent.description}</p>
+        </header>
+
+        {aboutContent.body.map((paragraph, index) => (
+          <p key={index} className="text-gray-700 leading-relaxed mb-4">{paragraph}</p>
+        ))}
+
+        <p className="mb-8"><strong>{aboutContent.statement}</strong></p>
+
+        <blockquote className="border-l-3 border-indigo-800 bg-indigo-100 dark:bg-indigo-900 rounded-sm p-4">
+          <p className="italic text-gray-600">{aboutContent.quote.text}</p>
+          <footer className="text-gray-500 mt-2">&ndash; {aboutContent.quote.source}</footer>
+          <p className="text-gray-500"><small>{aboutContent.quote.note}</small></p>
+        </blockquote>
       </Section>
     </div>
   );
