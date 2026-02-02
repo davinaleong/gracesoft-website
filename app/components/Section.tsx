@@ -6,6 +6,7 @@ interface SectionProps {
   children: ReactNode;
   variant?: SectionVariant;
   className?: string;
+  id?: string;
 }
 
 const variantStyles: Record<SectionVariant, string> = {
@@ -14,7 +15,8 @@ const variantStyles: Record<SectionVariant, string> = {
   highlighted: 'bg-indigo-50 dark:bg-indigo-950 p-4',
 };
 
-export default function Section({ 
+export default function Section({
+  id,
   children, 
   variant = 'default', 
   className = '' 
@@ -23,7 +25,7 @@ export default function Section({
   const combinedStyles = `${baseStyles} ${className}`.trim();
 
   return (
-    <section className={combinedStyles}>
+    <section id={id} className={combinedStyles}>
       <div className="container mx-auto py-8">
         {children}
       </div>

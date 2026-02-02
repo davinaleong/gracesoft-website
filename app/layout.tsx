@@ -77,7 +77,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         id="top"
-        className={`${montserrat.variable} text-gray-900 bg-gray-100 dark:text-gray-100 dark:bg-gray-900 font-sans antialiased`}
+        className={`${montserrat.variable} text-gray-950 bg-gray-50 dark:text-gray-50 dark:bg-gray-950 font-sans antialiased`}
       >
         <Header />
         <main>{children}</main>

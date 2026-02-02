@@ -2,30 +2,31 @@ import Image from "next/image"
 import Link from "next/link"
 import { Shield, Settings, User, TrendingUp, ArrowDown, Check, X } from "lucide-react"
 import Logo from "./assets/images/GS_IMGLOGO_2026.svg"
+import Section from "./components/Section"
+import Divider from "./components/Divider"
+import Wordmark from "./components/Wordmark"
 import contentHelper from "./db/content-helper"
 
 export default function HomePage() {
   // Get content using the helper
-  const heroContent = contentHelper.getHeroContent()
-  const services = contentHelper.getServicesContent()
-  const whyContent = contentHelper.getWhyGraceSoftContent()
-  const howContent = contentHelper.getHowItWorksContent()
-  const whoContent = contentHelper.getQualificationContent()
+  const heroContent = contentHelper.getHeroContent();
+  const servicesContent = contentHelper.getServicesContent();
+  const whyGraceSoftContent = contentHelper.getWhyGraceSoftContent();
+  const howItWorksContent = contentHelper.getHowItWorksContent();
+  const qualificationContent = contentHelper.getQualificationContent();
+  const aboutContent = contentHelper.getAboutContent();
 
   // Icon mapping for features
   const featureIcons = [Shield, Settings, User, TrendingUp]
 
   return (
     <div>
-      {/* Hero Section */}
-      <section id="hero">
-        <div className="container mx-auto flex flex-col items-center justify-center text-center py-12 px-4">
-          <Image src={Logo} alt="Hero Logo" height={40} className="mx-auto mb-12" />
-          <div className="w-24 h-1 bg-indigo-800 mx-auto mb-12"></div>
-
-          <h1 className="text-4xl font-light text-gray-800 mb-8">{heroContent.headline}</h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">{heroContent.description}</p>
-          <div className="flex items-center justify-center gap-4 mb-8">
+      <Section id="hero" variant="default" className="text-center">
+        <Wordmark height={40} />
+        <Divider />
+        <p className="text-4xl font-light text-gray-800 mb-8">{heroContent.headline}</p>
+        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">{heroContent.description}</p>
+        <div className="flex items-center justify-center gap-4 mb-8">
             {heroContent.cta.primary && (
             <Link href="/contact" className="text-white bg-indigo-800 dark:text-black dark:bg-purple-500 font-semibold hover:opacity-70 px-4 py-2 rounded">{heroContent.cta.primary.label}</Link>
             )}
@@ -33,20 +34,16 @@ export default function HomePage() {
               <Link href="/services" className="text-indigo-800 dark:text-purple-500 font-semibold px-4 py-2 rounded hover:opacity-70">{heroContent.cta.secondary.label}</Link>
             )}
           </div>
-        </div>
-      </section>
+      </Section>
+      <Section id="services" variant="alt">
+        <header className="flex items-end gap-2 mb-12 text-2xl">
+          <h2 className="text-4xl font-semibold text-indigo-800">{servicesContent.title}</h2>
+          <span>&middot;</span>
+          <p>{servicesContent.description}</p>
+        </header>
 
-      {/* Services Section */}
-      <section id="services"  className="bg-indigo-100 dark:bg-indigo-900">
-        <div className="container mx-auto py-12 px-4">
-          <div className="flex items-end gap-2 mb-12 text-2xl">
-            <h2 className="text-4xl font-semibold text-indigo-800">{services.title}</h2>
-            <span>&middot;</span>
-            <p>{services.description}</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            {services.items.map((service, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            {servicesContent.items.map((service, index) => (
               <div key={index} className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-8 h-8 bg-indigo-800 text-white rounded-full flex items-center justify-center font-medium">
                   {index + 1}
@@ -56,23 +53,19 @@ export default function HomePage() {
             ))}
           </div>
           <ul className="list-disc ml-4 mb-8">
-            {services.closingStatements.map((statement, index) => (
+            {servicesContent.closingStatements.map((statement, index) => (
             <li key={index}>{statement}</li>
           ))}
           </ul>
-        </div>
-      </section>
-
-      {/* Why GraceSoft Section */}
-      <section id="why_gracesoft">
-        <div className="container mx-auto py-12 px-4">
-          <div className="flex items-end gap-2 mb-12 text-2xl">
-            <h2 className="text-4xl font-semibold text-indigo-800">{whyContent.title}</h2>
-            <span>&middot;</span>
-            <p>{whyContent.description}</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {whyContent.features.map((feature, index) => {
+      </Section>
+      <Section id="why-gracesoft" variant="default">
+        <header className="flex items-end gap-2 mb-12 text-2xl">
+          <h2 className="text-4xl font-semibold text-indigo-800">{whyGraceSoftContent.title}</h2>
+          <span>&middot;</span>
+          <p>{whyGraceSoftContent.description}</p>
+        </header>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {whyGraceSoftContent.features.map((feature, index) => {
               const IconComponent = featureIcons[index]
               return (
                 <div key={index} className="flex items-start gap-4">
@@ -87,19 +80,15 @@ export default function HomePage() {
               )
             })}
           </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section id="how_it_works" className="bg-gray-200 dark:bg-gray-800">
-        <div className="container mx-auto py-12 px-4">
-          <div className="flex items-end gap-2 mb-12 text-2xl">
-            <h2 className="text-4xl font-semibold text-indigo-800">{howContent.title}</h2>
-            <span>&middot;</span>
-            <p>{howContent.description}</p>
-          </div>
-          <div className="max-w-2xl mx-auto">
-            {howContent.steps.map((step, index) => (
+      </Section>
+      <Section id="how-it-works" variant="alt">
+        <header className="flex items-end gap-2 mb-12 text-2xl">
+          <h2 className="text-4xl font-semibold text-indigo-800">{howItWorksContent.title}</h2>
+          <span>&middot;</span>
+          <p>{howItWorksContent.description}</p>
+        </header>
+        <div className="max-w-2xl mx-auto">
+            {howItWorksContent.steps.map((step, index) => (
               <div key={index} className="flex flex-col items-center">
                 <div className="flex items-start gap-4 w-full">
                   <div className="flex-shrink-0 w-12 h-12 bg-indigo-800 text-white rounded-full flex items-center justify-center font-bold text-lg">
@@ -110,7 +99,7 @@ export default function HomePage() {
                     <p className="text-gray-600 leading-relaxed">{step.description}</p>
                   </div>
                 </div>
-                {index < howContent.steps.length - 1 && (
+                {index < howItWorksContent.steps.length - 1 && (
                   <div className="flex justify-center w-full mb-6">
                     <ArrowDown size={24} className="text-indigo-800" />
                   </div>
@@ -119,40 +108,58 @@ export default function HomePage() {
             ))}
           </div>
           <div className="text-center mt-8">
-            <p className="text-lg text-gray-700 italic">{howContent.closingStatement}</p>
+            <p className="text-lg text-gray-700 italic">{howItWorksContent.closingStatement}</p>
           </div>
-        </div>
-      </section>
+      </Section>
+      <Section id="who-its-for" variant="default">
+        <header className="flex items-end gap-2 mb-12 text-2xl">
+          <h2 className="text-4xl font-semibold text-indigo-800">{qualificationContent.title}</h2>
+          <span>&middot;</span>
+          <p>{qualificationContent.description}</p>
+        </header>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Good fit points */}
+          <div className="bg-white rounded-lg p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded flex items-center justify-center">
+                <Check size={16} />
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-800">Good fit points</h3>
+            </div>
+            <ul className="space-y-4">
+              {qualificationContent.goodFit.map((item, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-5 h-5 bg-green-100 text-green-600 rounded-full flex items-center justify-center mt-0.5">
+                    <Check size={12} />
+                  </div>
+                  <span className="text-gray-700 leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-      {/* How It Works Section */}
-      <section id="who_its_for">
-        <div className="container mx-auto py-12 px-4">
-          <div className="flex items-end gap-2 mb-12 text-2xl">
-            <h2 className="text-4xl font-semibold text-indigo-800">{whoContent.title}</h2>
-            <span>&middot;</span>
-            <p>{whoContent.description}</p>
-          </div>
-          <div className="max-w-2xl mx-auto">
-            <div className="text-xl mb-8">
-              {whoContent.goodFit.map((item, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <Check size={24} className="text-indigo-800 mt-0.5 flex-shrink-0" />
-                  <p className="text-gray-700 leading-relaxed">{item}</p>
-                </div>
-              ))}
+          {/* Bad fit points */}
+          <div className="bg-white rounded-lg p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex-shrink-0 w-8 h-8 bg-red-600 text-white rounded flex items-center justify-center">
+                <X size={16} />
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-800">{qualificationContent.notAFit.title}</h3>
             </div>
-            <h3 className="text-2xl mb-4">{whoContent.notAFit.title}</h3>
-            <div className="text-xl max-w-2xl mx-auto">
-              {whoContent.notAFit.items.map((item, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <X size={24} className="text-red-600 mt-0.5 flex-shrink-0" />
-                  <p className="text-gray-700 leading-relaxed">{item}</p>
-                </div>
+            <ul className="space-y-4">
+              {qualificationContent.notAFit.items.map((item, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-5 h-5 bg-red-100 text-red-600 rounded-full flex items-center justify-center mt-0.5">
+                    <X size={12} />
+                  </div>
+                  <span className="text-gray-700 leading-relaxed">{item}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }
