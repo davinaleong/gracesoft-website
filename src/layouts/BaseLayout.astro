@@ -20,6 +20,18 @@ const pageTitle =
 		<title>{pageTitle}</title>
 	</head>
 	<body>
+        <header class="flex justify-between gap-4 text-white bg-gs-purple-600">
+            <a href="/" class="text-lg font-bold px-3 py-2 hover:opacity-70">GraceSoft</a>
+
+            <nav class="flex items-center gap-2">
+                <a href="/" class="text-lg px-3 py-2 text-gs-purple-100 hover:opacity-70">Home</a>
+                <a href="/about" class="text-lg px-3 py-2 text-gs-purple-100 hover:opacity-70">About</a>
+                <a href="/services" class="text-lg px-3 py-2 text-gs-purple-100 hover:opacity-70">Services</a>
+                <a href="/approach" class="text-lg px-3 py-2 text-gs-purple-100 hover:opacity-70">Approach</a>
+                <a href="/contact" class="text-lg px-3 py-2 text-gs-purple-100 hover:opacity-70">Contact</a>
+            </nav>
+        </header>
+
 		<slot/>
 	</body>
 </html>
