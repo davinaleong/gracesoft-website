@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { Menu, X } from 'lucide-astro';
 
 const { title } = Astro.props;
 
@@ -20,18 +21,103 @@ const pageTitle =
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-        <header class="flex justify-between gap-4 text-white bg-gs-purple-600">
-            <a href="/" class="text-lg font-bold px-3 py-2 hover:opacity-70">GraceSoft</a>
+        <header class="site-header">
+            <a href="/">
+                <img
+                    src="/wm-w.svg"
+                    alt="GraceSoft Icon"
+                    width="150"
+                />
+            </a>
 
-            <nav class="flex items-center gap-2">
-                <a href="/" class="text-lg px-3 py-2 text-gs-purple-100 hover:opacity-70">Home</a>
-                <a href="/about" class="text-lg px-3 py-2 text-gs-purple-100 hover:opacity-70">About</a>
-                <a href="/services" class="text-lg px-3 py-2 text-gs-purple-100 hover:opacity-70">Services</a>
-                <a href="/approach" class="text-lg px-3 py-2 text-gs-purple-100 hover:opacity-70">Approach</a>
-                <a href="/contact" class="text-lg px-3 py-2 text-gs-purple-100 hover:opacity-70">Contact</a>
+            <input id="nav-toggle" type="checkbox" class="nav-toggle" />
+            <label for="nav-toggle" class="nav-toggle-button" aria-label="Toggle navigation menu">
+                <Menu class="icon-open" size={22} strokeWidth={2.25} />
+                <X class="icon-close" size={22} strokeWidth={2.25} />
+            </label>
+
+            <nav class="site-nav" aria-label="Main navigation">
+                <div class="site-nav-list">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/about" class="nav-link">About</a>
+                    <a href="/services" class="nav-link">Services</a>
+                    <a href="/approach" class="nav-link">Approach</a>
+                    <a href="/contact" class="nav-link">Contact</a>
+                </div>
             </nav>
         </header>
 
 		<slot/>
+
+        <footer class="bg-gs-purple-100">
+            <p class="p-4">
+                <a href="/" class="text-gs-purple-600 text-xl font-bold hover:opacity-70">
+                    <img
+                        src="/wm.svg"
+                        alt="GraceSoft logo"
+                        width="150"
+                    />
+                </a>
+            </p>
+            <div class="grid gap-4 grid-cols-1 p-4 md:grid-cols-3">
+                <div class="space-y-4">
+                    <h5 class="font-bold">Quick Links</h5>
+
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/approach">Approach</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h5 class="font-bold">Services</h5>
+
+                    <ol>
+                        <li>Web Development</li>
+                        <li>UI/UX Design</li>
+                        <li>Consulting</li>
+                    </ol>
+                </div>
+                <div class="space-y-4">
+                    <h5 class="font-bold">Contact</h5>
+
+                    <ul>
+                        <li><a href="/contact">hello@gracecsoft.dev</a></li>
+                        <li><a href="/contact">Start a Project &rarr;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 space-y-4">
+                <h5 class="font-bold">Social Links</h5>
+                <div class="flex flex-wrap items-center gap-2">
+                    <a href="https://www.linkedin.com/company/gracesoftdev" target="_blank" class="hover:opacity-70">
+                        <img
+                            src="/linkedin.svg"
+                            alt="LinkedIn"
+                            width="32"
+                            height="32"
+                        />
+                    </a>
+                    <a href="https://www.youtube.com/@GraceSoftMedia" target="_blank" class="hover:opacity-70">
+                        <img
+                            src="/youtube.svg"
+                            alt="YouTube"
+                            width="32"
+                            height="32"
+                        />
+                    </a>
+                </div>
+            </div>
+            <div class="bg-gs-purple-200 p-4 flex items-center justify-between">
+                <nav class="flex items-center gap-2">
+                    <a href="/privacy-policy" class="text-sm px-2 py-1">Privacy Policy</a>
+                </nav>
+                <p class="text-sm text-right">
+                    &copy; {new Date().getFullYear()} GraceSoft. All rights reserved.
+                </p>
+            </div>
+        </footer>
 	</body>
 </html>

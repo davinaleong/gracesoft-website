@@ -106,3 +106,128 @@ body {
     background-color: var(--color-bg);
     color: var(--color-text);
 }
+
+.site-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gs-space-4);
+    background-color: var(--gs-primary-600);
+    color: #ffffff;
+    padding: var(--gs-space-2) var(--gs-space-3);
+}
+
+.brand-link {
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 700;
+    padding: var(--gs-space-2) var(--gs-space-1);
+    text-decoration: none;
+}
+
+.brand-link:hover {
+    opacity: 0.7;
+}
+
+.nav-toggle {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(50%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.nav-toggle-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gs-primary-100);
+    cursor: pointer;
+    border-radius: var(--gs-radius-sm);
+    padding: var(--gs-space-2);
+}
+
+.icon-close {
+    display: none;
+}
+
+.nav-toggle:checked + .nav-toggle-button .icon-open {
+    display: none;
+}
+
+.nav-toggle:checked + .nav-toggle-button .icon-close {
+    display: block;
+}
+
+.site-nav {
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    display: grid;
+    grid-template-rows: 0fr;
+    background-color: var(--gs-primary-700);
+    transition: grid-template-rows 220ms ease, box-shadow 220ms ease;
+}
+
+.site-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gs-space-1);
+    overflow: hidden;
+    padding: 0;
+}
+
+.nav-link {
+    display: block;
+    color: var(--gs-primary-100);
+    text-decoration: none;
+    font-size: 1.0625rem;
+    padding: var(--gs-space-2) var(--gs-space-4);
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+}
+
+.nav-toggle:checked ~ .site-nav {
+    grid-template-rows: 1fr;
+    box-shadow: var(--gs-shadow-md);
+}
+
+@media (min-width: 48rem) {
+    .site-header {
+        padding: var(--gs-space-2) var(--gs-space-4);
+    }
+
+    .nav-toggle,
+    .nav-toggle-button {
+        display: none;
+    }
+
+    .site-nav {
+        position: static;
+        inset-inline: auto;
+        top: auto;
+        display: block;
+        background-color: transparent;
+        box-shadow: none;
+        transition: none;
+    }
+
+    .site-nav-list {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--gs-space-2);
+    }
+
+    .nav-link {
+        font-size: 1.125rem;
+        padding: var(--gs-space-2) var(--gs-space-3);
+    }
+}
