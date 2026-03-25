@@ -518,6 +518,96 @@ body {
     background-color: var(--gs-primary-500);
 }
 
+.legal-page .title-section,
+.legal-page .legal-content-section {
+    scroll-margin-top: 5rem;
+}
+
+.legal-hero {
+    background-color: var(--gs-primary-700);
+    background-image: url('code-bg.png');
+    background-repeat: repeat;
+    background-size: clamp(280px, 28vw, 430px) auto;
+    background-position: 0 0;
+    animation: heroPatternDrift 34s linear infinite;
+}
+
+.legal-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(165deg, rgba(18, 14, 63, 0.52), rgba(46, 35, 146, 0.24));
+}
+
+.legal-hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.legal-content-section {
+    background-color: #ffffff;
+}
+
+.legal-block {
+    border: 1px solid rgba(55, 42, 172, 0.12);
+    border-radius: var(--gs-radius-lg);
+    background: #ffffff;
+    box-shadow: var(--gs-shadow-sm);
+    padding: clamp(1rem, 2vw, 1.5rem);
+    display: grid;
+    gap: 0.75rem;
+}
+
+.legal-block h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.3rem, 2.5vw, 1.85rem);
+    line-height: 1.2;
+    color: var(--gs-primary-700);
+}
+
+.legal-block p {
+    color: var(--gs-neutral-800);
+    font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+    line-height: 1.7;
+}
+
+.legal-list {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.55rem;
+}
+
+.legal-list li {
+    list-style: none;
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--gs-neutral-800);
+    font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+}
+
+.legal-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: var(--gs-primary-500);
+}
+
+.legal-link {
+    color: var(--gs-primary-700);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.legal-link:hover {
+    opacity: 0.8;
+}
+
 .feature-card,
 .issue-card,
 .process-step,
@@ -617,6 +707,10 @@ body {
     }
 
     .contact-hero {
+        animation: none;
+    }
+
+    .legal-hero {
         animation: none;
     }
 
