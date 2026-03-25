@@ -335,6 +335,42 @@ body {
     border-color: rgba(55, 42, 172, 0.28);
 }
 
+.services-page .title-section,
+.services-page .services-detail-section,
+.services-page .cta-section {
+    scroll-margin-top: 5rem;
+}
+
+.services-hero {
+    background-color: var(--gs-primary-700);
+    background-image: url('code-bg.png');
+    background-repeat: repeat;
+    background-size: clamp(300px, 30vw, 460px) auto;
+    background-position: 0 0;
+    animation: heroPatternDrift 34s linear infinite;
+}
+
+.services-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(165deg, rgba(18, 14, 63, 0.5), rgba(46, 35, 146, 0.25));
+}
+
+.services-hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.services-page section:not(.title-section):not(.cta-section) {
+    background-color: #ffffff;
+}
+
+.services-page .services-detail-section {
+    background-color: #f7f7fc;
+}
+
 .feature-card,
 .issue-card,
 .process-step,
@@ -422,6 +458,10 @@ body {
     }
 
     .approach-hero {
+        animation: none;
+    }
+
+    .services-hero {
         animation: none;
     }
 

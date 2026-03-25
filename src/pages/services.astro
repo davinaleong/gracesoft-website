@@ -1,0 +1,80 @@
+---
+import { AppWindow, MousePointer, Layers, Lightbulb } from 'lucide-astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Services">
+    <main class="services-page">
+         <section class="title-section services-hero relative isolate overflow-hidden text-white px-4 py-20 sm:py-24 lg:py-28">
+            <div class="container mx-auto max-w-5xl space-y-5 text-center reveal rise">
+                <h1 class="sr-only">Services</h1>
+                <p class="font-serif text-3xl leading-tight sm:text-4xl lg:text-6xl">Services Built Around Outcomes</p>
+                <p class="mx-auto max-w-3xl text-sm text-gs-purple-100 sm:text-base lg:text-xl">From product strategy to code delivery, GraceSoft helps you ship digital systems that are usable, scalable, and maintainable.</p>
+            </div>
+        </section>
+
+        <section class="px-4 py-14 sm:py-16 lg:py-20">
+            <div class="container mx-auto max-w-6xl space-y-8 sm:space-y-10">
+                <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl text-center reveal rise">Services Preview</h2>
+
+                <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                    <article class="feature-card reveal rise delay-1 text-center space-y-4">
+                        <AppWindow class="block mx-auto" />
+                        <h3 class="text-xl font-semibold sm:text-2xl">Web Application Development</h3>
+                        <p class="text-sm sm:text-base">From idea to launch, we build robust web apps that stay fast, stable, and easy to evolve.</p>
+                    </article>
+
+                    <article class="feature-card reveal rise delay-2 text-center space-y-4">
+                        <MousePointer class="block mx-auto" />
+                        <h3 class="text-xl font-semibold sm:text-2xl">UX/UI Design</h3>
+                        <p class="text-sm sm:text-base">We design interfaces that feel intuitive on day one and delightful after months of real use.</p>
+                    </article>
+
+                    <article class="feature-card reveal rise delay-3 text-center space-y-4">
+                        <Layers class="block mx-auto" />
+                        <h3 class="text-xl font-semibold sm:text-2xl">System Architecture</h3>
+                        <p class="text-sm sm:text-base">We shape your technical foundation so performance, scale, and maintainability are built in early.</p>
+                    </article>
+
+                    <article class="feature-card reveal rise delay-4 text-center space-y-4">
+                        <Lightbulb class="block mx-auto" />
+                        <h3 class="text-xl font-semibold sm:text-2xl">Technical Consulting</h3>
+                        <p class="text-sm sm:text-base">Get practical guidance that turns complex technical choices into clear, confident next steps.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-detail-section px-4 py-14 sm:py-16 lg:py-20">
+            <div class="container mx-auto max-w-6xl space-y-8 sm:space-y-10">
+                <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl text-center reveal rise">How We Deliver</h2>
+
+                <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-3">
+                    <div class="process-step reveal rise delay-1 text-center space-y-3">
+                        <h3 class="text-lg font-semibold sm:text-xl">Clarity First</h3>
+                        <p class="text-sm text-gs-black-700 sm:text-base">We align on goals, constraints, and success metrics before implementation starts.</p>
+                    </div>
+
+                    <div class="process-step reveal rise delay-2 text-center space-y-3">
+                        <h3 class="text-lg font-semibold sm:text-xl">Build With Intent</h3>
+                        <p class="text-sm text-gs-black-700 sm:text-base">Every feature is prioritized for business value, usability, and maintainability.</p>
+                    </div>
+
+                    <div class="process-step reveal rise delay-3 text-center space-y-3">
+                        <h3 class="text-lg font-semibold sm:text-xl">Improve Continuously</h3>
+                        <p class="text-sm text-gs-black-700 sm:text-base">We refine based on feedback and performance signals so quality keeps increasing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section px-4 py-16 sm:py-20 lg:py-24">
+            <div class="container mx-auto max-w-4xl space-y-6 sm:space-y-8 text-center cta-panel reveal rise">
+                <h2 class="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl">Need a system that actually scales?</h2>
+                <p class="text-sm sm:text-base lg:text-lg">Let us map the right technical and product path for your team.</p>
+                <p>
+                    <a href="/contact" class="inline-flex items-center justify-center font-semibold text-gs-purple-700 bg-white rounded-md px-5 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90">Start a Project &rarr;</a>
+                </p>
+            </div>
+        </section>
+    </main>
+</BaseLayout>
