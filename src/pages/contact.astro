@@ -40,21 +40,22 @@ const status = Astro.url.searchParams.get('status');
 						)
 					}
 					<p class="text-sm sm:text-base text-gs-black-700">Share a few details about your project or what you need help with, and I will get back to you as soon as possible.</p>
+					<p id="formClientStatus" class="form-status hidden" role="status" aria-live="polite"></p>
 					<form class="contact-form" method="POST" action="/api/contact" accept-charset="UTF-8">
 						<div class="contact-field">
 							<label for="name">Name</label>
-							<input id="name" name="name" type="text" autocomplete="name" maxlength="120" required />
+							<input id="name" name="name" type="text" autocomplete="name" maxlength="255" required />
 						</div>
 
 						<div class="contact-field">
 							<label for="email">Email</label>
-							<input id="email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="180" required />
+							<input id="email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="255" />
 						</div>
 
 						<div class="contact-field">
 							<label for="subject">Subject</label>
-							<select id="subject" name="subject" required>
-								<option value="" selected disabled>Select a subject</option>
+							<select id="subject" name="subject">
+								<option value="" selected>Select a subject (optional)</option>
 								<option value="web-application-development">Web Application Development</option>
 								<option value="ux-ui-design">UX/UI Design</option>
 								<option value="system-architecture">System Architecture</option>
@@ -65,7 +66,7 @@ const status = Astro.url.searchParams.get('status');
 
 						<div class="contact-field">
 							<label for="message">Message</label>
-							<textarea id="message" name="message" rows="6" minlength="20" maxlength="3000" required></textarea>
+							<textarea id="message" name="message" rows="6" minlength="20" maxlength="5000" required></textarea>
 						</div>
 
 						<div class="contact-honeypot" aria-hidden="true">
@@ -81,16 +82,6 @@ const status = Astro.url.searchParams.get('status');
 				</article>
 			</div>
 		</section>
-
-		<section class="cta-section px-4 py-16 sm:py-20 lg:py-24">
-			<div class="container mx-auto max-w-4xl space-y-6 sm:space-y-8 text-center cta-panel reveal rise">
-				<h2 class="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl">Ready When You Are</h2>
-				<p class="text-sm sm:text-base lg:text-lg">Tell me what you are building, and we will map the right path forward.</p>
-				<p>
-					<a href="/contact" class="inline-flex items-center justify-center font-semibold text-gs-purple-700 bg-white rounded-md px-5 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90">Send an Email &rarr;</a>
-				</p>
-			</div>
-		</section>
 	</main>
 </BaseLayout>
 
@@ -98,20 +89,78 @@ const status = Astro.url.searchParams.get('status');
 	const contactForm = document.querySelector('.contact-form');
 
 	if (contactForm) {
+		const statusEl = document.querySelector('#formClientStatus');
 		const loadedAtField = contactForm.querySelector('#formLoadedAt');
 		const elapsedMsField = contactForm.querySelector('#formElapsedMs');
 		const honeypotField = contactForm.querySelector('#company');
+		const submitButton = contactForm.querySelector('button[type="submit"]');
 		const loadedAt = Date.now();
+		const originalButtonText = submitButton?.textContent || 'Send Message';
 
 		if (loadedAtField) loadedAtField.value = String(loadedAt);
 
-		contactForm.addEventListener('submit', (event) => {
+		const setStatus = (kind, message) => {
+			if (!statusEl) return;
+			statusEl.classList.remove('hidden', 'form-status-success', 'form-status-error');
+			statusEl.classList.add(kind === 'success' ? 'form-status-success' : 'form-status-error');
+			statusEl.textContent = message;
+		};
+
+		contactForm.addEventListener('submit', async (event) => {
+			event.preventDefault();
 			const elapsedMs = Date.now() - loadedAt;
 			if (elapsedMsField) elapsedMsField.value = String(elapsedMs);
 
 			if ((honeypotField && honeypotField.value.trim() !== '') || elapsedMs < 3000) {
-				event.preventDefault();
-				alert('Submission blocked. Please wait a moment and try again.');
+				setStatus('error', 'Submission blocked. Please wait a moment and try again.');
+				return;
+			}
+
+			if (submitButton) {
+				submitButton.disabled = true;
+				submitButton.textContent = 'Sending...';
+			}
+
+			try {
+				const formData = new FormData(contactForm);
+				const response = await fetch(contactForm.action, {
+					method: 'POST',
+					body: formData,
+					headers: {
+						'Accept': 'application/json',
+						'X-Requested-With': 'XMLHttpRequest'
+					}
+				});
+
+				let result = null;
+				try {
+					result = await response.json();
+				} catch {
+					result = null;
+				}
+
+				if (response.ok && result?.status === 'sent') {
+					setStatus('success', 'Thanks for your message. I will get back to you soon.');
+					contactForm.reset();
+					if (loadedAtField) loadedAtField.value = String(Date.now());
+					if (elapsedMsField) elapsedMsField.value = '';
+					return;
+				}
+
+				if (result?.status === 'blocked') {
+					setStatus('error', 'Submission was blocked. Please try again after a few seconds.');
+				} else if (result?.status === 'invalid') {
+					setStatus('error', 'Please check your form details and try again.');
+				} else {
+					setStatus('error', 'Something went wrong sending your message. Please try again later.');
+				}
+			} catch {
+				setStatus('error', 'Network error. Please try again later.');
+			} finally {
+				if (submitButton) {
+					submitButton.disabled = false;
+					submitButton.textContent = originalButtonText;
+				}
 			}
 		});
 	}
