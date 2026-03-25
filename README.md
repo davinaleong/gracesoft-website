@@ -38,16 +38,17 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## Contact Form (Formspree)
+## Contact Form (HQ API)
 
-The contact page submits directly to Formspree.
+The contact page posts to the local API route at `/api/contact`, which forwards validated submissions to the HQ API.
 
-1. Create a Formspree form and set the destination email to `hello@gracesoft.dev`.
-2. Copy your Formspree endpoint (for example: `https://formspree.io/f/yourFormId`).
-3. Add it to an `.env` file in the project root:
+Add these variables to an `.env` file in the project root:
 
 ```env
-PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/yourFormId
+HQ_API_URL=https://your-hq-api-endpoint/api/v1/enquiries
+HQ_APP_ID=your-app-id
+HQ_APP_KEY=your-app-key
+HQ_API_SECRET=your-api-secret
 ```
 
 ## 👀 Want to learn more?

@@ -99,6 +99,11 @@
     /* Shadows */
     --gs-shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.06);
     --gs-shadow-md: 0 8px 18px rgba(46, 35, 146, 0.05);
+
+    /* Decorative pattern used on hero sections without external image requests */
+    --gs-code-pattern:
+        radial-gradient(circle at 16px 16px, rgba(255, 255, 255, 0.15) 2px, transparent 2.5px),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
 }
 
 body {
@@ -206,9 +211,9 @@ body {
 
 .hero-section {
     background-color: var(--gs-primary-600);
-    background-image: url('code-bg.png');
+    background-image: var(--gs-code-pattern);
     background-repeat: repeat;
-    background-size: clamp(300px, 32vw, 520px) auto;
+    background-size: 120px 120px;
     background-position: 0 0;
     animation: heroPatternDrift 32s linear infinite;
 }
@@ -264,9 +269,9 @@ body {
 
 .approach-hero {
     background-color: var(--gs-primary-700);
-    background-image: url('code-bg.png');
+    background-image: var(--gs-code-pattern);
     background-repeat: repeat;
-    background-size: clamp(280px, 26vw, 420px) auto;
+    background-size: 120px 120px;
     background-position: 0 0;
     animation: heroPatternDrift 34s linear infinite;
 }
@@ -343,9 +348,9 @@ body {
 
 .services-hero {
     background-color: var(--gs-primary-700);
-    background-image: url('code-bg.png');
+    background-image: var(--gs-code-pattern);
     background-repeat: repeat;
-    background-size: clamp(300px, 30vw, 460px) auto;
+    background-size: 120px 120px;
     background-position: 0 0;
     animation: heroPatternDrift 34s linear infinite;
 }
@@ -383,9 +388,9 @@ body {
 
 .about-hero {
     background-color: var(--gs-primary-700);
-    background-image: url('code-bg.png');
+    background-image: var(--gs-code-pattern);
     background-repeat: repeat;
-    background-size: clamp(280px, 28vw, 430px) auto;
+    background-size: 120px 120px;
     background-position: 0 0;
     animation: heroPatternDrift 34s linear infinite;
 }
@@ -453,9 +458,9 @@ body {
 
 .contact-hero {
     background-color: var(--gs-primary-700);
-    background-image: url('code-bg.png');
+    background-image: var(--gs-code-pattern);
     background-repeat: repeat;
-    background-size: clamp(280px, 28vw, 430px) auto;
+    background-size: 120px 120px;
     background-position: 0 0;
     animation: heroPatternDrift 34s linear infinite;
 }
@@ -596,9 +601,9 @@ body {
 
 .legal-hero {
     background-color: var(--gs-primary-700);
-    background-image: url('code-bg.png');
+    background-image: var(--gs-code-pattern);
     background-repeat: repeat;
-    background-size: clamp(280px, 28vw, 430px) auto;
+    background-size: 120px 120px;
     background-position: 0 0;
     animation: heroPatternDrift 34s linear infinite;
 }
