@@ -254,6 +254,87 @@ body {
     background-color: var(--gs-primary-50);
 }
 
+.approach-page .title-section,
+.approach-page .discover-section,
+.approach-page .define-section,
+.approach-page .build-section,
+.approach-page .refine-section {
+    scroll-margin-top: 5rem;
+}
+
+.approach-hero {
+    background-color: var(--gs-primary-700);
+    background-image: url('code-bg.png');
+    background-repeat: repeat;
+    background-size: clamp(280px, 26vw, 420px) auto;
+    background-position: 0 0;
+    animation: heroPatternDrift 34s linear infinite;
+}
+
+.approach-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(165deg, rgba(18, 14, 63, 0.5), rgba(46, 35, 146, 0.22));
+}
+
+.approach-hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.approach-page .discover-section {
+    background-color: #ffffff;
+}
+
+.approach-page .define-section {
+    background-color: #f7f7fc;
+}
+
+.approach-page .build-section {
+    background-color: #ffffff;
+}
+
+.approach-page .refine-section {
+    background-color: #f7f7fc;
+}
+
+.approach-step-card {
+    max-width: 44rem;
+    margin-inline: auto;
+    border: 1px solid rgba(55, 42, 172, 0.14);
+    border-radius: var(--gs-radius-lg);
+    background-color: #ffffff;
+    box-shadow: var(--gs-shadow-sm);
+    padding: clamp(1rem, 2vw, 1.5rem);
+    transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+
+.approach-step-card li {
+    list-style: none;
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--gs-neutral-800);
+}
+
+.approach-step-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: var(--gs-primary-500);
+}
+
+.approach-step-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--gs-shadow-md);
+    border-color: rgba(55, 42, 172, 0.28);
+}
+
 .feature-card,
 .issue-card,
 .process-step,
@@ -340,6 +421,10 @@ body {
         animation: none;
     }
 
+    .approach-hero {
+        animation: none;
+    }
+
     .reveal {
         opacity: 1;
         animation: none;
@@ -349,7 +434,8 @@ body {
     .feature-card,
     .issue-card,
     .process-step,
-    .cta-panel {
+    .cta-panel,
+    .approach-step-card {
         transition: none;
     }
 }
