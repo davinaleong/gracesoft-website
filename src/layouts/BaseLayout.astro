@@ -2,13 +2,20 @@
 import '../styles/global.css';
 import { Menu, X } from 'lucide-astro';
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 
 // If no title OR "Home" → just "GraceSoft"
 const pageTitle =
   !title || title === 'Home'
     ? 'GraceSoft'
     : `GraceSoft - ${title}`;
+
+const pageDescription =
+    description ??
+    'GraceSoft designs and develops modern web applications focused on clarity, usability, and long-term reliability.';
+
+const canonicalUrl = Astro.url;
+const ogImageUrl = new URL('/wm-w.svg', canonicalUrl).href;
 ---
 
 <html lang="en">
@@ -18,6 +25,23 @@ const pageTitle =
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+        <meta name="description" content={pageDescription} />
+        <meta name="author" content="GraceSoft" />
+        <meta name="robots" content="index, follow" />
+        <meta name="theme-color" content="#372aac" />
+        <link rel="canonical" href={canonicalUrl} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="GraceSoft" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={ogImageUrl} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={ogImageUrl} />
 		<title>{pageTitle}</title>
 	</head>
 	<body>
