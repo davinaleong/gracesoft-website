@@ -108,14 +108,18 @@ body {
 }
 
 .site-header {
+    color: #ffffff;
+    background-color: var(--gs-primary-600);
+    padding: var(--gs-space-2) var(--gs-space-3);
+}
+
+.site-header-inner {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-inline: auto;
     gap: var(--gs-space-4);
-    background-color: var(--gs-primary-600);
-    color: #ffffff;
-    padding: var(--gs-space-2) var(--gs-space-3);
 }
 
 .brand-link {
