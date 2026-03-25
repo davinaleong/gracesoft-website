@@ -1,16 +1,157 @@
 ---
+import { Settings, User, Layers, AppWindow, MousePointer, Lightbulb } from 'lucide-astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Home">
   <main>
     <section class="hero-section min-h-screen text-white p-4 grid place-items-center">
-      <div class="w-full text-center space-y-4">
+      <div class="container mx-auto w-full text-center space-y-4">
         <h1 class="sr-only">GraceSoft</h1>
         <img src="wm-w.svg" alt="GraceSoft logo" class="block w-full h-auto max-w-md mx-auto">
         <p class="text-2xl">Building Digital Systems That Work — Not Just Look Good</p>
         <p>GraceSoft helps businesses design, build, and scale modern web applications with clarity, performance, and purpose.</p>
+        <p class="flex items-center justify-center gap-4">
+          <a href="/contact" class="inline-block font-medium text-gs-purple-600 bg-white border-white rounded px-3 py-2 hover:opacity-70">Start a Project</a>
+          <a href="#" class="inline-block font-medium text-white bg-gs-purple-600 border-white rounded px-3 py-2 hover:opacity-70">View Our Approach</a>
+        </p>
       </div>
     </section>
+
+    <section class="values-section p-4 min-h-screen">
+      <h2 class="sr-only">Our Values</h2>
+      <div class="container mx-auto w-full grid gap-4 grid-cols-1 md:grid-cols-3">
+        <div class="text-center space-y-4">
+          <Settings class="block mx-auto"/>
+          <h3 class="text-2xl">Thoughtful Engineering</h3>
+          <p>We don't just code &ndash; we design systems that last.</p>
+        </div>
+        <div class="text-center space-y-4">
+          <User class="block mx-auto"/>
+          <h3 class="text-2xl">User-Centered Design</h3>
+          <p>Every feature is built with real users in mind.</p>
+        </div>
+        <div class="text-center space-y-4">
+          <Layers class="block mx-auto"/>
+          <h3 class="text-2xl">Scalable Foundations</h3>
+          <p>Built to grow with your business, not break under it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="struggling-section p-4 min-h-screen bg-gs-black-100">
+      <div class="container mx-auto space-y-4 text-center">
+        <h2 class="text-2xl">If you're dealing with:</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-4">
+          <div class="space-y-4">
+            <div class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto">1</div>
+
+            <p class="text-xl">A messy or outdated system</p>
+          </div>
+          <div class="space-y-4">
+            <div class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto">2</div>
+
+            <p class="text-xl">Poor user experience</p>
+          </div>
+          <div class="space-y-4">
+            <div class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto">3</div>
+
+            <p class="text-xl">Slow or hard-to-maintain code</p>
+          </div>
+          <div class="space-y-4">
+            <div class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto">4</div>
+
+            <p class="text-xl">Difficulty scaling your product</p>
+          </div>
+        </div>
+
+        <p class="text-xl text-center text-gs-purple-600 font-bold italic">
+          &rarr; We can help you fix it — properly.
+        </p>
+      </div>
+    </section>
+
+    <section class="services-section p-4 min-h-screen">
+      <div class="container mx-auto w-full space-y-4">
+        <h2 class="text-2xl text-center">Services Preview</h2>
+        <div class="grid gap-4 grid-cols-1 md:grid-cols-4">
+          <div class="text-center space-y-4">
+            <AppWindow class="block mx-auto"/>
+            <p>Web Application Development</p>
+          </div>
+          <div class="text-center space-y-4">
+            <MousePointer class="block mx-auto"/>
+            <p>UX/UI Design</p>
+          </div>
+          <div class="text-center space-y-4">
+            <Layers class="block mx-auto"/>
+            <p>System Architecture</p>
+          </div>
+          <div class="text-center space-y-4">
+            <Lightbulb class="block mx-auto"/>
+            <p>Technical Consulting</p>
+          </div>
+        </div>
+        <p class="text-center">
+          <a href="/services" class="inline-block text-white bg-gs-purple-600 px-3 py-2 rounded hover:opacity-70">
+            Explore Services &rarr;
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <section class="approach-section p-4 min-h-screen">
+      <div class="container mx-auto w-full space-y-4">
+        <h2 class="text-2xl text-center">We follow a structured, proven approach:</h2>
+        <div class="grid gap-4 grid-cols-1 md:grid-cols-4">
+          <div class="text-center space-y-4">
+            <h3 class="text-xl">Discover</h3>
+            <p>Understand your problem deeply</p>
+          </div>
+          <div class="text-center space-y-4">
+            <h3 class="text-xl">Design</h3>
+            <p>Map user flows and systems</p>
+          </div>
+          <div class="text-center space-y-4">
+            <h3 class="text-xl">Build</h3>
+            <p>Develop with clarity and scalability</p>
+          </div>
+          <div class="text-center space-y-4">
+            <h3 class="text-xl">Refine</h3>
+            <p>Improve with real feedback</p>
+          </div>
+        </div>
+        <p class="text-center">
+          <a href="/services" class="text-gs-purple-600 hover:opacity-70">
+            See Our Process &rarr;
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <section class="approach-section p-4 min-h-screen bg-gs-purple-50">
+      <div class="container mx-auto w-full space-y-4 text-center">
+        <p>Built by a Developer Who Understands Both Code and Users</p>
+
+        <p>GraceSoft is founded by a full-stack developer with 8+ years of experience in building web applications, with additional training in UX design and cybersecurity.</p>
+
+        <p>The goal is simple: build systems that are not only functional, but meaningful and reliable.</p>
+      </div>
+    </section>
+
+    <div class="cta-section p-4 min-h-screen">
+      <div class="container mx-auto w-full space-y-4 text-center">
+        <h2 class="sr-only">Final CTA</h2>
+
+        <p>Have something in mind?<br>Let’s build it together.</p>
+
+        <p>
+          <a href="/contact" class="inline-block font-medium text-gs-purple-600 bg-white border-white rounded px-3 py-2 hover:opacity-70">
+            Start a Project &rarr;
+          </a>
+        </p>
+      </div>
+    </div>
   </main>
 </BaseLayout>
