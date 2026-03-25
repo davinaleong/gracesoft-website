@@ -208,7 +208,158 @@ body {
     background-color: var(--gs-primary-600);
     background-image: url('code-bg.png');
     background-repeat: repeat;
-    background-size: 500px auto;
+    background-size: clamp(300px, 32vw, 520px) auto;
+    background-position: 0 0;
+    animation: heroPatternDrift 32s linear infinite;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.18), transparent 45%),
+        radial-gradient(circle at 80% 0%, rgba(169, 159, 228, 0.22), transparent 40%),
+        linear-gradient(160deg, rgba(28, 21, 94, 0.2), rgba(55, 42, 172, 0.1));
+}
+
+.hero-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+.home-page section,
+.home-page .cta-section {
+    scroll-margin-top: 5rem;
+}
+
+.values-section {
+    background:
+        radial-gradient(circle at 0% 0%, rgba(55, 42, 172, 0.08), transparent 44%),
+        linear-gradient(180deg, #ffffff 0%, #f9f8ff 100%);
+}
+
+.struggling-section {
+    background:
+        linear-gradient(180deg, #f5f5f5 0%, #ece9fb 100%);
+}
+
+.services-section {
+    background:
+        radial-gradient(circle at 100% 10%, rgba(55, 42, 172, 0.09), transparent 36%),
+        radial-gradient(circle at 0% 100%, rgba(124, 113, 214, 0.1), transparent 42%),
+        linear-gradient(180deg, #ffffff 0%, #f8f7ff 100%);
+}
+
+.approach-section {
+    background:
+        linear-gradient(180deg, #ffffff 0%, #f4f2ff 100%);
+}
+
+.approach-section.bg-gs-purple-50 {
+    background:
+        linear-gradient(150deg, rgba(242, 241, 251, 1) 0%, rgba(228, 226, 247, 0.9) 100%);
+}
+
+.feature-card,
+.issue-card,
+.process-step,
+.cta-panel {
+    border: 1px solid rgba(55, 42, 172, 0.12);
+    border-radius: var(--gs-radius-lg);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: var(--gs-shadow-sm);
+    backdrop-filter: blur(4px);
+    padding: clamp(1rem, 1.8vw, 1.5rem);
+    transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+}
+
+.feature-card:hover,
+.issue-card:hover,
+.process-step:hover,
+.cta-panel:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--gs-shadow-md);
+    border-color: rgba(55, 42, 172, 0.3);
+}
+
+.cta-section {
+    background:
+        linear-gradient(120deg, rgba(55, 42, 172, 0.95), rgba(46, 35, 146, 0.9));
+    color: #ffffff;
+}
+
+.cta-panel {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+}
+
+.reveal {
+    opacity: 0;
+    animation: fadeRise 700ms ease-out forwards;
+}
+
+.rise {
+    transform: translateY(12px);
+}
+
+.delay-1 {
+    animation-delay: 120ms;
+}
+
+.delay-2 {
+    animation-delay: 220ms;
+}
+
+.delay-3 {
+    animation-delay: 320ms;
+}
+
+.delay-4 {
+    animation-delay: 420ms;
+}
+
+@keyframes fadeRise {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroPatternDrift {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 520px 260px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-section {
+        animation: none;
+    }
+
+    .reveal {
+        opacity: 1;
+        animation: none;
+        transform: none;
+    }
+
+    .feature-card,
+    .issue-card,
+    .process-step,
+    .cta-panel {
+        transition: none;
+    }
 }
 
 @media (min-width: 48rem) {

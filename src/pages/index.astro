@@ -4,150 +4,156 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Home">
-  <main>
-    <section class="hero-section min-h-screen text-white p-4 grid place-items-center">
-      <div class="container mx-auto w-full text-center space-y-4">
+  <main class="home-page">
+    <section class="hero-section relative isolate overflow-hidden min-h-[92vh] grid place-items-center px-4 py-16 sm:py-20 lg:py-28 text-white">
+      <div class="container mx-auto w-full max-w-5xl text-center space-y-6 sm:space-y-8">
         <h1 class="sr-only">GraceSoft</h1>
-        <img src="wm-w.svg" alt="GraceSoft logo" class="block w-full h-auto max-w-md mx-auto">
-        <p class="text-2xl">Building Digital Systems That Work — Not Just Look Good</p>
-        <p>GraceSoft helps businesses design, build, and scale modern web applications with clarity, performance, and purpose.</p>
-        <p class="flex items-center justify-center gap-4">
-          <a href="/contact" class="inline-block font-medium text-gs-purple-600 bg-white border-white rounded px-3 py-2 hover:opacity-70">Start a Project</a>
-          <a href="#" class="inline-block font-medium text-white bg-gs-purple-600 border-white rounded px-3 py-2 hover:opacity-70">View Our Approach</a>
+        <img src="wm-w.svg" alt="GraceSoft logo" class="reveal rise block w-full h-auto max-w-md mx-auto">
+        <p class="reveal rise delay-1 font-serif text-balance text-3xl leading-tight sm:text-4xl lg:text-6xl">Building Digital Systems That Work — Not Just Look Good</p>
+        <p class="reveal rise delay-2 mx-auto max-w-3xl text-sm leading-relaxed text-gs-purple-100 sm:text-base lg:text-xl">GraceSoft helps businesses design, build, and scale modern web applications with clarity, performance, and purpose.</p>
+        <p class="reveal rise delay-3 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
+          <a href="/contact" class="inline-flex items-center justify-center font-semibold text-gs-purple-700 bg-white rounded-md px-5 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90">Start a Project</a>
+          <a href="/approach" class="inline-flex items-center justify-center font-semibold text-white border border-white/70 bg-white/10 backdrop-blur-sm rounded-md px-5 py-3 transition-colors duration-300 hover:bg-white/20">View Our Approach</a>
         </p>
       </div>
     </section>
 
-    <section class="values-section p-4 min-h-screen">
-      <h2 class="sr-only">Our Values</h2>
-      <div class="container mx-auto w-full grid gap-4 grid-cols-1 md:grid-cols-3">
-        <div class="text-center space-y-4">
-          <Settings class="block mx-auto"/>
-          <h3 class="text-2xl">Thoughtful Engineering</h3>
-          <p>We don't just code &ndash; we design systems that last.</p>
+    <section class="values-section px-4 py-16 sm:py-20 lg:py-24">
+      <div class="container mx-auto w-full max-w-6xl space-y-8 sm:space-y-10">
+        <div class="text-center space-y-3 reveal rise">
+          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl">Principles Behind Every Build</h2>
+          <p class="mx-auto max-w-2xl text-sm text-gs-black-700 sm:text-base lg:text-lg">A dependable product comes from strong foundations, not shortcuts.</p>
         </div>
-        <div class="text-center space-y-4">
-          <User class="block mx-auto"/>
-          <h3 class="text-2xl">User-Centered Design</h3>
-          <p>Every feature is built with real users in mind.</p>
-        </div>
-        <div class="text-center space-y-4">
-          <Layers class="block mx-auto"/>
-          <h3 class="text-2xl">Scalable Foundations</h3>
-          <p>Built to grow with your business, not break under it.</p>
+
+        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-3">
+          <div class="feature-card reveal rise delay-1 text-center space-y-4">
+            <Settings class="block mx-auto"/>
+            <h3 class="text-xl font-semibold sm:text-2xl">Thoughtful Engineering</h3>
+            <p class="text-sm text-gs-black-700 sm:text-base">We do not just code. We design systems built to remain stable as your product evolves.</p>
+          </div>
+          <div class="feature-card reveal rise delay-2 text-center space-y-4">
+            <User class="block mx-auto"/>
+            <h3 class="text-xl font-semibold sm:text-2xl">User-Centered Design</h3>
+            <p class="text-sm text-gs-black-700 sm:text-base">Every decision is tested against real user needs so the experience stays intuitive.</p>
+          </div>
+          <div class="feature-card reveal rise delay-3 text-center space-y-4">
+            <Layers class="block mx-auto"/>
+            <h3 class="text-xl font-semibold sm:text-2xl">Scalable Foundations</h3>
+            <p class="text-sm text-gs-black-700 sm:text-base">Your architecture is designed to handle growth without painful rebuilds later.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="struggling-section p-4 min-h-screen bg-gs-black-100">
-      <div class="container mx-auto space-y-4 text-center">
-        <h2 class="text-2xl">If you're dealing with:</h2>
+    <section class="struggling-section px-4 py-16 sm:py-20 lg:py-24 bg-gs-black-100">
+      <div class="container mx-auto max-w-6xl space-y-8 sm:space-y-10 text-center">
+        <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl reveal rise">If you are dealing with:</h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-4">
-          <div class="space-y-4">
+        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-4">
+          <div class="issue-card reveal rise delay-1 space-y-4">
             <div class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto">1</div>
 
-            <p class="text-xl">A messy or outdated system</p>
+            <p class="text-lg sm:text-xl">A messy or outdated system</p>
           </div>
-          <div class="space-y-4">
+          <div class="issue-card reveal rise delay-2 space-y-4">
             <div class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto">2</div>
 
-            <p class="text-xl">Poor user experience</p>
+            <p class="text-lg sm:text-xl">Poor user experience</p>
           </div>
-          <div class="space-y-4">
+          <div class="issue-card reveal rise delay-3 space-y-4">
             <div class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto">3</div>
 
-            <p class="text-xl">Slow or hard-to-maintain code</p>
+            <p class="text-lg sm:text-xl">Slow or hard-to-maintain code</p>
           </div>
-          <div class="space-y-4">
+          <div class="issue-card reveal rise delay-4 space-y-4">
             <div class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto">4</div>
 
-            <p class="text-xl">Difficulty scaling your product</p>
+            <p class="text-lg sm:text-xl">Difficulty scaling your product</p>
           </div>
         </div>
 
-        <p class="text-xl text-center text-gs-purple-600 font-bold italic">
+        <p class="text-lg sm:text-xl text-center text-gs-purple-600 font-bold italic reveal rise delay-4">
           &rarr; We can help you fix it — properly.
         </p>
       </div>
     </section>
 
-    <section class="services-section p-4 min-h-screen">
-      <div class="container mx-auto w-full space-y-4">
-        <h2 class="text-2xl text-center">Services Preview</h2>
-        <div class="grid gap-4 grid-cols-1 md:grid-cols-4">
-          <div class="text-center space-y-4">
+    <section class="services-section px-4 py-16 sm:py-20 lg:py-24">
+      <div class="container mx-auto w-full max-w-6xl space-y-8 sm:space-y-10">
+        <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl text-center reveal rise">Services Preview</h2>
+        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div class="feature-card reveal rise delay-1 text-center space-y-4">
             <AppWindow class="block mx-auto"/>
-            <p>Web Application Development</p>
+            <p class="text-sm sm:text-base">Web Application Development</p>
           </div>
-          <div class="text-center space-y-4">
+          <div class="feature-card reveal rise delay-2 text-center space-y-4">
             <MousePointer class="block mx-auto"/>
-            <p>UX/UI Design</p>
+            <p class="text-sm sm:text-base">UX/UI Design</p>
           </div>
-          <div class="text-center space-y-4">
+          <div class="feature-card reveal rise delay-3 text-center space-y-4">
             <Layers class="block mx-auto"/>
-            <p>System Architecture</p>
+            <p class="text-sm sm:text-base">System Architecture</p>
           </div>
-          <div class="text-center space-y-4">
+          <div class="feature-card reveal rise delay-4 text-center space-y-4">
             <Lightbulb class="block mx-auto"/>
-            <p>Technical Consulting</p>
+            <p class="text-sm sm:text-base">Technical Consulting</p>
           </div>
         </div>
-        <p class="text-center">
-          <a href="/services" class="inline-block text-white bg-gs-purple-600 px-3 py-2 rounded hover:opacity-70">
+        <p class="text-center reveal rise delay-4">
+          <a href="/services" class="inline-flex items-center justify-center text-white bg-gs-purple-600 px-5 py-3 rounded-md shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90">
             Explore Services &rarr;
           </a>
         </p>
       </div>
     </section>
 
-    <section class="approach-section p-4 min-h-screen">
-      <div class="container mx-auto w-full space-y-4">
-        <h2 class="text-2xl text-center">We follow a structured, proven approach:</h2>
-        <div class="grid gap-4 grid-cols-1 md:grid-cols-4">
-          <div class="text-center space-y-4">
-            <h3 class="text-xl">Discover</h3>
-            <p>Understand your problem deeply</p>
+    <section class="approach-section px-4 py-16 sm:py-20 lg:py-24">
+      <div class="container mx-auto w-full max-w-6xl space-y-8 sm:space-y-10">
+        <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl text-center reveal rise">We follow a structured, proven approach</h2>
+        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div class="process-step reveal rise delay-1 text-center space-y-3">
+            <h3 class="text-lg font-semibold sm:text-xl">Discover</h3>
+            <p class="text-sm text-gs-black-700 sm:text-base">Understand your problem deeply</p>
           </div>
-          <div class="text-center space-y-4">
-            <h3 class="text-xl">Design</h3>
-            <p>Map user flows and systems</p>
+          <div class="process-step reveal rise delay-2 text-center space-y-3">
+            <h3 class="text-lg font-semibold sm:text-xl">Design</h3>
+            <p class="text-sm text-gs-black-700 sm:text-base">Map user flows and systems</p>
           </div>
-          <div class="text-center space-y-4">
-            <h3 class="text-xl">Build</h3>
-            <p>Develop with clarity and scalability</p>
+          <div class="process-step reveal rise delay-3 text-center space-y-3">
+            <h3 class="text-lg font-semibold sm:text-xl">Build</h3>
+            <p class="text-sm text-gs-black-700 sm:text-base">Develop with clarity and scalability</p>
           </div>
-          <div class="text-center space-y-4">
-            <h3 class="text-xl">Refine</h3>
-            <p>Improve with real feedback</p>
+          <div class="process-step reveal rise delay-4 text-center space-y-3">
+            <h3 class="text-lg font-semibold sm:text-xl">Refine</h3>
+            <p class="text-sm text-gs-black-700 sm:text-base">Improve with real feedback</p>
           </div>
         </div>
-        <p class="text-center">
-          <a href="/services" class="text-gs-purple-600 hover:opacity-70">
+        <p class="text-center reveal rise delay-4">
+          <a href="/services" class="inline-flex items-center justify-center text-gs-purple-600 font-semibold hover:opacity-70">
             See Our Process &rarr;
           </a>
         </p>
       </div>
     </section>
 
-    <section class="approach-section p-4 min-h-screen bg-gs-purple-50">
-      <div class="container mx-auto w-full space-y-4 text-center">
-        <p>Built by a Developer Who Understands Both Code and Users</p>
+    <section class="approach-section px-4 py-16 sm:py-20 lg:py-24 bg-gs-purple-50">
+      <div class="container mx-auto w-full max-w-4xl space-y-5 sm:space-y-6 text-center">
+        <p class="font-serif text-2xl sm:text-3xl reveal rise">Built by a Developer Who Understands Both Code and Users</p>
 
-        <p>GraceSoft is founded by a full-stack developer with 8+ years of experience in building web applications, with additional training in UX design and cybersecurity.</p>
+        <p class="text-sm text-gs-black-700 sm:text-base lg:text-lg reveal rise delay-1">GraceSoft is founded by a full-stack developer with 8+ years of experience building web applications, with additional training in UX design and cybersecurity.</p>
 
-        <p>The goal is simple: build systems that are not only functional, but meaningful and reliable.</p>
+        <p class="text-sm text-gs-black-700 sm:text-base lg:text-lg reveal rise delay-2">The goal is simple: build systems that are not only functional, but meaningful and reliable.</p>
       </div>
     </section>
 
-    <div class="cta-section p-4 min-h-screen">
-      <div class="container mx-auto w-full space-y-4 text-center">
+    <div class="cta-section px-4 py-16 sm:py-20 lg:py-24">
+      <div class="container mx-auto w-full max-w-4xl space-y-6 sm:space-y-8 text-center cta-panel reveal rise">
         <h2 class="sr-only">Final CTA</h2>
 
-        <p>Have something in mind?<br>Let’s build it together.</p>
+        <p class="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl">Have something in mind?<br>Let us build it together.</p>
 
         <p>
-          <a href="/contact" class="inline-block font-medium text-gs-purple-600 bg-white border-white rounded px-3 py-2 hover:opacity-70">
+          <a href="/contact" class="inline-flex items-center justify-center font-semibold text-gs-purple-700 bg-white rounded-md px-5 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90">
             Start a Project &rarr;
           </a>
         </p>
