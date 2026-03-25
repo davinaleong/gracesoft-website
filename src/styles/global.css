@@ -204,6 +204,13 @@ body {
     box-shadow: var(--gs-shadow-md);
 }
 
+.hero-section {
+    background-color: var(--gs-primary-600);
+    background-image: url('code-bg.png');
+    background-repeat: repeat;
+    background-size: 500px auto;
+}
+
 @media (min-width: 48rem) {
     .site-header {
         padding: var(--gs-space-2) var(--gs-space-4);
