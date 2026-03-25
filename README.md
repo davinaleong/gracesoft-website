@@ -38,6 +38,18 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## Contact Form (Formspree)
+
+The contact page submits directly to Formspree.
+
+1. Create a Formspree form and set the destination email to `hello@gracesoft.dev`.
+2. Copy your Formspree endpoint (for example: `https://formspree.io/f/yourFormId`).
+3. Add it to an `.env` file in the project root:
+
+```env
+PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/yourFormId
+```
+
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

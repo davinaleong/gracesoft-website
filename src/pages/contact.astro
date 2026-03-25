@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const status = Astro.url.searchParams.get('status');
+const formspreeEndpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? '';
 ---
 <BaseLayout
 	title="Contact"
@@ -19,29 +19,9 @@ const status = Astro.url.searchParams.get('status');
 			<div class="container mx-auto max-w-4xl grid gap-4 sm:gap-5 grid-cols-1">
 				<article class="contact-card reveal rise delay-1 space-y-4">
 					<h2 class="font-serif text-2xl sm:text-3xl">Start a Conversation</h2>
-					{
-						status === 'sent' && (
-							<p class="form-status form-status-success" role="status">Thanks for your message. I will get back to you soon.</p>
-						)
-					}
-					{
-						status === 'blocked' && (
-							<p class="form-status form-status-error" role="alert">Submission was blocked. Please try again after a few seconds.</p>
-						)
-					}
-					{
-						status === 'invalid' && (
-							<p class="form-status form-status-error" role="alert">Please check your form details and try again.</p>
-						)
-					}
-					{
-						status === 'error' && (
-							<p class="form-status form-status-error" role="alert">Something went wrong sending your message. Please try again later.</p>
-						)
-					}
 					<p class="text-sm sm:text-base text-gs-black-700">Share a few details about your project or what you need help with, and I will get back to you as soon as possible.</p>
 					<p id="formClientStatus" class="form-status hidden" role="status" aria-live="polite"></p>
-					<form class="contact-form" method="POST" action="/api/contact" accept-charset="UTF-8">
+					<form class="contact-form" method="POST" action={formspreeEndpoint} accept-charset="UTF-8">
 						<div class="contact-field">
 							<label for="name">Name</label>
 							<input id="name" name="name" type="text" autocomplete="name" maxlength="255" required />
@@ -76,6 +56,7 @@ const status = Astro.url.searchParams.get('status');
 
 						<input id="formLoadedAt" name="form_loaded_at" type="hidden" value="" />
 						<input id="formElapsedMs" name="form_elapsed_ms" type="hidden" value="" />
+						<input type="hidden" name="_subject" value="New website enquiry from GraceSoft contact form" />
 
 						<button type="submit" class="contact-submit inline-flex items-center justify-center font-semibold text-white bg-gs-purple-600 rounded-md px-5 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90">Send Message</button>
 					</form>
@@ -111,6 +92,11 @@ const status = Astro.url.searchParams.get('status');
 			const elapsedMs = Date.now() - loadedAt;
 			if (elapsedMsField) elapsedMsField.value = String(elapsedMs);
 
+			if (!contactForm.action) {
+				setStatus('error', 'Contact form is not configured yet. Please set PUBLIC_FORMSPREE_ENDPOINT.');
+				return;
+			}
+
 			if ((honeypotField && honeypotField.value.trim() !== '') || elapsedMs < 3000) {
 				setStatus('error', 'Submission blocked. Please wait a moment and try again.');
 				return;
@@ -127,8 +113,7 @@ const status = Astro.url.searchParams.get('status');
 					method: 'POST',
 					body: formData,
 					headers: {
-						'Accept': 'application/json',
-						'X-Requested-With': 'XMLHttpRequest'
+						Accept: 'application/json'
 					}
 				});
 
@@ -139,7 +124,7 @@ const status = Astro.url.searchParams.get('status');
 					result = null;
 				}
 
-				if (response.ok && result?.status === 'sent') {
+				if (response.ok) {
 					setStatus('success', 'Thanks for your message. I will get back to you soon.');
 					contactForm.reset();
 					if (loadedAtField) loadedAtField.value = String(Date.now());
@@ -147,13 +132,8 @@ const status = Astro.url.searchParams.get('status');
 					return;
 				}
 
-				if (result?.status === 'blocked') {
-					setStatus('error', 'Submission was blocked. Please try again after a few seconds.');
-				} else if (result?.status === 'invalid') {
-					setStatus('error', 'Please check your form details and try again.');
-				} else {
-					setStatus('error', 'Something went wrong sending your message. Please try again later.');
-				}
+				const errorMessage = result?.errors?.[0]?.message || 'Something went wrong sending your message. Please try again later.';
+				setStatus('error', errorMessage);
 			} catch {
 				setStatus('error', 'Network error. Please try again later.');
 			} finally {
