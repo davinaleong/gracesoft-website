@@ -518,6 +518,77 @@ body {
     background-color: var(--gs-primary-500);
 }
 
+.contact-form {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.contact-field {
+    display: grid;
+    gap: 0.35rem;
+    text-align: left;
+}
+
+.contact-field label {
+    color: var(--gs-neutral-800);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.contact-field input,
+.contact-field select,
+.contact-field textarea {
+    border: 1px solid var(--gs-neutral-200);
+    border-radius: var(--gs-radius-md);
+    padding: 0.65rem 0.75rem;
+    font-size: 0.95rem;
+    color: var(--gs-neutral-900);
+    background-color: #ffffff;
+}
+
+.contact-field textarea {
+    resize: vertical;
+    min-height: 9rem;
+}
+
+.contact-field input:focus,
+.contact-field select:focus,
+.contact-field textarea:focus {
+    outline: 2px solid rgba(55, 42, 172, 0.22);
+    outline-offset: 1px;
+    border-color: var(--gs-primary-400);
+}
+
+.contact-submit {
+    justify-self: start;
+}
+
+.form-status {
+    border-radius: var(--gs-radius-md);
+    padding: 0.7rem 0.85rem;
+    font-size: 0.92rem;
+}
+
+.form-status-success {
+    background-color: rgba(21, 128, 61, 0.1);
+    color: #166534;
+    border: 1px solid rgba(21, 128, 61, 0.25);
+}
+
+.form-status-error {
+    background-color: rgba(185, 28, 28, 0.1);
+    color: #991b1b;
+    border: 1px solid rgba(185, 28, 28, 0.25);
+}
+
+.contact-honeypot {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 .legal-page .title-section,
 .legal-page .legal-content-section {
     scroll-margin-top: 5rem;
