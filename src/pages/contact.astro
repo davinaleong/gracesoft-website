@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+	title="Contact"
+	description="Contact GraceSoft to discuss your web app idea, UX challenges, or system improvements with a clear, structured approach."
+>
+	<main class="contact-page">
+		<section class="title-section contact-hero relative isolate overflow-hidden text-white px-4 py-20 sm:py-24 lg:py-28">
+			<div class="container mx-auto max-w-5xl space-y-5 text-center reveal rise">
+				<h1 class="font-serif text-3xl leading-tight sm:text-4xl lg:text-6xl">Let's Build Something Meaningful</h1>
+				<p class="mx-auto max-w-3xl text-sm text-gs-purple-100 sm:text-base lg:text-xl">Have an idea, a problem, or a system that needs improvement? I would love to hear more about what you are working on.</p>
+			</div>
+		</section>
+
+		<section class="contact-main-section px-4 py-14 sm:py-16 lg:py-20">
+			<div class="container mx-auto max-w-6xl grid gap-4 sm:gap-5 grid-cols-1 lg:grid-cols-2">
+				<article class="contact-card reveal rise delay-1 space-y-4">
+					<h2 class="font-serif text-2xl sm:text-3xl">Start a Conversation</h2>
+					<p class="text-sm sm:text-base text-gs-black-700">Share a few details about your project or what you need help with, and I will get back to you as soon as possible.</p>
+					<p class="text-sm sm:text-base text-gs-black-700">You do not need to have everything figured out. Even a rough idea is enough to get started.</p>
+					<ul class="contact-points">
+						<li>Project goals and scope</li>
+						<li>Current challenges</li>
+						<li>Desired timeline</li>
+					</ul>
+				</article>
+
+				<article class="contact-card reveal rise delay-2 space-y-4">
+					<h2 class="font-serif text-2xl sm:text-3xl">Prefer Email?</h2>
+					<p class="text-sm sm:text-base text-gs-black-700">You can also reach out directly at:</p>
+					<p>
+						<a href="mailto:hello@gracesoft.dev" class="inline-flex items-center justify-center font-semibold text-gs-purple-700 bg-gs-purple-50 border border-gs-purple-200 rounded-md px-4 py-2 hover:opacity-80">hello@gracesoft.dev</a>
+					</p>
+					<p class="text-sm sm:text-base text-gs-black-700">Whether you are starting something new or improving an existing system, let us take the first step together.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="cta-section px-4 py-16 sm:py-20 lg:py-24">
+			<div class="container mx-auto max-w-4xl space-y-6 sm:space-y-8 text-center cta-panel reveal rise">
+				<h2 class="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl">Ready When You Are</h2>
+				<p class="text-sm sm:text-base lg:text-lg">Tell me what you are building, and we will map the right path forward.</p>
+				<p>
+					<a href="mailto:hello@gracesoft.dev" class="inline-flex items-center justify-center font-semibold text-gs-purple-700 bg-white rounded-md px-5 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90">Send an Email &rarr;</a>
+				</p>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
