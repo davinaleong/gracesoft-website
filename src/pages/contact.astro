@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const status = Astro.url.searchParams.get('status');
-const formEndpoint = '/api/contact';
+const formEndpoint = '/.netlify/functions/contact';
 ---
 <BaseLayout
 	title="Contact"
