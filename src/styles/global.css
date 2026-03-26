@@ -100,10 +100,8 @@
     --gs-shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.06);
     --gs-shadow-md: 0 8px 18px rgba(46, 35, 146, 0.05);
 
-    /* Decorative pattern used on hero sections without external image requests */
-    --gs-code-pattern:
-        radial-gradient(circle at 16px 16px, rgba(255, 255, 255, 0.15) 2px, transparent 2.5px),
-        linear-gradient(135deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+    /* Decorative code texture used on hero sections */
+    --gs-code-pattern: url('../assets/images/code-bg.png');
 }
 
 body {
