@@ -1,3 +1,5 @@
+console.log('Contact API route loaded.');
+
 type Env = {
   HQ_API_URL?: string;
   HQ_APP_ID?: string;
