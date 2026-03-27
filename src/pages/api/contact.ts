@@ -103,74 +103,74 @@ async function hmacSha256Hex(secret: string, value: string): Promise<string> {
 }
 
 export const onRequestPost = async (context: ContactRequestContext): Promise<Response> => {
-  const { request, env } = context;
-  const wantsJson = prefersJson(request);
-
-  const HQ_API_URL = env.HQ_API_URL;
-  const HQ_APP_ID = env.HQ_APP_ID;
-  const HQ_APP_KEY = env.HQ_APP_KEY;
-  const HQ_API_SECRET = env.HQ_API_SECRET;
-
-  if (!HQ_API_URL || !HQ_APP_ID || !HQ_APP_KEY || !HQ_API_SECRET) {
-    console.error('Missing one or more HQ_* environment variables.');
-    return responseFor(wantsJson, 500, 'error', 'Missing HQ environment variables.');
-  }
-
-  const contentType = request.headers.get('content-type')?.toLowerCase() ?? '';
-  const rawBody = await request.text();
-
-  let parsed: ParsedPayload | null = null;
-
   try {
-    parsed = parsePayload(contentType, rawBody);
-  } catch (error) {
-    console.error('Failed to parse request payload:', error);
-    return responseFor(wantsJson, 400, 'invalid', 'Invalid request payload.');
-  }
+    const { request, env } = context;
+    const wantsJson = prefersJson(request);
 
-  if (!parsed) {
-    return responseFor(wantsJson, 400, 'invalid', 'Unsupported content type.');
-  }
+    const HQ_API_URL = env.HQ_API_URL;
+    const HQ_APP_ID = env.HQ_APP_ID;
+    const HQ_APP_KEY = env.HQ_APP_KEY;
+    const HQ_API_SECRET = env.HQ_API_SECRET;
 
-  const { name, email, subject, message, company, form_elapsed_ms } = parsed;
-  const elapsedMs = Number(form_elapsed_ms || '0');
-
-  if (company !== '' || Number.isNaN(elapsedMs) || elapsedMs < 3000) {
-    return responseFor(wantsJson, 429, 'blocked', 'Submission blocked by anti-bot checks.');
-  }
-
-  if (
-    name.length < 2 ||
-    name.length > 255 ||
-    (email !== '' && (!EMAIL_PATTERN.test(email) || email.length > 255)) ||
-    subject.length > 255 ||
-    message.length < 20 ||
-    message.length > 5000
-  ) {
-    return responseFor(wantsJson, 422, 'invalid', 'Form validation failed.');
-  }
-
-  const hqPayload = {
-    name,
-    email: email || undefined,
-    subject: subject || undefined,
-    message,
-    source: 'web' as const,
-    metadata: {
-      page: '/contact',
-      elapsed_ms: elapsedMs
+    if (!HQ_API_URL || !HQ_APP_ID || !HQ_APP_KEY || !HQ_API_SECRET) {
+      console.error('Missing ENV');
+      return responseFor(wantsJson, 500, 'error', 'Missing HQ environment variables.');
     }
-  };
 
-  const payloadJson = JSON.stringify(hqPayload);
-  const timestamp = Math.floor(Date.now() / 1000).toString();
-  const signature = await hmacSha256Hex(HQ_API_SECRET, `${timestamp}${payloadJson}`);
+    const contentType = request.headers.get('content-type')?.toLowerCase() ?? '';
+    const rawBody = await request.text();
 
-  try {
+    let parsed: ParsedPayload | null = null;
+
+    try {
+      parsed = parsePayload(contentType, rawBody);
+    } catch (error) {
+      console.error('Parse error:', error);
+      return responseFor(wantsJson, 400, 'invalid', 'Invalid request payload.');
+    }
+
+    if (!parsed) {
+      return responseFor(wantsJson, 400, 'invalid', 'Unsupported content type.');
+    }
+
+    const { name, email, subject, message, company, form_elapsed_ms } = parsed;
+    const elapsedMs = Number(form_elapsed_ms || '0');
+
+    if (company !== '' || Number.isNaN(elapsedMs) || elapsedMs < 3000) {
+      return responseFor(wantsJson, 429, 'blocked', 'Bot detected');
+    }
+
+    if (
+      name.length < 2 ||
+      name.length > 255 ||
+      (email !== '' && (!EMAIL_PATTERN.test(email) || email.length > 255)) ||
+      subject.length > 255 ||
+      message.length < 20 ||
+      message.length > 5000
+    ) {
+      return responseFor(wantsJson, 422, 'invalid', 'Validation failed');
+    }
+
+    const payloadJson = JSON.stringify({
+      name,
+      email,
+      subject,
+      message,
+      source: 'web'
+    });
+
+    const timestamp = Math.floor(Date.now() / 1000).toString();
+
+    // 🔥 TEMP BYPASS
+    const signature = 'test-signature';
+
+    console.log('Calling HQ:', HQ_API_URL);
+
     const response = await fetch(HQ_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json',
         'X-APP-ID': HQ_APP_ID,
         'X-APP-KEY': HQ_APP_KEY,
         'X-TIMESTAMP': timestamp,
@@ -179,16 +179,25 @@ export const onRequestPost = async (context: ContactRequestContext): Promise<Res
       body: payloadJson
     });
 
-    if (response.status !== 201) {
-      const text = await response.text();
-      console.error('HQ API error:', response.status, text);
-      return responseFor(wantsJson, 502, 'error', 'HQ API returned an unexpected response.');
+    const text = await response.text();
+    console.log('HQ RESPONSE:', response.status, text);
+
+    if (!response.ok) {
+      return responseFor(wantsJson, response.status, 'error', text);
     }
 
-    return responseFor(wantsJson, 201, 'sent', 'Message sent successfully.');
+    return responseFor(wantsJson, 201, 'sent', 'Message sent');
+
   } catch (error) {
-    console.error('Failed to reach HQ API:', error);
-    return responseFor(wantsJson, 502, 'error', 'Failed to reach HQ API.');
+    console.error('🔥 GLOBAL ERROR:', error);
+
+    return new Response(JSON.stringify({
+      status: 'error',
+      message: String(error)
+    }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 };
 
