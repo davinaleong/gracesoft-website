@@ -48,10 +48,11 @@ export const onRequestPost = async ({ request }) => {
     // 🔥 LOG BEFORE CRITICAL STEP
     console.log('Generating signature...');
 
-    const signature = await hmacSha256Hex(
-      HQ_API_SECRET,
-      `${timestamp}${payloadJson}`
-    );
+    // const signature = await hmacSha256Hex(
+    //   HQ_API_SECRET,
+    //   `${timestamp}${payloadJson}`
+    // );
+    const signature = "test-signature"; // Placeholder for testing
 
     console.log('Calling HQ API:', HQ_API_URL);
 
