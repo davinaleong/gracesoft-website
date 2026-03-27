@@ -1,12 +1,14 @@
-export const onRequestPost = async ({ request }) => {
+export const onRequestPost = async (context) => {
+import { getEntries } from './../../../.astro/content.d';
+  const { request, env } = context;{
   try {
-    const headers = Object.fromEntries(request.headers);
+    const headers = Object.fromEntries(request.headers.getEntries());
     const wantsJson = prefersJson(headers);
 
-    const HQ_API_URL = process.env.HQ_API_URL;
-    const HQ_APP_ID = process.env.HQ_APP_ID;
-    const HQ_APP_KEY = process.env.HQ_APP_KEY;
-    const HQ_API_SECRET = process.env.HQ_API_SECRET;
+    const HQ_API_URL = env.HQ_API_URL;
+    const HQ_APP_ID = env.HQ_APP_ID;
+    const HQ_APP_KEY = env.HQ_APP_KEY;
+    const HQ_API_SECRET = env.HQ_API_SECRET;
 
     if (!HQ_API_URL || !HQ_APP_ID || !HQ_APP_KEY || !HQ_API_SECRET) {
       console.error('Missing ENV:', {
@@ -48,12 +50,10 @@ export const onRequestPost = async ({ request }) => {
     // 🔥 LOG BEFORE CRITICAL STEP
     console.log('Generating signature...');
 
-    // const signature = await hmacSha256Hex(
-    //   HQ_API_SECRET,
-    //   `${timestamp}${payloadJson}`
-    // );
-    const signature = "test-signature"; // Placeholder for testing
-
+    const signature = await hmacSha256Hex(
+      HQ_API_SECRET,
+      `${timestamp}${payloadJson}`
+    );
     console.log('Calling HQ API:', HQ_API_URL);
 
     const response = await fetch(HQ_API_URL, {
