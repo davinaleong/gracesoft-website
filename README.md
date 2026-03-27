@@ -1,5 +1,7 @@
 # Astro Starter Kit: Minimal
 
+<!-- No-op change to trigger deployment -->
+
 ```sh
 npm create astro@latest -- --template minimal
 ```
