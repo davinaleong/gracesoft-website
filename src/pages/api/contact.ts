@@ -1,5 +1,3 @@
-console.log('Contact API route loaded.'); // <-- This doesn't get printed.
-
 type Env = {
   HQ_API_URL?: string;
   HQ_APP_ID?: string;
@@ -112,13 +110,6 @@ export const onRequestPost = async (context: ContactRequestContext): Promise<Res
     const HQ_APP_KEY = env.HQ_APP_KEY;
     const HQ_API_SECRET = env.HQ_API_SECRET;
 
-    console.log('HEADERS DEBUG:', {
-      HQ_API_URL,
-      HQ_APP_ID,
-      HQ_APP_KEY,
-      HQ_API_SECRET
-    });
-
     if (!HQ_API_URL || !HQ_APP_ID || !HQ_APP_KEY || !HQ_API_SECRET) {
       console.error('Missing ENV');
       return responseFor(wantsJson, 500, 'error', 'Missing HQ environment variables.');
@@ -131,8 +122,8 @@ export const onRequestPost = async (context: ContactRequestContext): Promise<Res
 
     try {
       parsed = parsePayload(contentType, rawBody);
-    } catch (error) {
-      console.error('Parse error:', error);
+    } catch {
+      console.error('Contact API: request payload parsing failed.');
       return responseFor(wantsJson, 400, 'invalid', 'Invalid request payload.');
     }
 
@@ -171,8 +162,6 @@ export const onRequestPost = async (context: ContactRequestContext): Promise<Res
     // 🔥 TEMP BYPASS
     const signature = 'test-signature';
 
-    console.log('Calling HQ:', HQ_API_URL);
-
     const response = await fetch(HQ_API_URL, {
       method: 'POST',
       headers: {
@@ -186,17 +175,15 @@ export const onRequestPost = async (context: ContactRequestContext): Promise<Res
       body: payloadJson
     });
 
-    const text = await response.text();
-    console.log('HQ RESPONSE:', response.status, text);
-
     if (!response.ok) {
+      const text = await response.text();
       return responseFor(wantsJson, response.status, 'error', text);
     }
 
     return responseFor(wantsJson, 201, 'sent', 'Message sent');
 
-  } catch (error) {
-    console.error('🔥 GLOBAL ERROR:', error);
+  } catch {
+    console.error('Contact API: unexpected error.');
 
     return new Response(JSON.stringify({
       status: 'error',
