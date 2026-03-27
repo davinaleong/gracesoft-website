@@ -158,9 +158,8 @@ export const onRequestPost = async (context: ContactRequestContext): Promise<Res
     });
 
     const timestamp = Math.floor(Date.now() / 1000).toString();
-
-    // 🔥 TEMP BYPASS
-    const signature = 'test-signature';
+    // Backend expects: hash_hmac('sha256', $timestamp . $rawJsonPayload, $apiSecret)
+    const signature = await hmacSha256Hex(HQ_API_SECRET, `${timestamp}${payloadJson}`);
 
     const response = await fetch(HQ_API_URL, {
       method: 'POST',
@@ -187,7 +186,7 @@ export const onRequestPost = async (context: ContactRequestContext): Promise<Res
 
     return new Response(JSON.stringify({
       status: 'error',
-      message: String(error)
+      message: 'Internal server error.'
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
