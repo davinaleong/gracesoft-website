@@ -1,5 +1,3 @@
-import { createHmac } from 'node:crypto';
-
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type ParsedPayload = {
@@ -11,32 +9,34 @@ type ParsedPayload = {
   form_elapsed_ms: string;
 };
 
-function jsonResponse(statusCode: number, body: Record<string, unknown>) {
-  return {
-    statusCode,
+// ✅ Cloudflare-compatible JSON response
+function jsonResponse(status: number, body: Record<string, unknown>) {
+  return new Response(JSON.stringify(body), {
+    status,
     headers: {
       'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(body)
-  };
+    }
+  });
 }
 
+// ✅ Redirect response
 function redirectResponse(status: string) {
-  return {
-    statusCode: 303,
+  return new Response(null, {
+    status: 303,
     headers: {
       Location: `/contact?status=${encodeURIComponent(status)}`
-    },
-    body: ''
-  };
+    }
+  });
 }
 
+// ✅ Detect if frontend expects JSON
 function prefersJson(headers: Record<string, string | undefined>): boolean {
   const accept = headers.accept?.toLowerCase() ?? '';
   const requestedWith = headers['x-requested-with']?.toLowerCase() ?? '';
   return accept.includes('application/json') || requestedWith === 'xmlhttprequest';
 }
 
+// ✅ Unified response helper
 function responseFor(
   wantsJson: boolean,
   statusCode: number,
@@ -50,18 +50,7 @@ function responseFor(
   return redirectResponse(status);
 }
 
-function decodeBody(body: string | null, isBase64Encoded: boolean): string {
-  if (!body) {
-    return '';
-  }
-
-  if (isBase64Encoded) {
-    return Buffer.from(body, 'base64').toString('utf8');
-  }
-
-  return body;
-}
-
+// ✅ Parse payload (same as your original)
 function parsePayload(
   contentType: string,
   rawBody: string
@@ -93,23 +82,33 @@ function parsePayload(
   return null;
 }
 
-function hmacSha256Hex(secret: string, value: string): string {
-  return createHmac('sha256', secret).update(value, 'utf8').digest('hex');
+// ✅ Web Crypto HMAC (Cloudflare-compatible)
+async function hmacSha256Hex(secret: string, value: string): Promise<string> {
+  const enc = new TextEncoder();
+
+  const key = await crypto.subtle.importKey(
+    'raw',
+    enc.encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign']
+  );
+
+  const signature = await crypto.subtle.sign(
+    'HMAC',
+    key,
+    enc.encode(value)
+  );
+
+  return Array.from(new Uint8Array(signature))
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('');
 }
 
-export const handler = async (event: {
-  httpMethod: string;
-  headers: Record<string, string | undefined>;
-  body: string | null;
-  isBase64Encoded: boolean;
-}) => {
-  const wantsJson = prefersJson(event.headers ?? {});
-
-  if (event.httpMethod !== 'POST') {
-    return wantsJson
-      ? jsonResponse(405, { status: 'error', message: 'Method not allowed.' })
-      : redirectResponse('error');
-  }
+// ✅ Cloudflare Pages function (POST only)
+export const onRequestPost = async ({ request }) => {
+  const headers = Object.fromEntries(request.headers);
+  const wantsJson = prefersJson(headers);
 
   const HQ_API_URL = process.env.HQ_API_URL;
   const HQ_APP_ID = process.env.HQ_APP_ID;
@@ -117,19 +116,19 @@ export const handler = async (event: {
   const HQ_API_SECRET = process.env.HQ_API_SECRET;
 
   if (!HQ_API_URL || !HQ_APP_ID || !HQ_APP_KEY || !HQ_API_SECRET) {
-    console.error('Missing one or more HQ_* environment variables.');
+    console.error('Missing HQ environment variables.');
     return responseFor(wantsJson, 500, 'error', 'Missing HQ environment variables.');
   }
 
-  const contentType = (event.headers['content-type'] ?? '').toLowerCase();
-  const rawBody = decodeBody(event.body, event.isBase64Encoded);
+  const contentType = request.headers.get('content-type')?.toLowerCase() ?? '';
+  const rawBody = await request.text();
 
   let parsed: ParsedPayload | null = null;
 
   try {
     parsed = parsePayload(contentType, rawBody);
   } catch (error) {
-    console.error('Failed to parse request payload:', error);
+    console.error('Failed to parse payload:', error);
     return responseFor(wantsJson, 400, 'invalid', 'Invalid request payload.');
   }
 
@@ -140,11 +139,12 @@ export const handler = async (event: {
   const { name, email, subject, message, company, form_elapsed_ms } = parsed;
   const elapsedMs = Number(form_elapsed_ms || '0');
 
-  // Server-side anti-bot checks to complement client checks.
+  // ✅ Anti-bot checks
   if (company !== '' || Number.isNaN(elapsedMs) || elapsedMs < 3000) {
     return responseFor(wantsJson, 429, 'blocked', 'Submission blocked by anti-bot checks.');
   }
 
+  // ✅ Validation
   if (
     name.length < 2 ||
     name.length > 255 ||
@@ -170,7 +170,10 @@ export const handler = async (event: {
 
   const payloadJson = JSON.stringify(hqPayload);
   const timestamp = Math.floor(Date.now() / 1000).toString();
-  const signature = hmacSha256Hex(HQ_API_SECRET, `${timestamp}${payloadJson}`);
+  const signature = await hmacSha256Hex(
+    HQ_API_SECRET,
+    `${timestamp}${payloadJson}`
+  );
 
   try {
     const response = await fetch(HQ_API_URL, {
