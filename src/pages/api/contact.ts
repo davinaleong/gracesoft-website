@@ -180,6 +180,7 @@ export const onRequestPost = async ({ request }) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json',
         'X-APP-ID': HQ_APP_ID,
         'X-APP-KEY': HQ_APP_KEY,
         'X-TIMESTAMP': timestamp,
@@ -188,10 +189,14 @@ export const onRequestPost = async ({ request }) => {
       body: payloadJson
     });
 
-    if (response.status !== 201) {
+    if (!response.ok) {
       const text = await response.text();
-      console.error('HQ API error:', response.status, text);
-      return responseFor(wantsJson, 502, 'error', 'HQ API returned an unexpected response.');
+      console.error('HQ API ERROR RESPONSE:', {
+        status: response.status,
+        body: text
+      });
+
+      return responseFor(wantsJson, 502, 'error', 'HQ API returned an error.');
     }
 
     return responseFor(wantsJson, 201, 'sent', 'Message sent successfully.');
