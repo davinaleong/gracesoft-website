@@ -1,4 +1,4 @@
-console.log('Contact API route loaded.');
+console.log('Contact API route loaded.'); // <-- This doesn't get printed.
 
 type Env = {
   HQ_API_URL?: string;
@@ -111,6 +111,13 @@ export const onRequestPost = async (context: ContactRequestContext): Promise<Res
     const HQ_APP_ID = env.HQ_APP_ID;
     const HQ_APP_KEY = env.HQ_APP_KEY;
     const HQ_API_SECRET = env.HQ_API_SECRET;
+
+    console.log('HEADERS DEBUG:', {
+      HQ_API_URL,
+      HQ_APP_ID,
+      HQ_APP_KEY,
+      HQ_API_SECRET
+    });
 
     if (!HQ_API_URL || !HQ_APP_ID || !HQ_APP_KEY || !HQ_API_SECRET) {
       console.error('Missing ENV');
