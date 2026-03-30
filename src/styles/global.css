@@ -111,6 +111,8 @@ body {
 }
 
 .site-header {
+    position: relative;
+    z-index: 40;
     color: #ffffff;
     background-color: var(--gs-primary-600);
     padding: var(--gs-space-2) var(--gs-space-3);
@@ -176,6 +178,7 @@ body {
     position: absolute;
     inset-inline: 0;
     top: 100%;
+    z-index: 50;
     display: grid;
     grid-template-rows: 0fr;
     background-color: var(--gs-primary-700);
