@@ -217,6 +217,31 @@ body {
     color: #ffffff;
 }
 
+.footer-meta {
+    display: grid;
+    justify-items: end;
+    gap: 0.25rem;
+}
+
+.footer-report-links {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 0;
+    font-size: 0.75rem;
+    opacity: 0.72;
+}
+
+.footer-report-links a {
+    color: var(--gs-primary-100);
+    text-decoration: underline;
+    text-underline-offset: 0.1em;
+}
+
+.footer-report-links a:hover {
+    opacity: 0.88;
+}
+
 .nav-toggle:checked ~ .site-nav {
     grid-template-rows: 1fr;
     box-shadow: var(--gs-shadow-md);
@@ -937,5 +962,16 @@ body {
         grid-template-columns: 1.15fr 0.85fr;
         align-items: stretch;
         gap: 1.25rem;
+    }
+}
+
+@media (max-width: 47.99rem) {
+    .footer-meta {
+        justify-items: start;
+        text-align: left;
+    }
+
+    .footer-report-links {
+        flex-wrap: wrap;
     }
 }
