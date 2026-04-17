@@ -1,10 +1,10 @@
 ---
-import { AppWindow, MousePointer, Layers, Lightbulb } from '@lucide/astro';
+import { AppWindow, MousePointer, Layers, Bot } from '@lucide/astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout
     title="Services"
-    description="Explore GraceSoft services including web application development, UX/UI design, system architecture, and technical consulting."
+    description="Explore GraceSoft services including web application development, UX/UI design, system architecture, and AI integration for chatbot and assistant experiences."
 >
     <main class="services-page">
          <section class="title-section services-hero relative isolate overflow-hidden text-white px-4 py-20 sm:py-24 lg:py-28">
@@ -39,10 +39,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     </article>
 
                     <article class="feature-card reveal rise delay-4 text-center space-y-4">
-                        <Lightbulb class="block mx-auto" />
-                        <h3 class="text-xl font-semibold sm:text-2xl">Technical Consulting</h3>
-                        <p class="text-sm sm:text-base">Get practical guidance that turns complex technical choices into clear, confident next steps.</p>
+                        <Bot class="block mx-auto" />
+                        <h3 class="text-xl font-semibold sm:text-2xl">AI Integration &amp; Chatbots</h3>
+                        <p class="text-sm sm:text-base">We integrate practical AI features, including chatbot workflows and assistant-style experiences, into your product stack.</p>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-detail-section px-4 py-14 sm:py-16 lg:py-20 bg-gs-purple-50">
+            <div class="container mx-auto max-w-5xl space-y-6 sm:space-y-8 text-center">
+                <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl reveal rise">AI That Supports Real Product Workflows</h2>
+                <div class="feature-card reveal rise delay-1 space-y-4">
+                    <p class="text-sm sm:text-base lg:text-lg text-gs-black-800">GraceSoft brings AI into products in practical, measurable ways, from conversational support to workflow automation.</p>
+                    <p class="text-sm sm:text-base lg:text-lg text-gs-black-800">This includes experience integrating chatbot solutions using cloud platforms like Azure, with a focus on reliability, privacy, and user value.</p>
                 </div>
             </div>
         </section>
