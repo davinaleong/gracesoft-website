@@ -1,171 +1,263 @@
 ---
-import '../styles/global.css';
-import { Menu, X } from '@lucide/astro';
+import "../styles/global.css";
+import { Menu, X } from "@lucide/astro";
 
 const { title, description } = Astro.props;
 
 // If no title OR "Home" → just "GraceSoft"
 const pageTitle =
-  !title || title === 'Home'
-    ? 'GraceSoft'
-    : `GraceSoft - ${title}`;
+  !title || title === "Home" ? "GraceSoft" : `GraceSoft - ${title}`;
 
 const pageDescription =
-    description ??
-    'GraceSoft designs and develops modern web applications focused on clarity, usability, and long-term reliability.';
+  description ??
+  "GraceSoft designs and develops modern web applications focused on clarity, usability, and long-term reliability.";
 
 const canonicalUrl = Astro.url;
-const ogImageUrl = new URL('/wm-w.svg', canonicalUrl).href;
+const ogImageUrl = new URL("/wm-w.svg", canonicalUrl).href;
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/logo.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-        <meta name="description" content={pageDescription} />
-        <meta name="author" content="GraceSoft" />
-        <meta name="robots" content="index, follow" />
-        <meta name="theme-color" content="#372aac" />
-        <link rel="canonical" href={canonicalUrl} />
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={pageDescription} />
+    <meta name="author" content="GraceSoft" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#372aac" />
+    <link rel="canonical" href={canonicalUrl} />
 
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="GraceSoft" />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="GraceSoft" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-        <meta name="twitter:image" content={ogImageUrl} />
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-        <header class="site-header">
-            <div class="site-header-inner container">
-                <a href="/">
-                    <img
-                        src="/wm-w.svg"
-                        alt="GraceSoft Icon"
-                        width="150"
-                    />
-                </a>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner container">
+        <a href="/">
+          <img src="/wm-w.svg" alt="GraceSoft Icon" width="150" />
+        </a>
 
-                <input id="nav-toggle" type="checkbox" class="nav-toggle" />
-                <label for="nav-toggle" class="nav-toggle-button" aria-label="Toggle navigation menu">
-                    <Menu class="icon-open" size={22} strokeWidth={2.25} />
-                    <X class="icon-close" size={22} strokeWidth={2.25} />
-                </label>
+        <input id="nav-toggle" type="checkbox" class="nav-toggle" />
+        <label
+          for="nav-toggle"
+          class="nav-toggle-button"
+          aria-label="Toggle navigation menu"
+        >
+          <Menu class="icon-open" size={22} strokeWidth={2.25} />
+          <X class="icon-close" size={22} strokeWidth={2.25} />
+        </label>
 
-                <nav class="site-nav" aria-label="Main navigation">
-                    <div class="site-nav-list">
-                        <a href="/" class="nav-link">Home</a>
-                        <a href="/about" class="nav-link">About</a>
-                        <a href="/services" class="nav-link">Services</a>
-                        <a href="/approach" class="nav-link">Approach</a>
-                        <a href="https://capture.gracesoft.dev/" target="_blank" rel="noopener noreferrer" class="nav-link nav-link-product">Capture</a>
-                        <a href="/contact" class="nav-link">Contact</a>
-                    </div>
-                </nav>
-            </div>
-        </header>
+        <nav class="site-nav" aria-label="Main navigation">
+          <div class="site-nav-list">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/services" class="nav-link">Services</a>
 
-		<slot/>
-
-        <footer class="text-white bg-gs-purple-600">
-            <div class="container mx-auto">
-                <p class="p-4">
-                    <a href="/" class="text-gs-purple-600 text-xl font-bold hover:opacity-70">
-                        <img
-                            src="/wm-w.svg"
-                            alt="GraceSoft logo"
-                            width="150"
-                        />
-                    </a>
-                </p>
-                <div class="grid gap-4 grid-cols-1 p-4 md:grid-cols-3">
-                    <div class="space-y-4">
-                        <h5 class="font-bold">Quick Links</h5>
-
-                        <ul>
-                            <li><a href="/" class="hover:opacity-70">Home</a></li>
-                            <li><a href="/about" class="hover:opacity-70">About</a></li>
-                            <li><a href="/services" class="hover:opacity-70">Services</a></li>
-                            <li><a href="/approach" class="hover:opacity-70">Approach</a></li>
-                            <li><a href="https://capture.gracesoft.dev/" target="_blank" rel="noopener noreferrer" class="hover:opacity-70">GraceSoft Capture</a></li>
-                            <li><a href="/contact" class="hover:opacity-70">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="space-y-4">
-                        <h5 class="font-bold">Services</h5>
-
-                        <ol>
-                            <li>Web Development</li>
-                            <li>UI/UX Design</li>
-                            <li>Consulting</li>
-                        </ol>
-                    </div>
-                    <div class="space-y-4">
-                        <h5 class="font-bold">Contact</h5>
-
-                        <ul>
-                            <li><a href="/contact" class="hover:opacity-70">hello@gracesoft.dev</a></li>
-                            <li><a href="/contact" class="hover:opacity-70">Start a Project &rarr;</a></li>
-                        </ul>
-                    </div>
+            <div class="nav-dropdown">
+              <button
+                class="nav-link nav-dropdown-trigger"
+                type="button"
+                aria-haspopup="true"
+              >
+                Products
+              </button>
+              <div class="mega-panel" role="menu">
+                <div class="mega-column">
+                  <p class="mega-heading">Explore Products</p>
+                  <a href="/products" class="mega-link">All Products</a>
+                  <a
+                    href="https://capture.gracesoft.dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mega-link"
+                  >
+                    GraceSoft Capture
+                  </a>
+                  <a
+                    href="https://concierge.sentinel.gracesoft.dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mega-link"
+                  >
+                    GraceSoft Sentinel Concierge
+                  </a>
                 </div>
-                <div class="p-4 space-y-4">
-                    <h5 class="font-bold">Social Links</h5>
-                    <div class="flex flex-wrap items-center gap-2">
-                        <a href="https://www.linkedin.com/company/gracesoftdev" target="_blank" class="hover:opacity-70">
-                            <img
-                                src="/linkedin.svg"
-                                alt="LinkedIn"
-                                width="32"
-                                height="32"
-                            />
-                        </a>
-                        <a href="https://www.youtube.com/@GraceSoftMedia" target="_blank" class="hover:opacity-70">
-                            <img
-                                src="/youtube.svg"
-                                alt="YouTube"
-                                width="32"
-                                height="32"
-                            />
-                        </a>
-                        <a href="https://dev.to/gracesoftdev" target="_blank" class="hover:opacity-70">
-                            <img
-                                src="/dev.svg"
-                                alt="Dev.to"
-                                width="24"
-                                height="24"
-                            />
-                        </a>
-                    </div>
+                <div class="mega-column">
+                  <p class="mega-heading">Naming &amp; Structure</p>
+                  <a href="/product-naming" class="mega-link"
+                    >Product Naming Convention</a
+                  >
                 </div>
+              </div>
             </div>
-            <div class="bg-gs-purple-700">
-                <div class="container p-4 mx-auto flex items-center justify-between">
-                    <nav class="flex items-center gap-2">
-                        <a href="/privacy" class="text-sm">Privacy Policy</a>
-                    </nav>
-                    <div class="footer-meta text-right">
-                        <p class="text-sm">
-                            &copy; {new Date().getFullYear()} GraceSoft. All rights reserved.
-                        </p>
-                        <p class="footer-report-links" aria-label="Lighthouse performance reports">
-                            <span>Performance reports:</span>
-                            <a href="https://lighthouse.gracesoft.dev/gracesoft.dev-20260417T120331.html" target="_blank" rel="noopener noreferrer nofollow">Mobile</a>
-                            <span aria-hidden="true">/</span>
-                            <a href="https://lighthouse.gracesoft.dev/gracesoft.dev-20260417T122624.html" target="_blank" rel="noopener noreferrer nofollow">Desktop</a>
-                        </p>
-                    </div>
+
+            <div class="nav-dropdown">
+              <button
+                class="nav-link nav-dropdown-trigger"
+                type="button"
+                aria-haspopup="true"
+              >
+                Company
+              </button>
+              <div class="mega-panel" role="menu">
+                <div class="mega-column">
+                  <p class="mega-heading">About GraceSoft</p>
+                  <a href="/about" class="mega-link">About</a>
+                  <a href="/approach" class="mega-link">Approach</a>
                 </div>
+                <div class="mega-column">
+                  <p class="mega-heading">Get Started</p>
+                  <a href="/contact" class="mega-link">Contact</a>
+                  <a href="/services" class="mega-link">Services</a>
+                </div>
+              </div>
             </div>
-        </footer>
-	</body>
+
+            <a href="/contact" class="nav-link">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <slot />
+
+    <footer class="text-white bg-gs-purple-600">
+      <div class="container mx-auto">
+        <p class="p-4">
+          <a
+            href="/"
+            class="text-gs-purple-600 text-xl font-bold hover:opacity-70"
+          >
+            <img src="/wm-w.svg" alt="GraceSoft logo" width="150" />
+          </a>
+        </p>
+        <div class="grid gap-4 grid-cols-1 p-4 md:grid-cols-3">
+          <div class="space-y-4">
+            <h5 class="font-bold">Quick Links</h5>
+
+            <ul>
+              <li><a href="/" class="hover:opacity-70">Home</a></li>
+              <li><a href="/about" class="hover:opacity-70">About</a></li>
+              <li><a href="/services" class="hover:opacity-70">Services</a></li>
+              <li><a href="/products" class="hover:opacity-70">Products</a></li>
+              <li>
+                <a href="/product-naming" class="hover:opacity-70"
+                  >Product Naming</a
+                >
+              </li>
+              <li><a href="/approach" class="hover:opacity-70">Approach</a></li>
+              <li>
+                <a
+                  href="https://capture.gracesoft.dev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:opacity-70">GraceSoft Capture</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://concierge.sentinel.gracesoft.dev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:opacity-70">GraceSoft Sentinel Concierge</a
+                >
+              </li>
+              <li><a href="/contact" class="hover:opacity-70">Contact</a></li>
+            </ul>
+          </div>
+          <div class="space-y-4">
+            <h5 class="font-bold">Services</h5>
+
+            <ol>
+              <li>Web Development</li>
+              <li>UI/UX Design</li>
+              <li>Consulting</li>
+            </ol>
+          </div>
+          <div class="space-y-4">
+            <h5 class="font-bold">Contact</h5>
+
+            <ul>
+              <li>
+                <a href="/contact" class="hover:opacity-70"
+                  >hello@gracesoft.dev</a
+                >
+              </li>
+              <li>
+                <a href="/contact" class="hover:opacity-70"
+                  >Start a Project &rarr;</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="p-4 space-y-4">
+          <h5 class="font-bold">Social Links</h5>
+          <div class="flex flex-wrap items-center gap-2">
+            <a
+              href="https://www.linkedin.com/company/gracesoftdev"
+              target="_blank"
+              class="hover:opacity-70"
+            >
+              <img src="/linkedin.svg" alt="LinkedIn" width="32" height="32" />
+            </a>
+            <a
+              href="https://www.youtube.com/@GraceSoftMedia"
+              target="_blank"
+              class="hover:opacity-70"
+            >
+              <img src="/youtube.svg" alt="YouTube" width="32" height="32" />
+            </a>
+            <a
+              href="https://dev.to/gracesoftdev"
+              target="_blank"
+              class="hover:opacity-70"
+            >
+              <img src="/dev.svg" alt="Dev.to" width="24" height="24" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gs-purple-700">
+        <div class="container p-4 mx-auto flex items-center justify-between">
+          <nav class="flex items-center gap-2">
+            <a href="/privacy" class="text-sm">Privacy Policy</a>
+          </nav>
+          <div class="footer-meta text-right">
+            <p class="text-sm">
+              &copy; {new Date().getFullYear()} GraceSoft. All rights reserved.
+            </p>
+            <p
+              class="footer-report-links"
+              aria-label="Lighthouse performance reports"
+            >
+              <span>Performance reports:</span>
+              <a
+                href="https://lighthouse.gracesoft.dev/gracesoft.dev-20260417T120331.html"
+                target="_blank"
+                rel="noopener noreferrer nofollow">Mobile</a
+              >
+              <span aria-hidden="true">/</span>
+              <a
+                href="https://lighthouse.gracesoft.dev/gracesoft.dev-20260417T122624.html"
+                target="_blank"
+                rel="noopener noreferrer nofollow">Desktop</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

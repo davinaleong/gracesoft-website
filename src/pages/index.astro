@@ -1,6 +1,16 @@
 ---
-import { Settings, User, Layers, AppWindow, MousePointer, Bot, ShieldCheck, Clock3, SearchCheck } from '@lucide/astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  Settings,
+  User,
+  Layers,
+  AppWindow,
+  MousePointer,
+  Bot,
+  ShieldCheck,
+  Clock3,
+  SearchCheck,
+} from "@lucide/astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
@@ -8,15 +18,42 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="GraceSoft builds modern web applications with thoughtful engineering, user-centered design, and scalable architecture."
 >
   <main class="home-page">
-    <section class="hero-section relative isolate overflow-hidden min-h-[92vh] grid place-items-center px-4 py-16 sm:py-20 lg:py-28 text-white">
-      <div class="container mx-auto w-full max-w-5xl text-center space-y-6 sm:space-y-8">
+    <section
+      class="hero-section relative isolate overflow-hidden min-h-[92vh] grid place-items-center px-4 py-16 sm:py-20 lg:py-28 text-white"
+    >
+      <div
+        class="container mx-auto w-full max-w-5xl text-center space-y-6 sm:space-y-8"
+      >
         <h1 class="sr-only">GraceSoft</h1>
-        <img src="wm-w.svg" alt="GraceSoft logo" class="reveal rise block w-full h-auto max-w-md mx-auto">
-        <p class="reveal rise delay-1 font-serif text-balance text-3xl leading-tight sm:text-4xl lg:text-6xl">Building Digital Systems That Work — Not Just Look Good</p>
-        <p class="reveal rise delay-2 mx-auto max-w-3xl text-sm leading-relaxed text-gs-purple-100 sm:text-base lg:text-xl">GraceSoft helps businesses design, build, and scale modern web applications with clarity, performance, and purpose.</p>
-        <p class="reveal rise delay-3 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
-          <a href="/contact" class="inline-flex items-center justify-center font-semibold text-gs-purple-700 bg-white rounded-md px-5 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90">Start a Project</a>
-          <a href="/approach" class="inline-flex items-center justify-center font-semibold text-white border border-white/70 bg-white/10 backdrop-blur-sm rounded-md px-5 py-3 transition-colors duration-300 hover:bg-white/20">View Our Approach</a>
+        <img
+          src="wm-w.svg"
+          alt="GraceSoft logo"
+          class="reveal rise block w-full h-auto max-w-md mx-auto"
+        />
+        <p
+          class="reveal rise delay-1 font-serif text-balance text-3xl leading-tight sm:text-4xl lg:text-6xl"
+        >
+          Building Digital Systems That Work — Not Just Look Good
+        </p>
+        <p
+          class="reveal rise delay-2 mx-auto max-w-3xl text-sm leading-relaxed text-gs-purple-100 sm:text-base lg:text-xl"
+        >
+          GraceSoft helps businesses design, build, and scale modern web
+          applications with clarity, performance, and purpose.
+        </p>
+        <p
+          class="reveal rise delay-3 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4"
+        >
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center font-semibold text-gs-purple-700 bg-white rounded-md px-5 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90"
+            >Start a Project</a
+          >
+          <a
+            href="/approach"
+            class="inline-flex items-center justify-center font-semibold text-white border border-white/70 bg-white/10 backdrop-blur-sm rounded-md px-5 py-3 transition-colors duration-300 hover:bg-white/20"
+            >View Our Approach</a
+          >
         </p>
       </div>
     </section>
@@ -24,25 +61,46 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <section class="values-section px-4 py-16 sm:py-20 lg:py-24">
       <div class="container mx-auto w-full max-w-6xl space-y-8 sm:space-y-10">
         <div class="text-center space-y-3 reveal rise">
-          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl">Principles Behind Every Build</h2>
-          <p class="mx-auto max-w-2xl text-sm text-gs-black-700 sm:text-base lg:text-lg">A dependable product comes from strong foundations, not shortcuts.</p>
+          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl">
+            Principles Behind Every Build
+          </h2>
+          <p
+            class="mx-auto max-w-2xl text-sm text-gs-black-700 sm:text-base lg:text-lg"
+          >
+            A dependable product comes from strong foundations, not shortcuts.
+          </p>
         </div>
 
         <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-3">
           <div class="feature-card reveal rise delay-1 text-center space-y-4">
-            <Settings class="block mx-auto"/>
-            <h3 class="text-xl font-semibold sm:text-2xl">Thoughtful Engineering</h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">We do not just code. We design systems built to remain stable as your product evolves.</p>
+            <Settings class="block mx-auto" />
+            <h3 class="text-xl font-semibold sm:text-2xl">
+              Thoughtful Engineering
+            </h3>
+            <p class="text-sm text-gs-black-700 sm:text-base">
+              We do not just code. We design systems built to remain stable as
+              your product evolves.
+            </p>
           </div>
           <div class="feature-card reveal rise delay-2 text-center space-y-4">
-            <User class="block mx-auto"/>
-            <h3 class="text-xl font-semibold sm:text-2xl">User-Centered Design</h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">Every decision is tested against real user needs so the experience stays intuitive.</p>
+            <User class="block mx-auto" />
+            <h3 class="text-xl font-semibold sm:text-2xl">
+              User-Centered Design
+            </h3>
+            <p class="text-sm text-gs-black-700 sm:text-base">
+              Every decision is tested against real user needs so the experience
+              stays intuitive.
+            </p>
           </div>
           <div class="feature-card reveal rise delay-3 text-center space-y-4">
-            <Layers class="block mx-auto"/>
-            <h3 class="text-xl font-semibold sm:text-2xl">Scalable Foundations</h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">Your architecture is designed to handle growth without painful rebuilds later.</p>
+            <Layers class="block mx-auto" />
+            <h3 class="text-xl font-semibold sm:text-2xl">
+              Scalable Foundations
+            </h3>
+            <p class="text-sm text-gs-black-700 sm:text-base">
+              Your architecture is designed to handle growth without painful
+              rebuilds later.
+            </p>
           </div>
         </div>
       </div>
@@ -53,16 +111,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <article class="capture-spotlight reveal rise">
           <div class="capture-spotlight-copy space-y-5">
             <p class="capture-kicker">Featured Product</p>
-            <h2 class="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl">Meet GraceSoft Capture</h2>
-            <p class="text-sm sm:text-base lg:text-lg">GraceSoft Capture helps teams collect, organize, and act on critical information with less friction. It is built for clarity, speed, and dependable day-to-day execution.</p>
+            <h2
+              class="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl"
+            >
+              Meet GraceSoft Capture
+            </h2>
+            <p class="text-sm sm:text-base lg:text-lg">
+              GraceSoft Capture helps teams collect, organize, and act on
+              critical information with less friction. It is built for clarity,
+              speed, and dependable day-to-day execution.
+            </p>
 
             <ul class="capture-highlights">
-              <li><ShieldCheck size={18} /> Built with secure, production-ready engineering standards</li>
-              <li><Clock3 size={18} /> Streamlined workflows for faster capture-to-action cycles</li>
-              <li><SearchCheck size={18} /> Clear structure that makes information easier to find and use</li>
+              <li>
+                <ShieldCheck size={18} /> Built with secure, production-ready engineering
+                standards
+              </li>
+              <li>
+                <Clock3 size={18} /> Streamlined workflows for faster capture-to-action
+                cycles
+              </li>
+              <li>
+                <SearchCheck size={18} /> Clear structure that makes information easier
+                to find and use
+              </li>
             </ul>
 
-            <p class="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+            <p
+              class="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center"
+            >
               <a
                 href="https://capture.gracesoft.dev/"
                 target="_blank"
@@ -71,14 +148,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               >
                 Explore GraceSoft Capture
               </a>
-              <a href="/contact" class="inline-flex items-center justify-center rounded-md border border-gs-purple-300 px-5 py-3 font-semibold text-gs-purple-700 transition-colors duration-300 hover:bg-gs-purple-50">Schedule a Product Walkthrough</a>
+              <a
+                href="/contact"
+                class="inline-flex items-center justify-center rounded-md border border-gs-purple-300 px-5 py-3 font-semibold text-gs-purple-700 transition-colors duration-300 hover:bg-gs-purple-50"
+                >Schedule a Product Walkthrough</a
+              >
             </p>
           </div>
 
           <div class="capture-spotlight-panel reveal rise delay-2">
             <p class="capture-panel-badge">Official GraceSoft Product</p>
-            <h3 class="font-serif text-2xl leading-tight sm:text-3xl">Capture what matters.<br />Move faster with confidence.</h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">Designed and maintained by GraceSoft, Capture reflects the same standards we bring to every client engagement: clarity in UX, strong technical foundations, and long-term reliability.</p>
+            <h3 class="font-serif text-2xl leading-tight sm:text-3xl">
+              Capture what matters.<br />Move faster with confidence.
+            </h3>
+            <p class="text-sm text-gs-black-700 sm:text-base">
+              Designed and maintained by GraceSoft, Capture reflects the same
+              standards we bring to every client engagement: clarity in UX,
+              strong technical foundations, and long-term reliability.
+            </p>
             <p>
               <a
                 href="https://capture.gracesoft.dev/"
@@ -94,34 +181,158 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <section class="struggling-section px-4 py-16 sm:py-20 lg:py-24 bg-gs-black-100">
-      <div class="container mx-auto max-w-6xl space-y-8 sm:space-y-10 text-center">
-        <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl reveal rise">If you are dealing with:</h2>
+    <section class="px-4 py-16 sm:py-20 lg:py-24 bg-white">
+      <div class="container mx-auto w-full max-w-6xl space-y-8 sm:space-y-10">
+        <div class="text-center space-y-3 reveal rise">
+          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl">
+            New in the Sentinel Suite: Concierge
+          </h2>
+          <p
+            class="mx-auto max-w-3xl text-sm text-gs-black-700 sm:text-base lg:text-lg"
+          >
+            GraceSoft Sentinel is our umbrella suite for AI products. Concierge
+            is an AI agent in that suite focused on handling FAQs and
+            appointment bookings on WhatsApp.
+          </p>
+        </div>
+
+        <article class="capture-spotlight reveal rise delay-1">
+          <div class="feature-card space-y-4">
+            <p class="capture-kicker">GraceSoft Sentinel Concierge</p>
+            <h3 class="font-serif text-2xl leading-tight sm:text-3xl">
+              FAQ + Appointment Booking AI Agent
+            </h3>
+            <p class="text-sm sm:text-base text-gs-black-800">
+              Concierge follows your predefined FAQ blueprint so responses stay
+              consistent with your business guidelines.
+            </p>
+            <p class="text-sm sm:text-base text-gs-black-800">
+              It can also create public-holiday-aware and
+              non-business-hours-aware bookings into your Google Calendar, Apple
+              Calendar, or Outlook calendar workflows.
+            </p>
+            <p
+              class="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center"
+            >
+              <a
+                href="https://concierge.sentinel.gracesoft.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="capture-primary-link inline-flex items-center justify-center rounded-md px-5 py-3 font-semibold"
+              >
+                Explore Sentinel Concierge
+              </a>
+              <a
+                href="/products"
+                class="inline-flex items-center justify-center rounded-md border border-gs-purple-300 px-5 py-3 font-semibold text-gs-purple-700 transition-colors duration-300 hover:bg-gs-purple-50"
+                >View All GraceSoft Products</a
+              >
+            </p>
+          </div>
+
+          <div class="capture-spotlight-panel reveal rise delay-2">
+            <p class="capture-panel-badge">Business-Friendly Automation</p>
+            <h3 class="font-serif text-2xl leading-tight sm:text-3xl">
+              Answer faster. Book smarter. Stay on-brand.
+            </h3>
+            <p class="text-sm text-gs-black-700 sm:text-base">
+              Sentinel Concierge reduces manual back-and-forth while preserving
+              predictable, policy-aligned answers and cleaner scheduling
+              decisions.
+            </p>
+            <p>
+              <a
+                href="/contact"
+                class="inline-flex items-center justify-center rounded-md border border-gs-purple-300 px-5 py-3 font-semibold text-gs-purple-700 transition-colors duration-300 hover:bg-gs-purple-50"
+              >
+                Discuss Concierge for Your Business
+              </a>
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="px-4 py-14 sm:py-16 lg:py-20 bg-gs-purple-50">
+      <div
+        class="container mx-auto max-w-5xl space-y-6 sm:space-y-8 text-center"
+      >
+        <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl reveal rise">
+          Product Naming, Explained Simply
+        </h2>
+        <div class="feature-card reveal rise delay-1 space-y-4">
+          <p class="text-sm sm:text-base lg:text-lg text-gs-black-800">
+            GraceSoft names are structured for quick business understanding:
+            company name, product name, and optional function name.
+          </p>
+          <p class="text-sm sm:text-base lg:text-lg text-gs-black-800">
+            Example: GraceSoft Sentinel Concierge = GraceSoft (company) +
+            Sentinel (AI suite) + Concierge (FAQ and booking function).
+          </p>
+          <p>
+            <a
+              href="/product-naming"
+              class="inline-flex items-center justify-center rounded-md border border-gs-purple-300 px-5 py-3 font-semibold text-gs-purple-700 transition-colors duration-300 hover:bg-gs-purple-50"
+            >
+              Read Product Naming Convention
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="struggling-section px-4 py-16 sm:py-20 lg:py-24 bg-gs-black-100"
+    >
+      <div
+        class="container mx-auto max-w-6xl space-y-8 sm:space-y-10 text-center"
+      >
+        <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl reveal rise">
+          If you are dealing with:
+        </h2>
 
         <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-4">
           <div class="issue-card reveal rise delay-1 space-y-4">
-            <div class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto">1</div>
+            <div
+              class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto"
+            >
+              1
+            </div>
 
             <p class="text-lg sm:text-xl">A messy or outdated system</p>
           </div>
           <div class="issue-card reveal rise delay-2 space-y-4">
-            <div class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto">2</div>
+            <div
+              class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto"
+            >
+              2
+            </div>
 
             <p class="text-lg sm:text-xl">Poor user experience</p>
           </div>
           <div class="issue-card reveal rise delay-3 space-y-4">
-            <div class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto">3</div>
+            <div
+              class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto"
+            >
+              3
+            </div>
 
             <p class="text-lg sm:text-xl">Slow or hard-to-maintain code</p>
           </div>
           <div class="issue-card reveal rise delay-4 space-y-4">
-            <div class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto">4</div>
+            <div
+              class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto"
+            >
+              4
+            </div>
 
             <p class="text-lg sm:text-xl">Difficulty scaling your product</p>
           </div>
         </div>
 
-        <p class="text-lg sm:text-xl text-center text-gs-purple-600 font-bold italic reveal rise delay-4">
+        <p
+          class="text-lg sm:text-xl text-center text-gs-purple-600 font-bold italic reveal rise delay-4"
+        >
           &rarr; We can help you fix it — properly.
         </p>
       </div>
@@ -129,82 +340,146 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <section class="services-section px-4 py-16 sm:py-20 lg:py-24">
       <div class="container mx-auto w-full max-w-6xl space-y-8 sm:space-y-10">
-        <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl text-center reveal rise">Services Preview</h2>
-        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <h2
+          class="font-serif text-2xl sm:text-3xl lg:text-4xl text-center reveal rise"
+        >
+          Services Preview
+        </h2>
+        <div
+          class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+        >
           <div class="feature-card reveal rise delay-1 text-center space-y-4">
-            <AppWindow class="block mx-auto"/>
+            <AppWindow class="block mx-auto" />
             <p class="text-sm sm:text-base">Web Application Development</p>
           </div>
           <div class="feature-card reveal rise delay-2 text-center space-y-4">
-            <MousePointer class="block mx-auto"/>
+            <MousePointer class="block mx-auto" />
             <p class="text-sm sm:text-base">UX/UI Design</p>
           </div>
           <div class="feature-card reveal rise delay-3 text-center space-y-4">
-            <Layers class="block mx-auto"/>
+            <Layers class="block mx-auto" />
             <p class="text-sm sm:text-base">System Architecture</p>
           </div>
           <div class="feature-card reveal rise delay-4 text-center space-y-4">
-            <Bot class="block mx-auto"/>
+            <Bot class="block mx-auto" />
             <p class="text-sm sm:text-base">AI Integration &amp; Chatbots</p>
           </div>
         </div>
         <p class="text-center reveal rise delay-4">
-          <a href="/services" class="inline-flex items-center justify-center text-white bg-gs-purple-600 px-5 py-3 rounded-md shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90">
+          <a
+            href="/services"
+            class="inline-flex items-center justify-center text-white bg-gs-purple-600 px-5 py-3 rounded-md shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90"
+          >
             Explore Services &rarr;
           </a>
+        </p>
+        <p
+          class="text-center text-sm sm:text-base text-gs-black-700 reveal rise delay-4"
+        >
+          Looking for product context? Explore <a
+            href="/products"
+            class="font-semibold text-gs-purple-700 hover:opacity-80"
+            >GraceSoft products</a
+          >.
         </p>
       </div>
     </section>
 
     <section class="approach-section px-4 py-16 sm:py-20 lg:py-24">
       <div class="container mx-auto w-full max-w-6xl space-y-8 sm:space-y-10">
-        <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl text-center reveal rise">We follow a structured, proven approach</h2>
-        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <h2
+          class="font-serif text-2xl sm:text-3xl lg:text-4xl text-center reveal rise"
+        >
+          We follow a structured, proven approach
+        </h2>
+        <div
+          class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+        >
           <div class="process-step reveal rise delay-1 text-center space-y-3">
             <h3 class="text-lg font-semibold sm:text-xl">Discover</h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">Understand your problem deeply</p>
+            <p class="text-sm text-gs-black-700 sm:text-base">
+              Understand your problem deeply
+            </p>
           </div>
           <div class="process-step reveal rise delay-2 text-center space-y-3">
             <h3 class="text-lg font-semibold sm:text-xl">Design</h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">Map user flows and systems</p>
+            <p class="text-sm text-gs-black-700 sm:text-base">
+              Map user flows and systems
+            </p>
           </div>
           <div class="process-step reveal rise delay-3 text-center space-y-3">
             <h3 class="text-lg font-semibold sm:text-xl">Build</h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">Develop with clarity and scalability</p>
+            <p class="text-sm text-gs-black-700 sm:text-base">
+              Develop with clarity and scalability
+            </p>
           </div>
           <div class="process-step reveal rise delay-4 text-center space-y-3">
             <h3 class="text-lg font-semibold sm:text-xl">Refine</h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">Improve with real feedback</p>
+            <p class="text-sm text-gs-black-700 sm:text-base">
+              Improve with real feedback
+            </p>
           </div>
         </div>
         <p class="text-center reveal rise delay-4">
-          <a href="/services" class="inline-flex items-center justify-center text-gs-purple-600 font-semibold hover:opacity-70">
+          <a
+            href="/services"
+            class="inline-flex items-center justify-center text-gs-purple-600 font-semibold hover:opacity-70"
+          >
             See Our Process &rarr;
           </a>
         </p>
       </div>
     </section>
 
-    <section class="approach-section px-4 py-16 sm:py-20 lg:py-24 bg-gs-purple-50">
-      <div class="container mx-auto w-full max-w-4xl space-y-5 sm:space-y-6 text-center">
-        <p class="font-serif text-2xl sm:text-3xl reveal rise">Built by a Developer Who Understands Both Code and Users</p>
+    <section
+      class="approach-section px-4 py-16 sm:py-20 lg:py-24 bg-gs-purple-50"
+    >
+      <div
+        class="container mx-auto w-full max-w-4xl space-y-5 sm:space-y-6 text-center"
+      >
+        <p class="font-serif text-2xl sm:text-3xl reveal rise">
+          Built by a Developer Who Understands Both Code and Users
+        </p>
 
-        <p class="text-sm text-gs-black-700 sm:text-base lg:text-lg reveal rise delay-1">GraceSoft is founded by a full-stack developer with 8+ years of experience building web applications, with additional training in UX design and cybersecurity.</p>
+        <p
+          class="text-sm text-gs-black-700 sm:text-base lg:text-lg reveal rise delay-1"
+        >
+          GraceSoft is founded by a full-stack developer with 8+ years of
+          experience building web applications, with additional training in UX
+          design and cybersecurity.
+        </p>
 
-        <p class="text-sm text-gs-black-700 sm:text-base lg:text-lg reveal rise delay-2">That experience also includes integrating AI into real products, including chatbot solutions powered by cloud platforms such as Azure.</p>
+        <p
+          class="text-sm text-gs-black-700 sm:text-base lg:text-lg reveal rise delay-2"
+        >
+          That experience also includes integrating AI into real products,
+          including chatbot solutions powered by cloud platforms such as Azure.
+        </p>
 
-        <p class="text-sm text-gs-black-700 sm:text-base lg:text-lg reveal rise delay-3">The goal is simple: build systems that are not only functional, but meaningful and reliable.</p>
+        <p
+          class="text-sm text-gs-black-700 sm:text-base lg:text-lg reveal rise delay-3"
+        >
+          The goal is simple: build systems that are not only functional, but
+          meaningful and reliable.
+        </p>
       </div>
     </section>
 
     <div class="cta-section px-4 py-16 sm:py-20 lg:py-24">
-      <div class="container mx-auto w-full max-w-4xl space-y-6 sm:space-y-8 text-center cta-panel reveal rise">
+      <div
+        class="container mx-auto w-full max-w-4xl space-y-6 sm:space-y-8 text-center cta-panel reveal rise"
+      >
         <h2 class="sr-only">Final CTA</h2>
 
-        <p class="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl">Have something in mind?<br>Let us build it together.</p>
+        <p class="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl">
+          Have something in mind?<br />Let us build it together.
+        </p>
 
         <p>
-          <a href="/contact" class="inline-flex items-center justify-center font-semibold text-gs-purple-700 bg-white rounded-md px-5 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90">
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center font-semibold text-gs-purple-700 bg-white rounded-md px-5 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90"
+          >
             Start a Project &rarr;
           </a>
         </p>

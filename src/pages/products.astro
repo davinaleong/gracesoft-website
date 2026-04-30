@@ -1,0 +1,138 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Products"
+  description="Explore GraceSoft products including Capture and Sentinel Concierge, built for practical business operations and reliable day-to-day execution."
+>
+  <main class="services-page">
+    <section
+      class="title-section services-hero relative isolate overflow-hidden text-white px-4 py-20 sm:py-24 lg:py-28"
+    >
+      <div
+        class="container mx-auto max-w-5xl space-y-5 text-center reveal rise"
+      >
+        <h1 class="font-serif text-3xl leading-tight sm:text-4xl lg:text-6xl">
+          GraceSoft Products
+        </h1>
+        <p
+          class="mx-auto max-w-3xl text-sm text-gs-purple-100 sm:text-base lg:text-xl"
+        >
+          Productized systems designed by GraceSoft for clarity, reliability,
+          and practical business outcomes.
+        </p>
+      </div>
+    </section>
+
+    <section class="capture-spotlight-section px-4 py-14 sm:py-16 lg:py-20">
+      <div class="container mx-auto max-w-6xl space-y-8 sm:space-y-10">
+        <h2
+          class="font-serif text-2xl sm:text-3xl lg:text-4xl text-center reveal rise"
+        >
+          Featured Products
+        </h2>
+
+        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2">
+          <article class="feature-card reveal rise delay-1 space-y-4">
+            <p class="capture-kicker">GraceSoft Capture</p>
+            <h3 class="text-xl font-semibold sm:text-2xl">
+              Capture, organize, and act faster
+            </h3>
+            <p class="text-sm sm:text-base text-gs-black-700">
+              GraceSoft Capture helps teams collect and structure key
+              information so operations stay clean, searchable, and easier to
+              execute.
+            </p>
+            <p>
+              <a
+                href="https://capture.gracesoft.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="capture-primary-link inline-flex items-center justify-center rounded-md px-5 py-3 font-semibold"
+              >
+                Visit GraceSoft Capture
+              </a>
+            </p>
+          </article>
+
+          <article class="feature-card reveal rise delay-2 space-y-4">
+            <p class="capture-kicker">GraceSoft Sentinel Concierge</p>
+            <h3 class="text-xl font-semibold sm:text-2xl">
+              WhatsApp FAQ and booking AI agent
+            </h3>
+            <p class="text-sm sm:text-base text-gs-black-700">
+              Part of the Sentinel AI suite, Concierge answers blueprint-based
+              FAQs and supports booking workflows that respect business hours
+              and public holidays.
+            </p>
+            <p class="text-sm sm:text-base text-gs-black-700">
+              Works with Google Calendar, Apple Calendar, and Outlook
+              calendar-based scheduling flows.
+            </p>
+            <p>
+              <a
+                href="https://concierge.sentinel.gracesoft.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="capture-primary-link inline-flex items-center justify-center rounded-md px-5 py-3 font-semibold"
+              >
+                Visit Sentinel Concierge
+              </a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="services-detail-section px-4 py-14 sm:py-16 lg:py-20 bg-gs-purple-50"
+    >
+      <div
+        class="container mx-auto max-w-5xl space-y-6 sm:space-y-8 text-center"
+      >
+        <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl reveal rise">
+          Product Naming Made Simple
+        </h2>
+        <div class="feature-card reveal rise delay-1 space-y-4">
+          <p class="text-sm sm:text-base lg:text-lg text-gs-black-800">
+            GraceSoft product names are intentionally plain and structured so
+            business owners can instantly understand what each offering does.
+          </p>
+          <p class="text-sm sm:text-base lg:text-lg text-gs-black-800">
+            Format: GraceSoft + Product Name + Function Name (optional).
+          </p>
+          <p>
+            <a
+              href="/product-naming"
+              class="inline-flex items-center justify-center rounded-md border border-gs-purple-300 px-5 py-3 font-semibold text-gs-purple-700 transition-colors duration-300 hover:bg-gs-purple-50"
+            >
+              Read Product Naming Convention
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section px-4 py-16 sm:py-20 lg:py-24">
+      <div
+        class="container mx-auto max-w-4xl space-y-6 sm:space-y-8 text-center cta-panel reveal rise"
+      >
+        <h2 class="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl">
+          Want One of These in Your Business Flow?
+        </h2>
+        <p class="text-sm sm:text-base lg:text-lg">
+          We can help you implement, customize, and operationalize the right
+          product for your team.
+        </p>
+        <p>
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center font-semibold text-gs-purple-700 bg-white rounded-md px-5 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90"
+            >Talk to GraceSoft &rarr;</a
+          >
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
