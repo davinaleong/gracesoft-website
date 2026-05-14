@@ -185,19 +185,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <div class="container mx-auto w-full max-w-6xl space-y-8 sm:space-y-10">
         <div class="text-center space-y-3 reveal rise">
           <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl">
-            New in the Sentinel Suite: Concierge
+            New in the Sentinel Suite: Concierge + Cook
           </h2>
           <p
             class="mx-auto max-w-3xl text-sm text-gs-black-700 sm:text-base lg:text-lg"
           >
             GraceSoft Sentinel is our umbrella suite for AI products. Concierge
-            is an AI agent in that suite focused on handling FAQs and
-            appointment bookings on WhatsApp.
+            handles FAQs and appointment bookings on WhatsApp, while Cook helps
+            businesses deliver guided culinary and menu support experiences.
           </p>
         </div>
 
-        <article class="capture-spotlight reveal rise delay-1">
-          <div class="feature-card space-y-4">
+        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2">
+          <article class="feature-card reveal rise delay-1 space-y-4">
             <p class="capture-kicker">GraceSoft Sentinel Concierge</p>
             <h3 class="font-serif text-2xl leading-tight sm:text-3xl">
               FAQ + Appointment Booking AI Agent
@@ -228,24 +228,51 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                 >View All GraceSoft Products</a
               >
             </p>
-          </div>
+          </article>
 
-          <div class="capture-spotlight-panel reveal rise delay-2">
+          <article class="feature-card reveal rise delay-2 space-y-4">
+            <p class="capture-kicker">GraceSoft Sentinel Cook</p>
+            <h3 class="font-serif text-2xl leading-tight sm:text-3xl">
+              Culinary assistant for menu and kitchen workflows
+            </h3>
+            <p class="text-sm sm:text-base text-gs-black-800">
+              Sentinel Cook is part of the Sentinel AI suite and is designed to
+              support food and beverage operations with practical, guided
+              assistance.
+            </p>
+            <p class="text-sm sm:text-base text-gs-black-800">
+              From recipe support to menu-oriented workflow prompts, Cook helps
+              teams move faster while staying consistent in execution.
+            </p>
+            <p>
+              <a
+                href="https://cook.sentinel.gracesoft.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="capture-primary-link inline-flex items-center justify-center rounded-md px-5 py-3 font-semibold"
+              >
+                Explore Sentinel Cook
+              </a>
+            </p>
+          </article>
+        </div>
+
+        <article class="capture-spotlight reveal rise delay-3">
+          <div class="capture-spotlight-panel reveal rise delay-1">
             <p class="capture-panel-badge">Business-Friendly Automation</p>
             <h3 class="font-serif text-2xl leading-tight sm:text-3xl">
-              Answer faster. Book smarter. Stay on-brand.
+              Answer faster. Operate smarter. Stay on-brand.
             </h3>
             <p class="text-sm text-gs-black-700 sm:text-base">
-              Sentinel Concierge reduces manual back-and-forth while preserving
-              predictable, policy-aligned answers and cleaner scheduling
-              decisions.
+              Sentinel products reduce repetitive work while preserving
+              predictable, policy-aligned outputs and more reliable operations.
             </p>
             <p>
               <a
                 href="/contact"
                 class="inline-flex items-center justify-center rounded-md border border-gs-purple-300 px-5 py-3 font-semibold text-gs-purple-700 transition-colors duration-300 hover:bg-gs-purple-50"
               >
-                Discuss Concierge for Your Business
+                Discuss Sentinel for Your Business
               </a>
             </p>
           </div>

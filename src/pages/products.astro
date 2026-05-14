@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout
   title="Products"
-  description="Explore GraceSoft products including Capture and Sentinel Concierge, built for practical business operations and reliable day-to-day execution."
+  description="Explore GraceSoft products including Capture, Sentinel Concierge, and Sentinel Cook, built for practical business operations and reliable day-to-day execution."
 >
   <main class="services-page">
     <section
@@ -33,7 +33,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           Featured Products
         </h2>
 
-        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2">
+        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-3">
           <article class="feature-card reveal rise delay-1 space-y-4">
             <p class="capture-kicker">GraceSoft Capture</p>
             <h3 class="text-xl font-semibold sm:text-2xl">
@@ -78,6 +78,31 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                 class="capture-primary-link inline-flex items-center justify-center rounded-md px-5 py-3 font-semibold"
               >
                 Visit Sentinel Concierge
+              </a>
+            </p>
+          </article>
+
+          <article class="feature-card reveal rise delay-3 space-y-4">
+            <p class="capture-kicker">GraceSoft Sentinel Cook</p>
+            <h3 class="text-xl font-semibold sm:text-2xl">
+              Culinary and menu workflow assistant
+            </h3>
+            <p class="text-sm sm:text-base text-gs-black-700">
+              Sentinel Cook supports food and beverage teams with guided,
+              practical assistance for recipe and menu-oriented operations.
+            </p>
+            <p class="text-sm sm:text-base text-gs-black-700">
+              It helps teams run kitchen and menu tasks with more consistency,
+              clarity, and day-to-day reliability.
+            </p>
+            <p>
+              <a
+                href="https://cook.sentinel.gracesoft.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="capture-primary-link inline-flex items-center justify-center rounded-md px-5 py-3 font-semibold"
+              >
+                Visit Sentinel Cook
               </a>
             </p>
           </article>
