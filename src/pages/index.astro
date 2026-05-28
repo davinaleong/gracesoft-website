@@ -1,593 +1,472 @@
 ---
 import {
-  Settings,
-  User,
-  Layers,
   AppWindow,
   MousePointer,
+  Layers,
   Bot,
+  CheckCircle,
   ShieldCheck,
   Clock3,
-  SearchCheck,
 } from "@lucide/astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
   title="Home"
-  description="GraceSoft builds modern web applications with thoughtful engineering, user-centered design, and scalable architecture."
+  description="GraceSoft builds modern web applications that perform — engineering depth, conversion-focused UX, and AI integration for businesses that want real results."
 >
   <main class="home-page">
+
+    <!-- ══════════════ HERO ══════════════ -->
     <section
-      class="hero-section relative isolate overflow-hidden min-h-[92vh] grid place-items-center px-4 py-16 sm:py-20 lg:py-28 text-white"
-    >
-      <div
-        class="container mx-auto w-full max-w-5xl text-center space-y-6 sm:space-y-8"
-      >
-        <h1 class="sr-only">GraceSoft</h1>
-        <img
-          src="wm-w.svg"
-          alt="GraceSoft logo"
-          class="reveal rise block w-full h-auto max-w-md mx-auto"
-        />
-        <p
-          class="reveal rise delay-1 font-serif text-balance text-3xl leading-tight sm:text-4xl lg:text-6xl"
-        >
-          Building Digital Systems That Work — Not Just Look Good
-        </p>
-        <p
-          class="reveal rise delay-2 mx-auto max-w-3xl text-sm leading-relaxed text-gs-purple-100 sm:text-base lg:text-xl"
-        >
-          GraceSoft helps businesses design, build, and scale modern web
-          applications with clarity, performance, and purpose.
-        </p>
-        <p
-          class="reveal rise delay-3 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4"
-        >
-          <a
-            href="/contact"
-            class="inline-flex items-center justify-center font-semibold text-gs-purple-700 bg-white rounded-md px-5 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90"
-            >Start a Project</a
-          >
-          <a
-            href="/approach"
-            class="inline-flex items-center justify-center font-semibold text-white border border-white/70 bg-white/10 backdrop-blur-sm rounded-md px-5 py-3 transition-colors duration-300 hover:bg-white/20"
-            >View Our Approach</a
-          >
-        </p>
-      </div>
-    </section>
-
-    <section class="values-section px-4 py-16 sm:py-20 lg:py-24">
-      <div class="container mx-auto w-full max-w-6xl space-y-8 sm:space-y-10">
-        <div class="text-center space-y-3 reveal rise">
-          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl">
-            Principles Behind Every Build
-          </h2>
-          <p
-            class="mx-auto max-w-2xl text-sm text-gs-black-700 sm:text-base lg:text-lg"
-          >
-            A dependable product comes from strong foundations, not shortcuts.
-          </p>
-        </div>
-
-        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-3">
-          <div class="feature-card reveal rise delay-1 text-center space-y-4">
-            <Settings class="block mx-auto" />
-            <h3 class="text-xl font-semibold sm:text-2xl">
-              Thoughtful Engineering
-            </h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">
-              We do not just code. We design systems built to remain stable as
-              your product evolves.
-            </p>
-          </div>
-          <div class="feature-card reveal rise delay-2 text-center space-y-4">
-            <User class="block mx-auto" />
-            <h3 class="text-xl font-semibold sm:text-2xl">
-              User-Centered Design
-            </h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">
-              Every decision is tested against real user needs so the experience
-              stays intuitive.
-            </p>
-          </div>
-          <div class="feature-card reveal rise delay-3 text-center space-y-4">
-            <Layers class="block mx-auto" />
-            <h3 class="text-xl font-semibold sm:text-2xl">
-              Scalable Foundations
-            </h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">
-              Your architecture is designed to handle growth without painful
-              rebuilds later.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="capture-spotlight-section px-4 py-16 sm:py-20 lg:py-24">
-      <div class="container mx-auto w-full max-w-6xl">
-        <article class="capture-spotlight reveal rise">
-          <div class="capture-spotlight-copy space-y-5">
-            <p class="capture-kicker">Featured Product</p>
-            <h2
-              class="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl"
-            >
-              Meet GraceSoft RSVP
-            </h2>
-            <p class="text-sm sm:text-base lg:text-lg">
-              GraceSoft RSVP helps teams collect and manage event responses in a
-              simple, branded flow. It is built for clarity, speed, and
-              dependable day-to-day execution.
-            </p>
-
-            <ul class="capture-highlights">
-              <li>
-                <ShieldCheck size={18} /> Built with secure, production-ready engineering
-                standards
-              </li>
-              <li>
-                <Clock3 size={18} /> Streamlined workflows for faster response collection
-                and follow-up
-              </li>
-              <li>
-                <SearchCheck size={18} /> Clear structure that keeps guest responses
-                organized and easy to use
-              </li>
-            </ul>
-
-            <p
-              class="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center"
-            >
-              <a
-                href="https://rsvp.gracesoft.dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="capture-primary-link inline-flex items-center justify-center rounded-md px-5 py-3 font-semibold"
-              >
-                Explore GraceSoft RSVP
-              </a>
-              <a
-                href="/contact"
-                class="inline-flex items-center justify-center rounded-md border border-gs-purple-300 px-5 py-3 font-semibold text-gs-purple-700 transition-colors duration-300 hover:bg-gs-purple-50"
-                >Schedule a Product Walkthrough</a
-              >
-            </p>
-          </div>
-
-          <div class="capture-spotlight-panel reveal rise delay-2">
-            <p class="capture-panel-badge">Official GraceSoft Product</p>
-            <h3 class="font-serif text-2xl leading-tight sm:text-3xl">
-              Confirm attendance faster.<br />Plan events with confidence.
-            </h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">
-              Designed and maintained by GraceSoft, RSVP reflects the same
-              standards we bring to every client engagement: clarity in UX,
-              strong technical foundations, and long-term reliability.
-            </p>
-            <p>
-              <a
-                href="https://rsvp.gracesoft.dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center justify-center font-semibold text-gs-purple-700 bg-white rounded-md px-5 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90"
-              >
-                Visit Product Site &rarr;
-              </a>
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="px-4 py-16 sm:py-20 lg:py-24 bg-white">
-      <div class="container mx-auto w-full max-w-6xl space-y-8 sm:space-y-10">
-        <div class="text-center space-y-3 reveal rise">
-          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl">
-            New in the Sentinel Suite: Concierge + Cook
-          </h2>
-          <p
-            class="mx-auto max-w-3xl text-sm text-gs-black-700 sm:text-base lg:text-lg"
-          >
-            GraceSoft Sentinel is our umbrella suite for AI products. Concierge
-            handles FAQs and appointment bookings on WhatsApp, while Cook helps
-            businesses deliver guided culinary and menu support experiences.
-          </p>
-        </div>
-
-        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2">
-          <article class="feature-card reveal rise delay-1 space-y-4">
-            <p class="capture-kicker">GraceSoft Sentinel Concierge</p>
-            <h3 class="font-serif text-2xl leading-tight sm:text-3xl">
-              FAQ + Appointment Booking AI Agent
-            </h3>
-            <p class="text-sm sm:text-base text-gs-black-800">
-              Concierge follows your predefined FAQ blueprint so responses stay
-              consistent with your business guidelines.
-            </p>
-            <p class="text-sm sm:text-base text-gs-black-800">
-              It can also create public-holiday-aware and
-              non-business-hours-aware bookings into your Google Calendar, Apple
-              Calendar, or Outlook calendar workflows.
-            </p>
-            <p
-              class="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center"
-            >
-              <a
-                href="https://concierge.sentinel.gracesoft.dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="capture-primary-link inline-flex items-center justify-center rounded-md px-5 py-3 font-semibold"
-              >
-                Explore Sentinel Concierge
-              </a>
-              <a
-                href="/products"
-                class="inline-flex items-center justify-center rounded-md border border-gs-purple-300 px-5 py-3 font-semibold text-gs-purple-700 transition-colors duration-300 hover:bg-gs-purple-50"
-                >View All GraceSoft Products</a
-              >
-            </p>
-          </article>
-
-          <article class="feature-card reveal rise delay-2 space-y-4">
-            <p class="capture-kicker">GraceSoft Sentinel Cook</p>
-            <h3 class="font-serif text-2xl leading-tight sm:text-3xl">
-              Culinary assistant for menu and kitchen workflows
-            </h3>
-            <p class="text-sm sm:text-base text-gs-black-800">
-              Sentinel Cook is part of the Sentinel AI suite and is designed to
-              support food and beverage operations with practical, guided
-              assistance.
-            </p>
-            <p class="text-sm sm:text-base text-gs-black-800">
-              From recipe support to menu-oriented workflow prompts, Cook helps
-              teams move faster while staying consistent in execution.
-            </p>
-            <p>
-              <a
-                href="https://cook.sentinel.gracesoft.dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="capture-primary-link inline-flex items-center justify-center rounded-md px-5 py-3 font-semibold"
-              >
-                Explore Sentinel Cook
-              </a>
-            </p>
-          </article>
-        </div>
-
-        <article class="capture-spotlight reveal rise delay-3">
-          <div class="capture-spotlight-panel reveal rise delay-1">
-            <p class="capture-panel-badge">Business-Friendly Automation</p>
-            <h3 class="font-serif text-2xl leading-tight sm:text-3xl">
-              Answer faster. Operate smarter. Stay on-brand.
-            </h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">
-              Sentinel products reduce repetitive work while preserving
-              predictable, policy-aligned outputs and more reliable operations.
-            </p>
-            <p>
-              <a
-                href="/contact"
-                class="inline-flex items-center justify-center rounded-md border border-gs-purple-300 px-5 py-3 font-semibold text-gs-purple-700 transition-colors duration-300 hover:bg-gs-purple-50"
-              >
-                Discuss Sentinel for Your Business
-              </a>
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section
-      class="capture-spotlight-section px-4 py-16 sm:py-20 lg:py-24 bg-gs-black-50"
+      class="hero-section relative isolate overflow-hidden min-h-[88vh] grid place-items-center px-4 py-16 sm:py-20 lg:py-24 text-white"
     >
       <div class="container mx-auto w-full max-w-6xl">
-        <article class="capture-spotlight reveal rise">
-          <div class="capture-spotlight-copy space-y-5">
-            <p class="capture-kicker">GraceSoft Desk</p>
-            <h2
-              class="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl"
+        <div class="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+
+          <!-- Left: headline + CTAs -->
+          <div class="space-y-7 text-center lg:text-left">
+            <img
+              src="/wm-w.svg"
+              alt="GraceSoft"
+              class="reveal rise block w-36 h-auto mx-auto lg:mx-0"
+            />
+            <h1
+              class="reveal rise delay-1 font-serif text-balance text-4xl leading-tight sm:text-5xl lg:text-6xl"
             >
-              Projects. Time. Finances. All in one place.
-            </h2>
-            <p class="text-sm sm:text-base lg:text-lg">
-              GraceSoft Desk gives your team a single workspace to deliver
-              projects, log billable hours, and stay on top of finances &mdash;
-              no tab-switching required.
-            </p>
-
-            <ul class="capture-highlights">
-              <li>
-                <ShieldCheck size={18} /> Enterprise security with 2FA and role-based
-                access
-              </li>
-              <li>
-                <Clock3 size={18} /> Time tracking, bulk imports, and client-ready
-                timesheets
-              </li>
-              <li>
-                <Layers size={18} /> Finance reports, transaction logs, and cash flow
-                visibility
-              </li>
-            </ul>
-
+              We Build Web Applications<br class="hidden lg:block" />
+              That <em>Perform</em>
+            </h1>
             <p
-              class="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center"
+              class="reveal rise delay-2 mx-auto max-w-lg text-sm leading-relaxed text-gs-black-300 sm:text-base lg:text-lg lg:mx-0"
             >
-              <a
-                href="https://desk.gracesoft.dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="capture-primary-link inline-flex items-center justify-center rounded-md px-5 py-3 font-semibold"
-              >
-                Explore GraceSoft Desk
-              </a>
+              GraceSoft helps businesses design, build, and scale modern web
+              applications — combining engineering depth, user-centered design,
+              and AI integration to drive real outcomes.
+            </p>
+            <p
+              class="reveal rise delay-3 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center lg:justify-start"
+            >
               <a
                 href="/contact"
-                class="inline-flex items-center justify-center rounded-md border border-gs-purple-300 px-5 py-3 font-semibold text-gs-purple-700 transition-colors duration-300 hover:bg-gs-purple-50"
-                >Schedule a Product Walkthrough</a
+                class="inline-flex items-center justify-center font-semibold text-gs-black-950 bg-white rounded-md px-6 py-3.5 shadow transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90"
               >
-            </p>
-          </div>
-
-          <div class="capture-spotlight-panel reveal rise delay-2">
-            <p class="capture-panel-badge">Official GraceSoft Product</p>
-            <h3 class="font-serif text-2xl leading-tight sm:text-3xl">
-              One platform.<br />Zero friction.
-            </h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">
-              Replace the patchwork of tools your team juggles. GraceSoft Desk
-              handles project management, time tracking, and finances &mdash; so
-              you can spend more time doing the work that matters.
-            </p>
-            <p>
+                Book a Discovery Call &rarr;
+              </a>
               <a
-                href="https://desk.gracesoft.dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center justify-center font-semibold text-gs-purple-700 bg-white rounded-md px-5 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90"
+                href="/services"
+                class="inline-flex items-center justify-center font-semibold text-white border border-white/60 rounded-md px-6 py-3.5 bg-white/10 backdrop-blur-sm transition-colors duration-300 hover:bg-white/20"
               >
-                Visit Product Site &rarr;
+                View Our Services
               </a>
             </p>
           </div>
-        </article>
-      </div>
-    </section>
 
-    <section class="px-4 py-14 sm:py-16 lg:py-20 bg-gs-purple-50">
-      <div
-        class="container mx-auto max-w-5xl space-y-6 sm:space-y-8 text-center"
-      >
-        <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl reveal rise">
-          Product Naming, Explained Simply
-        </h2>
-        <div class="feature-card reveal rise delay-1 space-y-4">
-          <p class="text-sm sm:text-base lg:text-lg text-gs-black-800">
-            GraceSoft names are structured for quick business understanding:
-            company name, product name, and optional function name.
-          </p>
-          <p class="text-sm sm:text-base lg:text-lg text-gs-black-800">
-            Example: GraceSoft Sentinel Concierge = GraceSoft (company) +
-            Sentinel (AI suite) + Concierge (FAQ and booking function).
-          </p>
-          <p>
-            <a
-              href="/product-naming"
-              class="inline-flex items-center justify-center rounded-md border border-gs-purple-300 px-5 py-3 font-semibold text-gs-purple-700 transition-colors duration-300 hover:bg-gs-purple-50"
+          <!-- Right: credibility card -->
+          <div class="reveal rise delay-2">
+            <div
+              class="rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm p-6 space-y-5"
             >
-              Read Product Naming Convention
-            </a>
-          </p>
+              <h2 class="font-serif text-xl text-white">
+                Why businesses choose GraceSoft
+              </h2>
+              <ul class="space-y-3 text-sm sm:text-base">
+                <li class="flex gap-3 items-start">
+                  <CheckCircle size={18} class="mt-0.5 flex-none text-white/80" />
+                  <span>8+ years of full-stack web application experience</span>
+                </li>
+                <li class="flex gap-3 items-start">
+                  <CheckCircle size={18} class="mt-0.5 flex-none text-white/80" />
+                  <span>4 live products maintained to production standards</span>
+                </li>
+                <li class="flex gap-3 items-start">
+                  <CheckCircle size={18} class="mt-0.5 flex-none text-white/80" />
+                  <span>UX design training + cybersecurity foundations</span>
+                </li>
+                <li class="flex gap-3 items-start">
+                  <CheckCircle size={18} class="mt-0.5 flex-none text-white/80" />
+                  <span>AI integration across Azure-powered cloud products</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
+    <!-- ══════════════ PROBLEM SECTION ══════════════ -->
     <section
-      class="struggling-section px-4 py-16 sm:py-20 lg:py-24 bg-gs-black-100"
+      class="struggling-section px-4 py-16 sm:py-20 lg:py-24"
+      style="background-color: #f1f5f9;"
     >
       <div
         class="container mx-auto max-w-6xl space-y-8 sm:space-y-10 text-center"
       >
-        <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl reveal rise">
-          If you are dealing with:
-        </h2>
+        <div class="space-y-3 reveal rise">
+          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl">
+            Sound Familiar?
+          </h2>
+          <p class="mx-auto max-w-2xl text-sm text-gs-black-700 sm:text-base">
+            These are the problems we solve every day for growing businesses.
+          </p>
+        </div>
 
-        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-4">
-          <div class="issue-card reveal rise delay-1 space-y-4">
+        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div class="issue-card reveal rise delay-1 space-y-4 text-left">
             <div
-              class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto"
+              class="grid place-items-center text-sm font-bold w-8 h-8 rounded-full text-white bg-gs-black-950"
             >
               1
             </div>
-
-            <p class="text-lg sm:text-xl">A messy or outdated system</p>
+            <h3 class="text-lg font-semibold sm:text-xl">Outdated systems slowing your team</h3>
+            <p class="text-sm text-gs-black-700">
+              Legacy architecture and technical debt create bottlenecks that cost more every month.
+            </p>
           </div>
-          <div class="issue-card reveal rise delay-2 space-y-4">
+          <div class="issue-card reveal rise delay-2 space-y-4 text-left">
             <div
-              class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto"
+              class="grid place-items-center text-sm font-bold w-8 h-8 rounded-full text-white bg-gs-black-950"
             >
               2
             </div>
-
-            <p class="text-lg sm:text-xl">Poor user experience</p>
+            <h3 class="text-lg font-semibold sm:text-xl">Poor UX driving users away</h3>
+            <p class="text-sm text-gs-black-700">
+              Confusing flows and bad interfaces cost conversions before users ever reach your CTA.
+            </p>
           </div>
-          <div class="issue-card reveal rise delay-3 space-y-4">
+          <div class="issue-card reveal rise delay-3 space-y-4 text-left">
             <div
-              class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto"
+              class="grid place-items-center text-sm font-bold w-8 h-8 rounded-full text-white bg-gs-black-950"
             >
               3
             </div>
-
-            <p class="text-lg sm:text-xl">Slow or hard-to-maintain code</p>
+            <h3 class="text-lg font-semibold sm:text-xl">Code that is hard to maintain</h3>
+            <p class="text-sm text-gs-black-700">
+              Without clean architecture, every new feature becomes a risk and a time sink.
+            </p>
           </div>
-          <div class="issue-card reveal rise delay-4 space-y-4">
+          <div class="issue-card reveal rise delay-4 space-y-4 text-left">
             <div
-              class="grid place-items-center text-xl w-8 h-8 rounded-full text-white bg-gs-purple-600 mx-auto"
+              class="grid place-items-center text-sm font-bold w-8 h-8 rounded-full text-white bg-gs-black-950"
             >
               4
             </div>
-
-            <p class="text-lg sm:text-xl">Difficulty scaling your product</p>
+            <h3 class="text-lg font-semibold sm:text-xl">No AI strategy for your product</h3>
+            <p class="text-sm text-gs-black-700">
+              Manual workflows and missed automation opportunities add overhead as you scale.
+            </p>
           </div>
         </div>
 
-        <p
-          class="text-lg sm:text-xl text-center text-gs-purple-600 font-bold italic reveal rise delay-4"
-        >
-          &rarr; We can help you fix it — properly.
+        <p class="text-lg font-semibold text-gs-black-950 reveal rise delay-4">
+          We fix these at the root &mdash; properly engineered, built to last.
         </p>
       </div>
     </section>
 
-    <section class="services-section px-4 py-16 sm:py-20 lg:py-24">
+    <!-- ══════════════ SERVICES PREVIEW ══════════════ -->
+    <section class="services-section px-4 py-16 sm:py-20 lg:py-24 bg-white">
       <div class="container mx-auto w-full max-w-6xl space-y-8 sm:space-y-10">
-        <h2
-          class="font-serif text-2xl sm:text-3xl lg:text-4xl text-center reveal rise"
-        >
-          Services Preview
-        </h2>
-        <div
-          class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
-        >
-          <div class="feature-card reveal rise delay-1 text-center space-y-4">
-            <AppWindow class="block mx-auto" />
-            <p class="text-sm sm:text-base">Web Application Development</p>
-          </div>
-          <div class="feature-card reveal rise delay-2 text-center space-y-4">
-            <MousePointer class="block mx-auto" />
-            <p class="text-sm sm:text-base">UX/UI Design</p>
-          </div>
-          <div class="feature-card reveal rise delay-3 text-center space-y-4">
-            <Layers class="block mx-auto" />
-            <p class="text-sm sm:text-base">System Architecture</p>
-          </div>
-          <div class="feature-card reveal rise delay-4 text-center space-y-4">
-            <Bot class="block mx-auto" />
-            <p class="text-sm sm:text-base">AI Integration &amp; Chatbots</p>
-          </div>
+        <div class="text-center space-y-3 reveal rise">
+          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl">
+            Services That Deliver Results
+          </h2>
+          <p class="mx-auto max-w-2xl text-sm text-gs-black-700 sm:text-base">
+            Every engagement is engineered for clarity, performance, and growth.
+          </p>
         </div>
-        <p class="text-center reveal rise delay-4">
-          <a
-            href="/services"
-            class="inline-flex items-center justify-center text-white bg-gs-purple-600 px-5 py-3 rounded-md shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90"
-          >
-            Explore Services &rarr;
-          </a>
-        </p>
-        <p
-          class="text-center text-sm sm:text-base text-gs-black-700 reveal rise delay-4"
-        >
-          Looking for product context? Explore <a
-            href="/products"
-            class="font-semibold text-gs-purple-700 hover:opacity-80"
-            >GraceSoft products</a
-          >.
-        </p>
-      </div>
-    </section>
 
-    <section class="approach-section px-4 py-16 sm:py-20 lg:py-24">
-      <div class="container mx-auto w-full max-w-6xl space-y-8 sm:space-y-10">
-        <h2
-          class="font-serif text-2xl sm:text-3xl lg:text-4xl text-center reveal rise"
-        >
-          We follow a structured, proven approach
-        </h2>
-        <div
-          class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
-        >
-          <div class="process-step reveal rise delay-1 text-center space-y-3">
-            <h3 class="text-lg font-semibold sm:text-xl">Discover</h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">
-              Understand your problem deeply
+        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div class="feature-card reveal rise delay-1 space-y-3">
+            <AppWindow class="text-gs-black-950" />
+            <h3 class="text-lg font-semibold sm:text-xl">Web Development</h3>
+            <p class="text-sm text-gs-black-700">
+              Modern, fast applications engineered for long-term reliability and
+              conversion performance.
             </p>
           </div>
-          <div class="process-step reveal rise delay-2 text-center space-y-3">
-            <h3 class="text-lg font-semibold sm:text-xl">Design</h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">
-              Map user flows and systems
+          <div class="feature-card reveal rise delay-2 space-y-3">
+            <MousePointer class="text-gs-black-950" />
+            <h3 class="text-lg font-semibold sm:text-xl">UX / UI Design</h3>
+            <p class="text-sm text-gs-black-700">
+              User flows and interfaces that reduce drop-off and guide visitors
+              toward taking action.
             </p>
           </div>
-          <div class="process-step reveal rise delay-3 text-center space-y-3">
-            <h3 class="text-lg font-semibold sm:text-xl">Build</h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">
-              Develop with clarity and scalability
+          <div class="feature-card reveal rise delay-3 space-y-3">
+            <Layers class="text-gs-black-950" />
+            <h3 class="text-lg font-semibold sm:text-xl">System Architecture</h3>
+            <p class="text-sm text-gs-black-700">
+              Scalable technical foundations that support product growth without
+              painful rebuilds.
             </p>
           </div>
-          <div class="process-step reveal rise delay-4 text-center space-y-3">
-            <h3 class="text-lg font-semibold sm:text-xl">Refine</h3>
-            <p class="text-sm text-gs-black-700 sm:text-base">
-              Improve with real feedback
+          <div class="feature-card reveal rise delay-4 space-y-3">
+            <Bot class="text-gs-black-950" />
+            <h3 class="text-lg font-semibold sm:text-xl">AI Integration</h3>
+            <p class="text-sm text-gs-black-700">
+              Chatbots and AI agents that automate workflows, improve response
+              times, and reduce errors.
             </p>
           </div>
         </div>
+
         <p class="text-center reveal rise delay-4">
           <a
             href="/services"
-            class="inline-flex items-center justify-center text-gs-purple-600 font-semibold hover:opacity-70"
+            class="inline-flex items-center justify-center font-semibold text-white bg-gs-black-950 rounded-md px-6 py-3.5 shadow transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90"
           >
-            See Our Process &rarr;
+            Explore All Services &rarr;
           </a>
         </p>
       </div>
     </section>
 
+    <!-- ══════════════ PRODUCTS PROOF ══════════════ -->
     <section
-      class="approach-section px-4 py-16 sm:py-20 lg:py-24 bg-gs-purple-50"
+      class="px-4 py-16 sm:py-20 lg:py-24"
+      style="background-color: #f1f5f9;"
+    >
+      <div class="container mx-auto w-full max-w-6xl space-y-8 sm:space-y-10">
+        <div class="text-center space-y-3 reveal rise">
+          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl">
+            Real Products. Real Standards.
+          </h2>
+          <p class="mx-auto max-w-2xl text-sm text-gs-black-700 sm:text-base">
+            We do not just build for clients — we build and ship our own
+            software. These are the products we maintain to production standards
+            every day.
+          </p>
+        </div>
+
+        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-3">
+
+          <article class="feature-card reveal rise delay-1 space-y-4">
+            <p class="capture-kicker">GraceSoft RSVP</p>
+            <h3 class="font-serif text-xl leading-tight sm:text-2xl">
+              Event response management, simplified
+            </h3>
+            <p class="text-sm text-gs-black-700">
+              Collect and manage event RSVPs in a clean, branded flow — built
+              for clarity, speed, and reliable day-to-day execution.
+            </p>
+            <ul class="space-y-2 text-sm text-gs-black-700">
+              <li class="flex gap-2 items-start">
+                <ShieldCheck size={16} class="mt-0.5 flex-none" />
+                Production-ready security standards
+              </li>
+              <li class="flex gap-2 items-start">
+                <Clock3 size={16} class="mt-0.5 flex-none" />
+                Faster follow-up with streamlined workflows
+              </li>
+            </ul>
+            <p>
+              <a
+                href="https://rsvp.gracesoft.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center font-semibold text-gs-black-950 hover:opacity-70 text-sm"
+              >
+                Visit RSVP &rarr;
+              </a>
+            </p>
+          </article>
+
+          <article class="feature-card reveal rise delay-2 space-y-4">
+            <p class="capture-kicker">GraceSoft Sentinel</p>
+            <h3 class="font-serif text-xl leading-tight sm:text-2xl">
+              AI agents for FAQs, bookings, and more
+            </h3>
+            <p class="text-sm text-gs-black-700">
+              Sentinel Concierge handles FAQ responses and calendar-aware
+              bookings on WhatsApp. Sentinel Cook supports food and beverage
+              operations with guided AI workflows.
+            </p>
+            <ul class="space-y-2 text-sm text-gs-black-700">
+              <li class="flex gap-2 items-start">
+                <ShieldCheck size={16} class="mt-0.5 flex-none" />
+                Policy-aligned, on-brand AI responses
+              </li>
+              <li class="flex gap-2 items-start">
+                <Clock3 size={16} class="mt-0.5 flex-none" />
+                Public holiday and after-hours aware
+              </li>
+            </ul>
+            <p>
+              <a
+                href="https://concierge.sentinel.gracesoft.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center font-semibold text-gs-black-950 hover:opacity-70 text-sm"
+              >
+                Visit Sentinel Concierge &rarr;
+              </a>
+            </p>
+          </article>
+
+          <article class="feature-card reveal rise delay-3 space-y-4">
+            <p class="capture-kicker">GraceSoft Desk</p>
+            <h3 class="font-serif text-xl leading-tight sm:text-2xl">
+              Projects, time, and finances in one place
+            </h3>
+            <p class="text-sm text-gs-black-700">
+              Desk replaces the patchwork of tools your team juggles — project
+              management, time tracking, and financial reporting under one roof.
+            </p>
+            <ul class="space-y-2 text-sm text-gs-black-700">
+              <li class="flex gap-2 items-start">
+                <ShieldCheck size={16} class="mt-0.5 flex-none" />
+                2FA and role-based access control
+              </li>
+              <li class="flex gap-2 items-start">
+                <Clock3 size={16} class="mt-0.5 flex-none" />
+                Timesheets, finance reports, cash flow
+              </li>
+            </ul>
+            <p>
+              <a
+                href="https://desk.gracesoft.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center font-semibold text-gs-black-950 hover:opacity-70 text-sm"
+              >
+                Visit Desk &rarr;
+              </a>
+            </p>
+          </article>
+
+        </div>
+
+        <p class="text-center reveal rise delay-4">
+          <a
+            href="/products"
+            class="inline-flex items-center justify-center font-semibold border border-gs-black-950 text-gs-black-950 rounded-md px-6 py-3 transition-colors duration-300 hover:bg-gs-black-950 hover:text-white"
+          >
+            View All Products &rarr;
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════ PROCESS ══════════════ -->
+    <section class="approach-section px-4 py-16 sm:py-20 lg:py-24 bg-white">
+      <div class="container mx-auto w-full max-w-6xl space-y-8 sm:space-y-10">
+        <div class="text-center space-y-3 reveal rise">
+          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl">
+            A Proven 4-Step Process
+          </h2>
+          <p class="mx-auto max-w-2xl text-sm text-gs-black-700 sm:text-base">
+            We follow a structured approach that keeps projects on track and
+            aligned with your business goals at every stage.
+          </p>
+        </div>
+
+        <div class="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div class="process-step reveal rise delay-1 space-y-3">
+            <p class="text-3xl font-bold font-serif text-gs-black-200">01</p>
+            <h3 class="text-lg font-semibold sm:text-xl">Discover</h3>
+            <p class="text-sm text-gs-black-700">
+              We listen deeply before we write a single line of code. Your
+              problem shapes every decision.
+            </p>
+          </div>
+          <div class="process-step reveal rise delay-2 space-y-3">
+            <p class="text-3xl font-bold font-serif text-gs-black-200">02</p>
+            <h3 class="text-lg font-semibold sm:text-xl">Design</h3>
+            <p class="text-sm text-gs-black-700">
+              We map user flows and system architecture before building, so
+              nothing is left to chance.
+            </p>
+          </div>
+          <div class="process-step reveal rise delay-3 space-y-3">
+            <p class="text-3xl font-bold font-serif text-gs-black-200">03</p>
+            <h3 class="text-lg font-semibold sm:text-xl">Build</h3>
+            <p class="text-sm text-gs-black-700">
+              Clean, maintainable code with a strong technical foundation that
+              supports long-term growth.
+            </p>
+          </div>
+          <div class="process-step reveal rise delay-4 space-y-3">
+            <p class="text-3xl font-bold font-serif text-gs-black-200">04</p>
+            <h3 class="text-lg font-semibold sm:text-xl">Refine</h3>
+            <p class="text-sm text-gs-black-700">
+              We measure outcomes and improve continuously — your product
+              evolves with your business.
+            </p>
+          </div>
+        </div>
+
+        <p class="text-center reveal rise delay-4">
+          <a
+            href="/approach"
+            class="inline-flex items-center justify-center font-semibold text-gs-black-950 hover:opacity-70"
+          >
+            Learn About Our Approach &rarr;
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════ FOUNDER BIO ══════════════ -->
+    <section
+      class="px-4 py-16 sm:py-20 lg:py-24"
+      style="background-color: #f1f5f9;"
     >
       <div
-        class="container mx-auto w-full max-w-4xl space-y-5 sm:space-y-6 text-center"
+        class="container mx-auto w-full max-w-3xl text-center space-y-5 sm:space-y-6"
       >
-        <p class="font-serif text-2xl sm:text-3xl reveal rise">
+        <h2 class="font-serif text-2xl sm:text-3xl reveal rise">
           Built by a Developer Who Understands Both Code and Users
-        </p>
-
-        <p
-          class="text-sm text-gs-black-700 sm:text-base lg:text-lg reveal rise delay-1"
-        >
+        </h2>
+        <p class="text-sm text-gs-black-700 sm:text-base lg:text-lg reveal rise delay-1">
           GraceSoft is founded by a full-stack developer with 8+ years of
-          experience building web applications, with additional training in UX
-          design and cybersecurity.
+          experience building web applications, combined with formal training in
+          UX design and a cybersecurity foundation.
         </p>
-
-        <p
-          class="text-sm text-gs-black-700 sm:text-base lg:text-lg reveal rise delay-2"
-        >
-          That experience also includes integrating AI into real products,
-          including chatbot solutions powered by cloud platforms such as Azure.
+        <p class="text-sm text-gs-black-700 sm:text-base lg:text-lg reveal rise delay-2">
+          That background extends to integrating AI into real products &mdash;
+          including chatbot solutions powered by Azure cloud platforms.
         </p>
-
-        <p
-          class="text-sm text-gs-black-700 sm:text-base lg:text-lg reveal rise delay-3"
-        >
-          The goal is simple: build systems that are not only functional, but
-          meaningful and reliable.
+        <p class="text-sm text-gs-black-700 sm:text-base lg:text-lg reveal rise delay-3">
+          The goal is not just functional software. It is software that is
+          meaningful, reliable, and built to grow with your business.
+        </p>
+        <p class="reveal rise delay-4">
+          <a
+            href="/about"
+            class="inline-flex items-center justify-center font-semibold text-gs-black-950 hover:opacity-70"
+          >
+            About GraceSoft &rarr;
+          </a>
         </p>
       </div>
     </section>
 
+    <!-- ══════════════ FINAL CTA ══════════════ -->
     <div class="cta-section px-4 py-16 sm:py-20 lg:py-24">
       <div
-        class="container mx-auto w-full max-w-4xl space-y-6 sm:space-y-8 text-center cta-panel reveal rise"
+        class="container mx-auto w-full max-w-4xl text-center space-y-6 sm:space-y-8 cta-panel reveal rise"
       >
         <h2 class="sr-only">Final CTA</h2>
-
         <p class="font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl">
-          Have something in mind?<br />Let us build it together.
+          Ready to turn your website<br class="hidden sm:block" />
+          into a growth asset?
         </p>
-
+        <p class="mx-auto max-w-xl text-sm sm:text-base text-white/80">
+          Let us talk about what you are building and how we can help you get
+          there faster &mdash; with less risk.
+        </p>
         <p>
           <a
             href="/contact"
-            class="inline-flex items-center justify-center font-semibold text-gs-purple-700 bg-white rounded-md px-5 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90"
+            class="inline-flex items-center justify-center font-semibold text-gs-black-950 bg-white rounded-md px-6 py-3.5 shadow transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90"
           >
             Start a Project &rarr;
           </a>
         </p>
       </div>
     </div>
+
   </main>
 </BaseLayout>
